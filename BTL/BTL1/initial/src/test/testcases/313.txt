@@ -1,0 +1,17 @@
+
+        Class Program
+        {
+            $getValue()
+            {
+                Return 0;
+            }
+            main ()
+            {
+                Var a: Array[Array[Array[Int,3],2],2] = Array(
+                    Array(Array(1,3,4), Array(1,5,6)),
+                    Array(Array(1,7,8), Array(1,9,10))
+                );
+
+                Var b: Int = a[1+5*9][0][Good::$getValue()];
+            }
+        }

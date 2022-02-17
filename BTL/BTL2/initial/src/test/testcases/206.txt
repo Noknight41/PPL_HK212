@@ -1,0 +1,9 @@
+
+        Class Program {
+            ## Hello Everybody ##
+            Var _Fool, _Magician: Int = 1,2;
+            main(){
+                
+            }
+        }
+        

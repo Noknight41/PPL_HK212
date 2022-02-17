@@ -1,0 +1,25 @@
+
+        Class Program {
+            Val a, b: Array[Int, 5];
+            Var c: Array[String, 10_0];
+            main() {
+               sd = 1;
+               DF = 2;
+               sad = Array();
+               sa = Array("1", "2", "3");
+               e = Array(Array(1 + 2, 2 * 5, 3), Array(4, 5, 6));
+               f.callFunc();
+               d.callSomething();
+
+               nkjk = g::$sthElse;
+               Val d: Int = f.callFunc() - g::$something(a, b);
+               
+               f = g.someValue();
+               Val abc: String = f.something();
+               Var c: Float = ((a - b) * (c / d)) + (e + f) % 5;
+
+               d = "Something";
+               Return;
+            }
+        }
+        

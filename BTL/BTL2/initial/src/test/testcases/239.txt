@@ -1,0 +1,18 @@
+
+        Class Shape: Rectangle {
+            ##
+            This part should be ignored, just to check, nothing to comment
+            ##
+            $getSomething(yes: Int){
+                Var x : Float = 12_0.001;
+                Var t : Int = 01_0;
+                Var y : Float = 0.; 
+                a = - desp;
+                a = - a.foo().foo();
+                Return x;
+            }
+            Sup(){
+                Shape::$getSomething(7);
+            }
+        }
+        

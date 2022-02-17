@@ -1,0 +1,23 @@
+
+        Class Program{
+            main() {
+                Val b : String;
+                a = New OPER();
+                Var a_c: Array[Int, 4]= Array(1,3, 1e-10);
+                Val b: Int = a::$xan;
+            }
+        }
+        Class OPER {
+            Val xan: Int;
+            getXan(){   
+                Return xan;
+            }
+            Constructor(){
+                xan = 5+-3-5*4/2*New OPPER(6,5).a;
+                xan=-a;
+            }
+            Destructor(){
+                xan=0;
+            }
+        }
+        

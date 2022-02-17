@@ -1,0 +1,20 @@
+Class Student{
+            Var name : String;
+            Var id: Int;
+            Var email: String;
+            
+                Destructor(){
+                    Out.printString("Destroying obj done!");
+                }
+                
+                Constructor(name,email:String;id:Int){
+                    Self.name = name;
+                    Self.id = id;
+                    Self.email = email;
+                }
+                
+                getName(){
+                    Return name;
+                }
+            }
+            

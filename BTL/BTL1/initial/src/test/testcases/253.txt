@@ -1,0 +1,27 @@
+
+            Class Account {
+                Var userName, password : String;
+                Var pin : Int;
+                Var date: String;
+                    
+                Constructor(name:String; pw:String; pin:Float){
+                    user = name;
+                    password = pw;
+                    Self.pin = pin;
+                }
+                    
+                getInfo(){
+                    date = "13";
+                    Out.printString(username,password,pin);
+                }
+                    
+            }
+            
+            Class Program {
+                main(){
+                    Val myuserAccount : Account = New Account("novice.nguyenHCMUT", "NK1707", 1612);
+                    myuserAccount.getInfo();
+                }
+            }
+            
+            

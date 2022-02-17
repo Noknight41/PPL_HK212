@@ -1,0 +1,12 @@
+
+        Class Program {
+            main(){
+                Foreach (x In 1 .. 25 By x + 1) {
+                    If(("22" +. "22") ==. "2222"){
+                        Break;
+                    }
+                    Continue;
+                }
+            }
+        }
+        

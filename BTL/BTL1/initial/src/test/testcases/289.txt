@@ -1,0 +1,45 @@
+
+        Class Map {
+            Val key: Array[String, 10];
+            Val value: Array[String, 10];
+            Constructor(key: Array[String, 10]; value: Array[String, 10]) {
+                Self.key = key;
+                Self.value = value;
+                Return;
+            }
+            Destructor() {
+                Self.clean(Self.key);
+                Self.clean(Self.value);
+                Return;
+            }
+            clean() {
+                Out.println("Cleaning");
+                Foreach (k In 0 .. Self.key.length() By 1)
+                {
+                    el = Self.key[k];
+                    a.free(el);
+                    Self.key = Null;
+                }
+                a.free(key);
+                Self.key = Null;
+                Foreach (v In 0 .. Self.value.length() By 1)
+                {
+                    el = Self.value.a[v];
+                    a.free(el);
+                    Self.value = Null;
+                }
+                a.free(value);
+                Self.value = Null;
+                Val a : Boolean = True;
+                Val b : Int = 1;
+                Return (True || False) && (a == b);
+            }
+        }
+        Class Program {
+            main() {
+                Val My1stCons, My2ndCons: Int = 1 + 5, 2;
+                Val sth : Sth = New Sth();
+                Return;
+            }
+        }
+        

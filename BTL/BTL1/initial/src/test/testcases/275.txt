@@ -1,0 +1,13 @@
+
+        Class Shape {
+            GetFunc(a,b : Int ; c : Float) {
+                Val num1: Array [Int, 5] = Array();
+                Val num1, num2: Int = 1,2;
+            }
+        }
+        Class Program{
+            main(){
+                something = (True == (!False));
+            }
+        }
+        

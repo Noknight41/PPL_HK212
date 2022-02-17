@@ -1,0 +1,27 @@
+
+        Class C {
+            func() {
+                Return somethingFun;
+            }
+        }
+        Class B {
+            Val a : C;
+            Constructor() {
+                a = New C();
+                Return;
+            }
+        }
+        Class A {
+            Val $b : B;
+            Constructor() {
+                $b = New B();
+                Return;
+            }
+        }
+        Class Program {
+            main() {
+                Val a : A = New A();
+                a::$b::$c();
+                Return;
+            }
+        }

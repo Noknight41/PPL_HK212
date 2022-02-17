@@ -1,0 +1,33 @@
+
+        Class Program {
+            main() {
+                Var rect: Int = New Rectangle();
+                Out.printInt(Shape::$numOfShape);
+                Self.foo(Self.foo(), 2);
+                rect = Shape::$numOfShape;
+                rect = rect.length;
+                Foreach (i In 1 .. 100 By 2) {
+                    Out.printInt(i);
+                }
+                If (i == 1) {
+                    Foreach (i In 1 .. 100 By 2) {
+                        Out.printInt(i);
+                    }
+                }
+                Elseif (i == 2) {
+                    Foreach (i In 2 .. 100) {
+                        Out.printInt(i);
+                    }
+                }
+                Else {
+                    Foreach (i In 3 .. 100 By 2) {
+                        Out.printInt(Self.foo() +. "lul");
+                    }
+                }
+            }
+            foo() {
+                Val a: Boolean = (a.b.c.e() > 6) + (1 + 2);
+                Return ;
+            }
+        }
+        

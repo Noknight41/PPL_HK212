@@ -1,0 +1,125 @@
+Pass: k@P9_M
+
+1)
+program: (vardecl | funcdecl)+ EOF;
+
+vardecl: 'vardecl' ;
+
+funcdecl: 'funcdecl' ;
+
+WS: [ \t\r\n] -> skip;
+
+ERROR_CHAR: . {raise ErrorToken(self.text)};
+
+2)
+program: decls EOF;
+decls: decl decls | decl;
+decl: vardecl | funcdecl;
+datatype: 'int' | 'float';
+
+idlist: ID COMMA idlist | ID;
+vardecl: datatype idlist SEMI;
+
+paramlist: param SEMI paramlist | param;
+param: datatype idlist;
+funcdecl: datatype ID LB paramlist? RB body;
+
+COMMA: ',';
+SEMI: ';';
+ASS: '=';
+LB: '(';
+RB: ')';
+LP: '{';
+RP: '}';
+
+body: 'body';
+ID: [a-zA-Z]+;
+WS: [ \t\r\n] -> skip;
+ERROR_CHAR: . {raise ErrorToken(self.text)};
+
+3)
+program: decls EOF;
+decls: decl decls | decl;
+decl: vardecl | funcdecl;
+DATATYPE: 'int' | 'float';
+
+idlist: ID COMMA idlist | ID;
+vardecl: DATATYPE idlist SEMI;
+
+instance: ID | expr;
+instlist: instance COMMA instlist | instance;
+
+varass: ID ASS instance SEMI;
+funccall: ID LB instlist RB SEMI;
+returnal: 'return' instance SEMI;
+
+paramlist: param SEMI paramlist | param;
+param: DATATYPE idlist;
+funcdecl: DATATYPE ID LB paramlist? RB LP body RP;
+
+COMMA: ',';
+SEMI: ';';
+ASS: '=';
+LB: '(';
+RB: ')';
+LP: '{';
+RP: '}';
+
+body: stmt body | stmt;
+stmt: vardecl | varass | funccall | returnal;
+expr: 'expr';
+ID: [a-zA-Z]+;
+WS: [ \t\r\n] -> skip;
+
+ERROR_CHAR: . {raise ErrorToken(self.text)};
+
+4)
+program: decls EOF;
+decls: decl decls | decl;
+decl: (vardecl SEMI) | funcdecl;
+datatype: 'int' | 'float';
+
+idlist: ID COMMA idlist | ID;
+vardecl: datatype idlist;
+
+instance: ID | expr;
+instlist: instance COMMA instlist | instance;
+
+varass: ID ASS instance;
+funccall: ID LB instlist RB;
+returnal: 'return' expr;
+
+paramlist: param SEMI paramlist | param;
+param: datatype idlist;
+
+funcdecl: datatype ID LB paramlist? RB LP body RP;
+
+COMMA: ',';
+SEMI: ';';
+ASS: '=';
+LB: '(';
+RB: ')';
+LP: '{';
+RP: '}';
+ADDOP: '+';
+MINUSOP: '-';
+MULTIOP: '*';
+DIVOP: '/';
+
+INTLIT: [1-9][0-9]*;
+fragment NUM : [0-9]+'.'[0-9]+;
+FLOATLIT: NUM | NUM [eE]'-'?[0-9]+ | [0-9]+'e''-'?[0-9]+;
+
+body: stmt body | stmt;
+stmt: (vardecl | varass | funccall | returnal) SEMI;
+
+expr: term1 ADDOP expr | term1 ;
+term1: term2 MINUSOP term2 | term2;
+term2: term2 DIVOP term3 | term2 MULTIOP term3 | term3;
+term3: ID | LB expr RB | INTLIT | FLOATLIT | funccall;
+
+ID: [a-zA-Z]+;
+WS: [ \t\r\n] -> skip;
+
+ERROR_CHAR: . {raise ErrorToken(self.text)};
+

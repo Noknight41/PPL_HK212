@@ -1,0 +1,13 @@
+
+        Class Program
+        {
+            main()
+            {
+
+            }
+            foo() {
+                Val a: Boolean = (a.b.c.e() > 6) + (1 + 2);
+                Return "Why\t'"\b";
+            }
+
+        }

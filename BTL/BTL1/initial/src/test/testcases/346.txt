@@ -1,0 +1,8 @@
+Class Program {
+            main() {
+                ##a::$a[1].func()[0];##
+                a::$a;
+                a[1]::$func();
+                Return;
+            }
+        }

@@ -1,0 +1,15 @@
+
+        Class Diagram{
+            getArea(){
+                Return a[4];
+            }
+        }
+        Class Program{
+            main(){
+                ## Comment something here ##
+                Var a : Int;
+                a = foo().foo();
+                Var b : String;
+            }
+        }
+        

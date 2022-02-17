@@ -1,0 +1,18 @@
+
+        Class Shape{
+            Var height, length: Float;
+        }
+        
+        Class Rectangle: Shape {
+            $getArea() {
+                Return Self.height * Self.height;
+            }
+        }
+        
+        Class Program {
+            Var x, y: Float;
+            main(){
+                x = (Rectangle::$height[1])* 23 + .9e-45 - 23/21 - y[2][3] ; 
+            }
+        }
+        

@@ -1,0 +1,27 @@
+
+        Class Cdf {
+            func() {
+                Return somethingFun;
+            }
+        }
+        Class Bdf {
+            Val a : Cdf;
+            Constructor() {
+                a = New Cdf();
+                Return;
+            }
+        }
+        Class Afd {
+            Val $b : Bdf;
+            Constructor() {
+                A::$b = New Bdf();
+                Return;
+            }
+        }
+        Class Program {
+            main() {
+                Val a : Afd = New Afd();
+                a::$b::$c();
+                Return;
+            }
+        }

@@ -1,0 +1,8 @@
+
+        Class Program{
+            main () {
+                Self.putIntLn(4_5, 4.3e10);
+                x = "f";
+            }
+        }
+        

@@ -1,0 +1,8 @@
+
+        Class Student{
+            Var $id : Int;
+            Destructor(cmnd,sdt,ten){
+                Out.print("Destroying obj done!")
+            }
+        }
+            

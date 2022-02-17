@@ -1,0 +1,16 @@
+
+        Class HelloWorld {
+            Val World: Array[Int, 1] = Array();
+            Hello(a: Int){
+                Return World;
+            }
+        }
+        
+        Class Program {
+            Var c : Hello = New HelloWorld();
+            main(){
+                Out.printInt(New HelloWorld().Hello());
+            }
+        }
+        ##jlkj##
+        

@@ -1,0 +1,209 @@
+ def test_43_mainInEntryClassWithParameter(self):
+        test = """Class Program{
+                main(a,b,c){
+                    Return 1 + 12 % 5;
+                }
+            }
+            """
+        expect = "Error on line 2 col 21: a"
+        self.assertTrue(TestParser.test(test,expect,143))      
+
+   def test_39_indexExpression(self):
+        test = """Class Program{
+                main(){
+                    Val k : Int = 10;
+                    arr[2+7/2] = k;
+                    arr[1] = 1;
+                }
+            }
+            """
+        expect = "successful"
+        self.assertTrue(TestParser.test(test,expect,139))    
+
+  def test_36(self):
+        test = """Class Main{
+                Var v : Boolean;
+                setIsValue(isSaved:Boolean){
+                    v = isSaved;
+                }
+            }
+            Class Program{
+                main(){
+                    Var x : Main = New Main();
+                    x.setIsValue(True);
+                }
+            }
+            """
+        expect = "successful"
+        self.assertTrue(TestParser.test(test,expect,136))  
+
+   def test_28_checkZeroSizeArray(self):
+        test = """Class Program{ main(){
+            Var a, b : Array[String,0];
+            }
+            }"""
+        expect = "Error on line 2 col 37: ]"
+        self.assertTrue(TestParser.test(test,expect,128))
+    
+    def test_29_checkZeroSizeArray(self):
+        test = """Class Program{ main(){
+            Var a, b : Array[String,00];
+            }
+            }"""
+        expect = "Error on line 2 col 38: ]"
+        self.assertTrue(TestParser.test(test,expect,129))  
+        
+    def test_30_checkZeroSizeArray(self):
+        test = """Class Program{ main(){
+            Var a, b : Array[String,0x0];
+            }
+            }"""
+        expect = "Error on line 2 col 39: ]"
+        self.assertTrue(TestParser.test(test,expect,130))  
+        
+    def test_31_checkZeroSizeArray(self):
+        test = """Class Program{ main(){
+            Var a, b : Array[String,0X0];
+            }
+            }"""
+        expect = "Error on line 2 col 39: ]"
+        self.assertTrue(TestParser.test(test,expect,131))       
+        
+    def test_32_checkZeroSizeArray(self):
+        test = """Class Program{ main(){
+            Var a, b : Array[String,0b0];
+            }
+            }"""
+        expect = "Error on line 2 col 39: ]"
+        self.assertTrue(TestParser.test(test,expect,132))     
+        
+    def test_33_checkZeroSizeArray(self):
+        test = """Class Program{ main(){
+            Var a, b : Array[String,0B0];
+            }
+            }"""
+        expect = "Error on line 2 col 39: ]"
+        self.assertTrue(TestParser.test(test,expect,133))  
+        
+    def test_34_checkNegativeSizeArray(self):
+        test = """Class Program{ main(){
+            Var a, b : Array[String,-4];
+            }
+            }"""
+        expect = "Error on line 2 col 36: -"
+        self.assertTrue(TestParser.test(test,expect,134))
+
+    def test_21(self):
+        test = """Class Program{ main(){
+            Var a, b : Int = 1;
+            }
+            }"""
+        expect = "Error on line 2 col 30: ;"
+        self.assertTrue(TestParser.test(test,expect,121))
+        
+    def test_22(self):
+        test = """Class Program{ main(){
+            Var a, b : Int = 1 , 2, 3;
+            }
+            }"""
+        expect = "Error on line 2 col 34: ,"
+        self.assertTrue(TestParser.test(test,expect,122))
+
+
+   
+    def test_20(self):
+        test="""Class Account {
+                    Var userName : String;
+                    Var password : String;
+                    Var pin : Int;
+                    
+                    Constructor(name:String; pw:String; pin:Int){
+                        userName = name;
+                        password = pw;
+                        Self.pin = pin;
+                    }
+                    
+                    getInfo(){
+                        Out.printString(username,password,pin)
+                    }
+                    
+                    Destructor(){
+                        Out.printString("Account is deleted");
+                    }
+                }
+            
+            Class Program {
+                main(){
+                    Val userAccount : Account = new Account("truc.nguyenHCMUT", "truc123", 123456);
+                    userAccount.getInfo();
+                }
+            }
+            
+            """
+        expect="successful"
+        self.assertTrue(TestParser.test(test,expect,120))
+
+def test_11_object_declaration(self):
+        test = """Class Person {
+                Var name : String;
+                Var age : Int;
+                
+                Constructor(){
+                    name = "default name";
+                    age = 1;
+                }
+            }
+            
+            Class Program{ 
+                main(){
+                    ##khoi tao object##
+                    }}"""
+        expect = "successful"
+        self.assertTrue(TestParser.test(test,expect,111))
+
+def test_43_mainInEntryClassWithParameter(self):
+        test = """Class Program{
+                main(a,b,c){
+                    Return 1 + 12 % 5;
+                }
+            }
+            """
+        expect = "Error on line 2 col 21: a"
+        self.assertTrue(TestParser.test(test,expect,143))       
+        
+    def test_44_destructorWithParameter(self):
+        test = """Class Student{
+            Var $id : Int;
+                Destructor(name,id,email){
+                    Out.print("Destroying obj done!")
+                }
+            }
+            """
+        expect = "Error on line 3 col 27: name"
+        self.assertTrue(TestParser.test(test,expect,144))    
+        
+    def test_45_memberPosition(self):
+        test = """Class Student{
+            Var name : String;
+            Var id: Int;
+            Var email: String;
+            
+                Destructor(){
+                    Out.printString("Destroying obj done!");
+                }
+                
+                Constructor(name,email:String;id:Int){
+                    Self.name = name;
+                    Self.id = id;
+                    Self.email = email;
+                }
+                
+                getName(){
+                    Return name;
+                }
+                
+            }
+            """
+        expect = "successful"
+        self.assertTrue(TestParser.test(test,expect,145))    
+    

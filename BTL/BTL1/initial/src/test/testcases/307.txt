@@ -1,0 +1,13 @@
+
+        Class Program
+        {
+            main()
+            {
+
+            }
+            foo()
+            {
+                Val a: Int = (3+5) + (1 + 2);
+                Return a;
+            }
+        }

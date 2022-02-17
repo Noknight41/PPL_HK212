@@ -1,0 +1,17 @@
+
+        Class Person {
+            Var name : String;
+            Var age : Int;
+            
+            Constructor(){
+                name = "default name";
+                age = 1;
+            }
+        }
+            
+        Class Program{ 
+            main(){
+                ##khoi tao object##
+            }
+        }
+        

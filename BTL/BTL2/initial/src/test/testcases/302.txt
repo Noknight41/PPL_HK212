@@ -1,0 +1,4 @@
+
+        Class Program{
+            Var t: Float = 1.00;
+        }

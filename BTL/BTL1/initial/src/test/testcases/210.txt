@@ -1,0 +1,18 @@
+
+        Class Hello{
+            Var _Fool, _Magician : String;
+            Constructor(x, y: String){
+                _Fool = x;
+                _Magician = y;
+                Self.print("Constructor is good");
+            }
+        }
+        
+        Class Program {
+            ## Hello Everybody ##
+            main(){
+                Var x: Hello = New Hello();
+                Return x._Fool;
+            }
+        }
+        

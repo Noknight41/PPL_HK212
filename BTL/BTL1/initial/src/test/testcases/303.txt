@@ -1,0 +1,9 @@
+        
+        Class Program {
+            main() {
+            Var a, b, c: Int;
+            Val d, e, f: Float = 2.2, 3e3, 4.4e4;
+            Var arr: Array[Int, 7];
+                Return;
+            }
+        }

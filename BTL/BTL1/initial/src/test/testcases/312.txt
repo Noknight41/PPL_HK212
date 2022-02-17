@@ -1,0 +1,15 @@
+
+        Class Shape {
+            Val $numOfShape: Int = 0;
+            Val immutableAttribute: Int = 0;
+            Var length, width: Int;
+            Val arr: Array[Array[Int, 2], 1] = Array(Array(1,2));
+            
+            $getNumOfShape() {
+                Return Shape::$numOfShape;
+            }
+            
+            getArr() {
+                Return arr[1-1][1*1];
+            }
+        }

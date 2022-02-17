@@ -1,0 +1,10 @@
+
+        Class Program {
+            Var a: Int;
+            main() {
+                Val valid_value: Float = 0.5;
+                Self::$a = Program::$a.b.c();
+                Return Program::a.b.c;
+            }
+        }
+        

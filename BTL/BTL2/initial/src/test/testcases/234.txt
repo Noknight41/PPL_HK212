@@ -1,0 +1,37 @@
+
+        Class Trt{
+            Var a, b : String;
+            Constructor(x: String){
+                Self.a = "No";
+                Self.b = x;
+            }
+            Despacito(){
+                Return Self.a + Self.b;
+            }
+        }
+        Class Shape {
+            Var flag: Trt = Null;
+            Var x, y : Int;
+            Constructor(a,b: Int; d: String){
+                flag = New Trt(d);
+                Var s: String = flag.Despacito();
+                Self.x = b;
+                Self.y = a;
+                If(d ==. "Hel"){
+                    Self.x = a;
+                    Self.y = b;
+                }
+            }
+            Destructor(){
+                Self.print("No service");
+            }
+        }
+        Class Program {
+            ## Muda
+            Muda ##
+            Var hello: Array[Int, 5];
+            Var length, width: Int;
+            main(){
+                a = 1.0;
+            }
+        }

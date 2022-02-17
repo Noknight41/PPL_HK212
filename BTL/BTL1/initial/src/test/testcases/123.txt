@@ -1,0 +1,8 @@
+
+      Class StringWorker{
+         getString(someString : Float){
+            Var someString: String = "hello PPL";
+            Return someString;
+         }
+      }
+        

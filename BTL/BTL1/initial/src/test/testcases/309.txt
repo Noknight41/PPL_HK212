@@ -1,0 +1,13 @@
+
+        Class Program
+        {
+            main()
+            {
+
+            }
+            foo()
+            {
+                Val a: Int = Self.newValue() ;
+                Return a;
+            }
+        }

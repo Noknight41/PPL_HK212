@@ -1,0 +1,15 @@
+
+        Class Program
+        {
+            main()
+            {
+                Val my_array: Array[Int, 6] = Array(2,3,1,4,5,6,7,8);
+                Var my_sum : Int = 0;
+                Foreach (my_index In 1 .. 8)
+                {
+                    my_sum = my_sum + my_array[my_index];
+                }
+                Return my_sum;
+            }
+        }
+        

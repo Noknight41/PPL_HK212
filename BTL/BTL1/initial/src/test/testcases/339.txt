@@ -1,0 +1,48 @@
+
+        Class Person
+        {
+            Var name: String;
+            Var height: Float;
+            Var salary: Float;
+            Var $maxHeight: Float = -INT_MAX;
+            Person(_salary, _height : Float; _name: String)
+            {
+                Self.name = _name;
+                Self.height = _height;
+                Self.salary = _salary;
+                If (_height > Person::$maxHeight)
+                {
+                    Person::$maxHeight = _height;
+                }
+                Else
+                {
+                    System.Out.printLn("Sorry you must be higher \n");
+                }
+            }
+        }
+        Class Program
+        {
+            maxSalary(myList: Array[Person,5]; maxsalary: Float)
+            {
+                Foreach(myindex In 1 .. 5 )
+                {
+                    If(myList[index] > maxsalary)
+                    {
+                        maxsalary = myList[index];
+                    }
+                }
+            }
+            main()
+            {
+                Var myList: Array[Person, 5] = Array(
+                    New Person ("Duong","185", "3000"),
+                    New Person ("Le","185", "3000"),
+                    New Person ("Nguyen","185", "3000"),
+                    New Person ("Nhat","185", "3000"),
+                    New Person ("Minh","185", "3000")
+                );
+                Var maxsalary: Float = 0.0;
+                maxsalary = Self.maxSalary(myList, maxsalary);
+                System.Out.printLn(maxsalary);
+            }
+        }

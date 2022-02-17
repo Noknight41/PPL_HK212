@@ -1,0 +1,8 @@
+
+        Class Program {
+            Var _Fool, _Magician: String = "Hello World", "I am '"Mr.Coren'"";
+            main(){
+                
+            }
+        }
+        

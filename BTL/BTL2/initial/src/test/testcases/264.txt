@@ -1,0 +1,6 @@
+
+        Class Program {
+            main() {
+                a = a.New A();
+            }
+        }

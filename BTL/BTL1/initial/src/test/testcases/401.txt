@@ -1,0 +1,10 @@
+Class Program {
+            Val a, b: Array[Int, 5];
+            Var c: Array[String, 10_0];
+            Var $a, $b: Array[Array[Int, 10], 0x15];
+            main() {
+               Out.println(4);
+               Return;
+            }
+        }
+        

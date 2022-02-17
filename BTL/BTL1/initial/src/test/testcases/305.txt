@@ -1,0 +1,7 @@
+
+        Class Program {
+            main() {
+                Out.printInt(Shape::$numOfShape);
+                why.why();
+            }
+        }

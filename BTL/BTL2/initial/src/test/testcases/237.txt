@@ -1,0 +1,11 @@
+
+        Class Rectangle : Shape{
+            $getSomething(yes: Int){
+                Var x : Int = 0;
+                Return x;
+                Foreach(x In 1 .. 100){
+                    bf.doSomething("2","2");
+                }
+            }
+        }
+        

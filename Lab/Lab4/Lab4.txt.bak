@@ -1,0 +1,344 @@
+Pass: y8_NKc
+
+################FP#####################
+1)
+def lessThan(lst, n):
+    return [x for x in lst if x < n]
+	
+2)
+def lstSquare(n):
+    lst = list(range(n))
+    return [(x + 1)**2 for x in lst]
+	
+3)
+def lstSquare(n):
+    blist = list(range(n))
+    result = []
+    return recurlstSquare(result, blist)
+
+def recurlstSquare(result, blist):
+    if blist == []:
+        return result
+    else:
+        v = blist[0] + 1
+        result += [v**2]
+        return recurlstSquare(result, blist[1:])
+		
+4)
+def flatten(lst):
+    result = []
+    return recurlstSquare(result, lst)
+
+def recurlstSquare(result, lst):
+    if lst == []:
+        return result
+    else:
+        return recurlstSquare(result + lst[0], lst[1:])
+
+5)
+def dist(lst, n):
+    result = []
+    return recurDist(result, lst, n)
+
+def recurDist(result, lst, n):
+    if lst == []:
+        return result
+    else:
+        return recurDist(result + [(lst[0], n)], lst[1:], n)
+
+6)
+def lessThan(lst,n):
+    return list(filter(lambda c: c < n, lst))
+	
+7)
+def dist(lst, n):
+    return list(map(lambda x: (x, n), lst))
+	
+8)
+import functools
+
+def flatten(lst):
+    if lst == []:
+        return []
+    return functools.reduce(lambda x, y: x + y, lst)
+	
+9)
+def powGen(x):
+    def power(y):
+        return y**x
+    return power
+
+10)
+from functools import reduce
+
+def compose(*func):
+    return reduce(lambda f, g: lambda x: f(g(x)), func, lambda x : x)
+
+################AST####################
+1)
+class ASTGeneration(MPVisitor):
+    def visitProgram(self,ctx:MPParser.ProgramContext):
+        return self.visit(ctx.vardecls()) + 1
+
+    def visitVardecls(self,ctx:MPParser.VardeclsContext):
+        return self.visit(ctx.vardecl()) + self.visit(ctx.vardecltail())
+
+    def visitVardecltail(self,ctx:MPParser.VardecltailContext): 
+        if ctx.getChildCount() == 2: 
+            return self.visit(ctx.vardecl()) + self.visit(ctx.vardecltail())
+        else:
+            return 0
+
+    def visitVardecl(self,ctx:MPParser.VardeclContext): 
+        return self.visit(ctx.mptype()) + self.visit(ctx.ids()) + 1
+
+    def visitMptype(self,ctx:MPParser.MptypeContext):
+        return 1
+
+    def visitIds(self,ctx:MPParser.IdsContext):
+        if ctx.getChildCount() == 1:
+            return 1
+        else:
+            return 2 + self.visit(ctx.ids())
+
+2)
+class ASTGeneration(MPVisitor):
+    def visitProgram(self,ctx:MPParser.ProgramContext):
+        return self.visit(ctx.vardecls()) + 1
+
+    def visitVardecls(self,ctx:MPParser.VardeclsContext):
+        return self.visit(ctx.vardecl()) + self.visit(ctx.vardecltail()) + 2
+
+    def visitVardecltail(self,ctx:MPParser.VardecltailContext): 
+        if ctx.getChildCount() == 2: 
+            return self.visit(ctx.vardecl()) + self.visit(ctx.vardecltail()) + 2
+        else:
+            return 1
+
+    def visitVardecl(self,ctx:MPParser.VardeclContext): 
+        return self.visit(ctx.mptype()) + self.visit(ctx.ids()) + 2
+
+    def visitMptype(self,ctx:MPParser.MptypeContext):
+        return 0
+
+    def visitIds(self,ctx:MPParser.IdsContext):
+        if ctx.getChildCount() == 1:
+            return 0
+        else:
+            return 1 + self.visit(ctx.ids())
+
+3)
+class ASTGeneration(MPVisitor):
+    def visitProgram(self,ctx:MPParser.ProgramContext):
+        return Program(self.visit(ctx.vardecls()))
+
+    def visitVardecls(self,ctx:MPParser.VardeclsContext):
+        return self.visit(ctx.vardecl()) + self.visit(ctx.vardecltail())
+
+    def visitVardecltail(self,ctx:MPParser.VardecltailContext): 
+        if ctx.getChildCount() == 2: 
+            return self.visit(ctx.vardecl()) + self.visit(ctx.vardecltail())
+        else:
+            return []
+
+    def visitVardecl(self,ctx:MPParser.VardeclContext): 
+        typ = self.visit(ctx.mptype())
+        ids = self.visit(ctx.ids())
+        # res = []
+        # for i in ids:
+        #     res += [VarDecl(i,typ)]
+        # return res
+
+        # return [VarDecl(i, typ) for i in ids]
+        
+        return list(map(lambda x: VarDecl(x,typ),ids))
+
+    def visitMptype(self,ctx:MPParser.MptypeContext):
+        if ctx.INTTYPE():
+            return IntType()
+        else:
+            return FloatType()
+
+    def visitIds(self,ctx:MPParser.IdsContext):
+        if ctx.getChildCount() == 1:
+            e = Id(ctx.ID().getText())
+            return [e]
+        else:
+            e = Id(ctx.ID().getText())
+            idlist = self.visitIds(ctx.ids())
+            return [e] + idlist
+
+4)
+class ASTGeneration(MPVisitor):
+    def visitProgram(self,ctx:MPParser.ProgramContext):
+        return Program(self.visit(ctx.exp()))
+        
+    def visitExp(self,ctx:MPParser.ExpContext):
+        if ctx.getChildCount() == 3:
+            return Binary(ctx.ASSIGN().getText(),self.visit(ctx.term()),self.visit(ctx.exp()))
+        else:
+            return self.visit(ctx.term())
+
+    def visitTerm(self,ctx:MPParser.TermContext): 
+        if ctx.getChildCount() == 3:
+            return Binary(ctx.COMPARE().getText(),self.visit(ctx.factor(0)),self.visit(ctx.factor(1)))
+        else:
+            return self.visit(ctx.factor(0))
+
+    def visitFactor(self,ctx:MPParser.FactorContext):
+        if ctx.getChildCount() == 3:
+            return Binary(ctx.ANDOR().getText(),self.visit(ctx.factor()),self.visit(ctx.operand()))
+        else:
+            return self.visit(ctx.operand())
+
+    def visitOperand(self,ctx:MPParser.OperandContext):
+        if ctx.getChildCount() == 3:
+            return self.visit(ctx.exp())
+        elif ctx.ID():
+            return Id(ctx.ID().getText())
+        elif ctx.INTLIT():
+            return IntLiteral(ctx.INTLIT().getText())
+        else:
+            return BooleanLiteral(ctx.BOOLIT().getText())
+
+5)
+import functools
+
+class ASTGeneration(MPVisitor):
+    def visitProgram(self,ctx:MPParser.ProgramContext):
+        return Program(functools.reduce(lambda prev, cur: prev + self.visit(cur), ctx.vardecl(), []))
+        
+    def visitVardecl(self,ctx:MPParser.VardeclContext): 
+        return list(map(lambda x: VarDecl(x, self.visit(ctx.mptype())), self.visit(ctx.ids())))
+
+    def visitMptype(self,ctx:MPParser.MptypeContext):
+        if ctx.INTTYPE():
+            return IntType()
+        else:
+            return FloatType()
+
+    def visitIds(self,ctx:MPParser.IdsContext):
+        return list(map(lambda x: Id(x.getText()), ctx.ID()))
+
+6)
+class ASTGeneration(MPVisitor):
+    def visitProgram(self,ctx:MPParser.ProgramContext):
+        return self.visit(ctx.exp())
+
+    def visitExp(self,ctx:MPParser.ExpContext):
+        term = [self.visit(x) for x in ctx.term()]
+        ass = [y.getText() for y in ctx.ASSIGN()]
+        right = term[-1]
+        for i in range(len(ass)):
+            op = ass[len(ass) - i - 1]
+            left = term[len(ass) - i - 1]
+            right = Binary(op, left, right)
+        return right
+        
+    def visitTerm(self,ctx:MPParser.TermContext): 
+        if ctx.getChildCount() == 3:
+            return Binary(ctx.COMPARE().getText(),self.visit(ctx.factor(0)),self.visit(ctx.factor(1)))
+        else:
+            return self.visit(ctx.factor(0))
+
+    def visitFactor(self,ctx:MPParser.FactorContext):
+        op = [self.visit(x) for x in ctx.operand()]
+        ao = [y.getText() for y in ctx.ANDOR()]
+        left = op[0]
+        for i in range(len(ao)):
+            oper = ao[i]
+            right = op[i+1]
+            left = Binary(oper,left,right)
+        return left
+
+    def visitOperand(self,ctx:MPParser.OperandContext):
+        if ctx.getChildCount() == 3:
+            return self.visit(ctx.exp())
+        elif ctx.ID():
+            return Id(ctx.ID().getText())
+        elif ctx.INTLIT():
+            return IntLiteral(ctx.INTLIT().getText())
+        else:
+            return BooleanLiteral(ctx.BOOLIT().getText())
+            
+Extra)
+class ASTGenerator(CSELVisitor):
+    ## Visit a parse tree produced by CSELParser#program.
+    def visitProgram(self, ctx:CSELParser.ProgramContext):
+        a = ctx.getChildCount()
+        d = list(range(0,a-1))
+        res = []
+        for i in d:
+            res += self.visit(ctx.decl(i))
+        return Program(res)
+
+    ## Visit a parse tree produced by CSELParser#cseltype.
+    def visitCseltype(self, ctx:CSELParser.CseltypeContext):
+        if ctx.INT():
+            return IntType()
+        if ctx.FLOAT():
+            return FloatType()
+        else:
+            return BooleanType()
+
+    # Visit a parse tree produced by CSELParser#decl.
+    def visitDecl(self, ctx:CSELParser.DeclContext):
+        return self.visit(ctx.getChild(0)) + self.visit(ctx.decltail())
+
+    # Visit a parse tree produced by CSELParser#decltail.
+    def visitDecltail(self, ctx:CSELParser.DecltailContext):
+        if ctx.getChildCount() == 0:
+            return []
+        else: 
+            return self.visit(ctx.getChild(0)) + self.visit(ctx.decltail())
+
+    # Visit a parse tree produced by CSELParser#vardecl.
+    def visitVardecl(self, ctx:CSELParser.VardeclContext):
+        return self.visit(ctx.single_vardecls())
+
+    # Visit a parse tree produced by CSELParser#single_vardecls.
+    def visitSingle_vardecls(self, ctx:CSELParser.Single_vardeclsContext):
+        return self.visit(ctx.single_vardecl()) + self.visit(ctx.single_vardecltail())
+
+    # Visit a parse tree produced by CSELParser#single_vardecl.
+    def visitSingle_vardecl(self, ctx:CSELParser.Single_vardeclContext):
+        return [VarDecl(Id(ctx.ID().getText()), self.visit(ctx.cseltype()))]
+
+    # Visit a parse tree produced by CSELParser#single_vardecltail.
+    def visitSingle_vardecltail(self, ctx:CSELParser.Single_vardecltailContext):
+        if ctx.getChildCount() == 0:
+            return []
+        else: 
+            return self.visit(ctx.single_vardecl()) + self.visit(ctx.single_vardecltail())
+
+    # Visit a parse tree produced by CSELParser#constdecl.
+    def visitConstdecl(self, ctx:CSELParser.ConstdeclContext):
+        return self.visit(ctx.single_constdecl())
+
+    # Visit a parse tree produced by CSELParser#single_constdecl.
+    def visitSingle_constdecl(self, ctx:CSELParser.Single_constdeclContext):
+        return [ConstDecl(Id(ctx.ID().getText()),self.visit(ctx.cseltype()),self.visit(ctx.expr()))]
+
+    # Visit a parse tree produced by CSELParser#expr.
+    def visitExpr(self, ctx:CSELParser.ExprContext):
+        if ctx.INTLIT():
+            return IntLit(ctx.INTLIT().getText())
+        if ctx.FLOATLIT():
+            return FloatLit(ctx.FLOATLIT().getText())
+        else:
+            return BooleanLit(ctx.BOOLEANLIT().getText())
+
+    # Visit a parse tree produced by CSELParser#funcdecl.
+    def visitFuncdecl(self, ctx:CSELParser.FuncdeclContext):
+        return [FuncDecl(Id(ctx.ID().getText()),self.visit(ctx.paramlist()))]
+
+    # Visit a parse tree produced by CSELParser#paramlist.
+    def visitParamlist(self, ctx:CSELParser.ParamlistContext):
+        if ctx.getChildCount() == 1:
+            return self.visit(ctx.single_vardecls())
+        else:
+            return []
+			
+			
+
+        

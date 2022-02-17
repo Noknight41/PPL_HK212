@@ -1,0 +1,8 @@
+
+        Class Program {
+            Val c: Int = 0x413EFFAB;
+            main(){
+                Val c: Int = 0x413EFFAB;
+            }
+        }
+        

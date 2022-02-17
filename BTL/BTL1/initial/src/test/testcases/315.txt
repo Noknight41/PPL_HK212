@@ -1,0 +1,20 @@
+
+        Class Program
+        {
+            recursion(a:Int)
+            {
+                If((a == 0) || (a== 1))
+                    {
+                        Return 1;
+                    }
+                Else
+                    {
+                        Return Self.recursion(a - 1);
+                    }
+            }
+            main()
+            {
+                Var a: Int = Self.recursion(6);
+                System.out.printLn(a);
+            }
+        }
