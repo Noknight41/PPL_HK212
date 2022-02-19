@@ -1,0 +1,7 @@
+
+        Class Program{
+            notMain(f: Boolean; arr: Array[Array[Float, 3], 4]){
+                Val a, b, c: Int = 500, 600, 700;
+            }
+        }
+        

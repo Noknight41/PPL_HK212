@@ -621,7 +621,7 @@ class ASTGeneration(D96Visitor):
             else:
                 return NewExpr(Id(ctx.ID().getText()), [])
         elif ctx.ID():
-            return
+            return Id(ctx.ID().getText())
         elif ctx.expr():
             return self.visit(ctx.expr())
         else: 
