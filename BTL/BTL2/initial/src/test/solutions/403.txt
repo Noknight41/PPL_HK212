@@ -1,1 +1,1 @@
-Undeclared Function: foo
+Program([ClassDecl(Id(Rectangle),[AttributeDecl(Instance,VarDecl(Id(length),IntType))])])

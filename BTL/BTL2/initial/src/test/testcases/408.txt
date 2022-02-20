@@ -1,0 +1,5 @@
+
+        Class Program{
+            Var arr, brr: Array[Int, 3] = Array(1, 2, 3), Array(5, -4, 1);
+        }
+        

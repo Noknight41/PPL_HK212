@@ -557,7 +557,7 @@ class ASTGeneration(D96Visitor):
     # Visit a parse tree produced by D96Parser#term6.
     def visitTerm6(self, ctx:D96Parser.Term6Context):
         if ctx.term6():
-            return UnaryOp(ctx.NOTOP().getText(), self.visit(ctx.term6()))
+            return UnaryOp(ctx.MINOP().getText(), self.visit(ctx.term6()))
         else:
             return self.visit(ctx.term7())
 

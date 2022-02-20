@@ -1,1 +1,7 @@
-Program(List(FuncDecl(Id(main),List(),IntType,Block(List(),List(CallExpr(Id(putIntLn),List()))))))
+
+        Class Program{
+            Var x, $y, z: Int;
+            Val t: Float = 3.108;
+            Var f: Float;
+        }
+        

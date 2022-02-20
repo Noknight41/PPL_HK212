@@ -1,0 +1,7 @@
+
+        Class Program{
+            notMain(f: Boolean){
+                Val a, b: Array[Int, 4] = Array(1, 0B101011, 03132, 0x123), Array(-4, 31, 0xEFFE, 5);
+            }
+        }
+        

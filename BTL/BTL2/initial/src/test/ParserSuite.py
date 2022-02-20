@@ -5,8 +5,23 @@ class ParserSuite(unittest.TestCase):
 ###
     def test_201(self):
         test = """
-        Class Program {
+        Class Program{
+            Var a, $b : Int = 0x34, 0b101;
+            notMain(f: Boolean; arr: Array[Array[Float, 3], 4]){
+                Var s : Int = 3;
+                Foreach(i In 1 .. 2){
+                    s = s + i;
+                    Out.print("2346", i);
+                    Continue;
+                    Break;
+                }
+                Self.notMain();
+                Return s;
+            }
             main(){
+                Var sdf :  Array[Array[Float, 3], 4];
+                Self.notMain(True, sdf);
+                Return;
             }
         }
         """

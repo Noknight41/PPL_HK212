@@ -80,6 +80,7 @@ class TestParser:
         TestParser.check(SOL_DIR,inputfile,num)
         dest = open(SOL_DIR + str(num) + ".txt","r")
         line = dest.read()
+        print(line)
         return line == expect
 
     @staticmethod

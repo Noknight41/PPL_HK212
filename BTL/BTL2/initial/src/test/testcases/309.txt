@@ -1,21 +1,15 @@
 
         Class Program{
-            Var a, $b : Int = 0x34, 0b101;
+            Var a, $b : Int;
+            Val c, $d : Boolean;
+            Var e, $f : Int = 023, 0x45;
+            Val w, $x : Float = 0.01, .3e2;
             notMain(f: Boolean; arr: Array[Array[Float, 3], 4]){
-                Var s : Int = 3;
-                For(i In 1 .. 2){
-                    s = s + i;
-                    print("2346", i);
-                    Continue;
-                    Break;
-                }
-                Self.notMain();
-                Return s;
-            }
-            main(){
-                Var sdf :  Array[Array[Float, 3], 4];
-                Self.notMain(True, sdf);
-                Return;
+                Var a : Int;
+                Val c : Boolean;
+                Var e, f : Int = 023, 0x45;
+                Val w, x : Float = 0.01, .3e2;
+                Return a + c + e + w;
             }
         }
         

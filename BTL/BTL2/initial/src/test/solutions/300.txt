@@ -1,1 +1,1 @@
-Program([ClassDecl(Id(Program),[])])
+Error on line 13 col 26: ==.
