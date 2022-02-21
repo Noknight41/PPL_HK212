@@ -1,0 +1,8 @@
+
+        Class Program{
+            Var a: Array[Array[Boolean, 2], 1];
+            main(){
+                Var b: Boolean = a[0][2];
+            }
+        }
+        

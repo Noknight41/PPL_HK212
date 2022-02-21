@@ -1,0 +1,10 @@
+
+        Class Program{
+            Val $obj: Circle = New Circle();
+            Val obj2: Circle = New Circle(obj2);
+            main(){      
+                Var circle3: Circle = New Circle(1, 2);
+                Return (circle3);
+            }
+        }
+        

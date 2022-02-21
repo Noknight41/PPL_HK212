@@ -1,0 +1,11 @@
+
+        Class Program {
+            Val a: Int = 1;
+            fooBar(a, b : Int; c : Float) {
+                Self.fooBar1(True, False, Null);
+            }
+            main() {
+                Self.fooBar(x, y, "ZhongGuo ren");
+                Return;
+            }
+        }

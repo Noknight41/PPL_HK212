@@ -1,0 +1,8 @@
+
+        Class Program{
+            Val $a: Int = 5;
+            Constructor(){
+                Program::$a = 2;
+            }
+        }
+        

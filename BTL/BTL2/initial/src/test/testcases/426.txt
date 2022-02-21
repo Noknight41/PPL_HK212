@@ -1,0 +1,15 @@
+
+        Class Program{
+            main(){
+                If (a > b){
+                    a = 2;
+                }
+                Elseif (a == b){
+                    a = 1;
+                }
+                Else{
+                    a = 0;
+                }
+            }
+        }
+        

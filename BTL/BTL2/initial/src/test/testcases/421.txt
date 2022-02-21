@@ -1,0 +1,8 @@
+
+        Class Program{
+            main(){
+                a = Prog.b(e, f, g);
+                b = Program.a;
+            }
+        }
+        

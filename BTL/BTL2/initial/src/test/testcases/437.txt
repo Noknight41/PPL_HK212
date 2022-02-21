@@ -1,0 +1,20 @@
+
+        Class B : C{
+            Val a : Int = 100;
+            Val $b : Float = 123.303E3;
+            Var $_: Boolean;
+            Val _: Any = New Any();
+            Constructor(){
+                a = New C();
+                B::$b = New B();
+                Return;
+            }
+        }
+        Class Program {
+            main() {
+                Val a : A = New A();
+                a::$b();
+                Return;
+            }
+        }
+        

@@ -46,10 +46,61 @@ class ParserSuite(unittest.TestCase):
         
     def test_203(self):
         test = """
-        Class Program {
-            Var _Fool: Float = 1.2e3;
+        Class Any{
+            Var x, y: Float = .15e-2, .e4;
+            Constructor(z, t : Float; z: String){
+                Foreach(csalar In 0b10101 .. 0x2A){
+                    If (!(z ==. "2")){
+                        z = z +. "3";
+                        Continue;
+                        Self.x = Self.x + z - 2.0 * t;
+                        Self.y = Self.y + t - 2.0 * z;
+                    }
+                    Else{
+                        Self.x = Self.x + t;
+                        Self.y = Self.y + z;
+                        Break;
+                    }
+                }
+            }
+            Destructor(){
+                Self.x = .e1;
+                Self.y = .e1;
+            }
+            getAny(){
+                Out.print(Self.x);
+            }
+        }
+        Class Value : Any{
+            Var stem: Array[Float, 0xA];
+            Constructor(x : Int; y: Float; d: Any){
+                Self.x = d.x;
+                Self.y = d.y;
+                Foreach(i In 1 .. x){
+                    Self.stem[i] = Self.x + y + i;
+                    If((Self.stem[i] + Self.x > Self.y) && (Self.stem[i] > Self.stem[i+1])){
+                        Break;
+                    }
+                }
+            }
+            Destructor(){
+                Var d: Any = Null;
+                d = New Any(2.4,3.5,"2");
+            }
+        }
+        Class Variable : Value{
             main(){
-                
+                Self.stem[2] = 1e-25;
+                Return Self.stem;
+            }
+        }
+        Class Program{
+            main(){
+               Val d: Any = New Any(1.0, 3.0, "23");
+               Val c: Value = New Value(14,0.5,d);
+               Var b: Variable = New Variable(13,0.5,d);
+               Var a: Array[Float, 0xF] = b.main();
+               b.getAny();
             }
         }
         """

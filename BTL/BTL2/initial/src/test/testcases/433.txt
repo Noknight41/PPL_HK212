@@ -1,0 +1,11 @@
+
+        Class Program{
+            Val $obj: Circle;
+            Val obj2: Circle = New Circle(1, 2);
+            main(){      
+                Val a, b: Int;
+                Val d, e: Float;
+                Return (obj2.radius * 3.14) + a - b / d * e;
+            }
+        }
+        

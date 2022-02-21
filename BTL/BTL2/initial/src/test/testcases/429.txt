@@ -1,0 +1,22 @@
+
+        Class Program : System{
+            Val a: Int = 1;
+            fooBar() {
+                Program::$fooBar();
+            }
+            main() {
+                If (1 >= 2) {
+                    Out.fooBar(True);
+                } 
+                Elseif (a <= 2) {
+                    Program::$fooBar();
+                } 
+                Elseif (a[1][2] <= a[1] * a.a + Some::$a()) {
+                    Out.println(400);
+                } 
+                Else {
+                    Out.println("What are you looking for?");
+                }
+                Return;
+            }
+        }

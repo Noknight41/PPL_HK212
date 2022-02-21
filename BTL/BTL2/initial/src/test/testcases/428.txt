@@ -1,0 +1,9 @@
+
+        Class Program{
+            main(){
+                Foreach (a In 1 .. 100000 By 5){
+                    Global::$b = a + 2;
+                }
+            }
+        }
+        

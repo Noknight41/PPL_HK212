@@ -19,7 +19,7 @@ class_stmt_list: class_stmt class_stmt_list | class_stmt ;
 class_stmt: constructor | destructor | funcdecl | ((valdecl | vardecl) SEMI);
 
 // Statement in Class Body
-funcdecl: (ID | DOLLARID) LB paramlist? RB blockstmt;
+funcdecl: (ID | DOLLARID) LB paramlist RB blockstmt | (ID | DOLLARID) LB RB blockstmt;
 
 id_vas: (ID | DOLLARID) id_va (expr);
 id_va: COMMA (ID | DOLLARID) id_va (expr) COMMA | COLON dttyp ASSOP;
@@ -27,7 +27,7 @@ id_va: COMMA (ID | DOLLARID) id_va (expr) COMMA | COLON dttyp ASSOP;
 valdecl: VAL idlist COLON dttyp | VAL id_vas;
 vardecl: VAR idlist COLON dttyp | VAR id_vas;
 
-constructor: CONSTRUCTOR LB paramlist? RB blockstmt;
+constructor: CONSTRUCTOR LB paramlist RB blockstmt | CONSTRUCTOR LB RB blockstmt;
 destructor: DESTRUCTOR LB RB blockstmt;
 
 // Data type
@@ -59,7 +59,7 @@ bvaldecl: VAL bidlist COLON dttyp | VAL bid_vas;
 bvardecl: VAR bidlist COLON dttyp | VAR bid_vas;
 
 // LHS + Variable assignment
-scalar: scalar DOT ID | ID DCOLON DOLLARID | sd ID | ID;
+scalar: scalar DOT ID | ID DCOLON DOLLARID | SELF DOT ID | ID;
 index_scalar: scalar index_operators;
 index_operators: LC expr RC | LC expr RC index_operators;
 varass: scalar ASSOP expr | index_scalar ASSOP expr;
@@ -67,7 +67,7 @@ varass: scalar ASSOP expr | index_scalar ASSOP expr;
 // Function call
 func: ID LB valuelist? RB;
 dollarfunc: DOLLARID LB valuelist? RB;
-funccall: expr DOT func | ID DCOLON dollarfunc | sd func;
+funccall: expr DOT func | ID DCOLON dollarfunc;
 
 // Other Statement: Return + Continue + Break
 returnal: RETURN expr?;
@@ -91,10 +91,9 @@ term4: term4 MULOP term5 | term4 DIVOP term5 | term4 REMOP term5 | term5;
 term5: NOTOP term5 | term6;
 term6: MINOP term6 | term7;
 term7: term8 index_operators | term8;
-term8: term8 DOT (ID | func) | sd (ID | func) | term9 ;
+term8: term8 DOT (ID | func) | term9 ;
 term9: ID DCOLON (DOLLARID | dollarfunc) | term10;
-term10: (NEW ID LB valuelist? RB) | ID | (LB expr RB) | lit ;
-sd: SELF DOT;
+term10: (NEW ID LB valuelist? RB) | ID | (LB expr RB) | lit | SELF;
 
 // ARRAY
 array: (ARRAY LB valuelist RB ) | (ARRAY LB RB);

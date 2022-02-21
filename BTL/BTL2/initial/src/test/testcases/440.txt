@@ -1,0 +1,32 @@
+
+        Class Program{
+            main(){    
+                Return BCA.doNothing();
+            }
+            main(fakeParam: NullType){
+                ABC.doNothing();
+                Return;
+            }
+            Constructor(){
+                System.construct(Self);
+            }
+            Destructor(){
+                System.destroy(Self);
+            }
+        }
+        Class FakeProgram: Program{
+            main(){    
+                Return BCA.doNothing();
+            }
+            main(fakeParam: NullType){
+                ABC.doNothing();
+                Return;
+            }
+            Constructor(){
+                System.construct(Self);
+            }
+            Destructor(){
+                System.destroy(Self);
+            }
+        }
+        

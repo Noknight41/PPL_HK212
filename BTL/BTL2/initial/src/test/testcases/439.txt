@@ -1,0 +1,29 @@
+
+        Class Sys_Clone : System{
+            classWorker(){
+                {
+                    Val a : Int = 100;
+                    Var _: Any = New Any();
+                } 
+                {
+                    a = True;
+                    b = False;
+                    Return;
+                } 
+                {
+                    Foreach (i In 0 .. rows1 By 1) {
+                        Foreach (j In 0 .. col2 By (0 + 1) * 2 - 1) {
+                            c[i][j]=0;
+                            Foreach (k In 0 .. col1 By 1) {
+                                c[i][j] = c[i][j] + a[i][k] * b[k][j];
+                            }
+                            c = a + (b > c) + d;
+                            Out.print(c[i][j] +. " ");
+                        }
+                        Out.println();
+                    }
+                    Return c;
+                }      
+            }
+        }
+        

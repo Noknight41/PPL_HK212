@@ -1,0 +1,14 @@
+
+        Class Program {
+            Val b: Float = .e-3;
+            main() {
+                ## Missing incremental value ##
+                Foreach(a In 1 .. 0x1234ABCD){
+                    b = b + a / 5;
+                }
+                Foreach(a In -5 .. 0b1101 By 04){
+                    b = b - b / (03);
+                }
+                Return b;
+            }
+        }

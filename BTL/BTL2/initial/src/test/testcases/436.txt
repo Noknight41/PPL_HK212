@@ -1,0 +1,20 @@
+
+        Class Node{
+            Var $key: Int;
+            Var $value: String;
+            Constructor(key: Int; value: String){
+                Node::$key = key;
+                Node::$value = value;
+                Val pair: Pair = New Pair(Node::$key, Node::$value);
+                System.print("Object " + System.toString(Self.__str__()) + " has been created !");
+                System.print("Pair is: ", pair);
+            }
+            Destructor(){
+                Self.destroy();
+                System.print("Object " + System.toString(Self.__str__()) + " has been destroyed !");
+            }
+            destroy(){
+                System.delete(Self);
+            }
+        }
+        

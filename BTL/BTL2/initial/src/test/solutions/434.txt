@@ -1,0 +1,1 @@
+Program([ClassDecl(Id(Program),[AttributeDecl(Static,ConstDecl(Id($obj),ClassType(Id(Circle)),NewExpr(Id(Circle),[]))),AttributeDecl(Instance,ConstDecl(Id(obj2),ClassType(Id(Circle)),NewExpr(Id(Circle),[Id(obj2)]))),MethodDecl(Id(main),Static,[],Block([VarDecl(Id(circle3),ClassType(Id(Circle)),NewExpr(Id(Circle),[IntLit(1),IntLit(2)])),Return(Id(circle3))]))])])
