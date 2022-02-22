@@ -82,9 +82,9 @@ class ASTGeneration(D96Visitor):
                 return MethodDecl(Instance(), Id(ctx.ID().getText()), [], self.visit(ctx.blockstmt()))
         else:
             if ctx.paramlist():
-                return MethodDecl(Static(), Id(ctx.ID().getText()), self.visit(ctx.paramlist()), self.visit(ctx.blockstmt()))
+                return MethodDecl(Static(), Id(ctx.DOLLARID().getText()), self.visit(ctx.paramlist()), self.visit(ctx.blockstmt()))
             else:
-                return MethodDecl(Static(), Id(ctx.ID().getText()), [], self.visit(ctx.blockstmt()))
+                return MethodDecl(Static(), Id(ctx.DOLLARID().getText()), [], self.visit(ctx.blockstmt()))
 
     ### Return Bundles of ID and Expr (but mismatched) 
     # Visit a parse tree produced by D96Parser#id_vas.

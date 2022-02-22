@@ -2,7 +2,7 @@
         Class C{
             $forfunc(i : Int){
                 Foreach(a In 1 .. 0x45){
-                    Foreach(b In i - a .. i + 2*a By 2){
+                    Foreach(b In i - a .. i + 2*a By i){
                         Out.println(b, a, i);
                     }
                 }

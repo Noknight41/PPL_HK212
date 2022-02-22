@@ -1,0 +1,30 @@
+
+        Class A{
+            
+        }
+        Class B{
+            
+        }
+        Class C{
+            Var $a, $b, $c: Int = 034, 045, 067;
+            Var str: String = "D";
+            $forfunc(i : Int){
+                Foreach(a In 1 .. 0x45){
+                    If((C::$a > 5) && (C::$b > C::$c)){
+                        Foreach(b In i - a .. i + 2*a By i){
+                            Out::$println(b, a, i);
+                            C::$b = C::$b + b - C::$c;
+                        }
+                    }
+                    C::$a = C::$a + a;
+                }
+                str = str +. "D";
+                Return;
+            }
+        }
+        Class Program {
+            main(){
+                C::$forfunc(1);
+            }
+        }
+        
