@@ -1,20 +1,28 @@
 
-        Class A{
-            Var d1, $d2: Int;
-            Var d4, d3: Float;
-            Var d5, d_6: Boolean;   
-            Var d_7, d_8, d_9: String;
-            Var array_1, array_2: Array[String, 5];
-            Var array_3: Array[Array[Float, 4], 5];
+        Class D{
+            $daily(x : A){
+                If(x.a > 3){
+                    If(x.b >= 3){}
+                    Elseif(x.a < 3){
+                        If(x.a <= a.b().c){}
+                        Elseif((x.a == x.b) || (x.a != x.b)){}
+                    }
+                    Else{
+                        a = x.a + x.b;
+                    }
+                }
+                Else{
+                    a = x.a + x.b;
+                }
+            }
+            $showMaker(y : Array[Int, 5]){
+                Global.doSomthing();
+            }
         }
         Class Program {
             main(){
-                Var d1, d2: Int;
-                Var d4, d3: Float;
-                Var d5, d_6: Boolean;   
-                Var d_7, d_8, d_9: String;
-                Var demo: A = New A();
-                Return;
+                D::$daily(1);
+                D::$showMaker(Array(1,2,3,5,6));
             }
         }
         

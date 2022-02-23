@@ -1,20 +1,12 @@
 
-        Class A{
-            Val d1, d2: Int;
-            Val d4, d3: Float;
-            Val d5, d_6: Boolean;   
-            Val d_7, d_8, d_9: String;
-            Val array_1, array_2: Array[String, 5];
-            Val array_3: Array[Array[Float, 4], 5];
-        }
         Class Program {
             main(){
-                Val d1, d2: Int;
-                Val d4, d3: Float;
-                Val d5, d_6: Boolean;   
-                Val d_7, d_8, d_9: String;
-                Var demo: A = New A();
-                Return;
+                If(x >= 1){
+                    Global.doSomthing();
+                }
+                Elseif(x >= 0.5){
+                    
+                }
             }
         }
         

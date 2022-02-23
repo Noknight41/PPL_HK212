@@ -151,7 +151,7 @@ class ASTGeneration(D96Visitor):
             
     # Visit a parse tree produced by D96Parser#destructor.
     def visitDestructor(self, ctx:D96Parser.DestructorContext):
-        return MethodDecl(Instance(), Id(ctx.DESTRUCTOR().getText()), [], self.visit(ctx.blockstmt()))
+        return MethodDecl(Instance(), Id("Destructor"), [], self.visit(ctx.blockstmt()))
 
     # Visit a parse tree produced by D96Parser#datatype.
     def visitDatatype(self, ctx:D96Parser.DatatypeContext):

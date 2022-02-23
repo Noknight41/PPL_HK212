@@ -5,10 +5,18 @@
                 Self.a = x;
                 Self.b = y;
             }
+            Constructor(x: Int){
+                Self.a = x;
+                Self.b = x;
+            }
+            Destructor(){
+                Self.a = 1;
+                Self.b = 2;
+            }
         }
         Class Program {
             main(){
-                Var p: Pair = Null;
+                Var p, s: Pair = Null, New Pair(5);
                 p = New Pair(2,3);
             }
         }

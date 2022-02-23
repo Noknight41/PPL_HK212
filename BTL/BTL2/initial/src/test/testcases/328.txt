@@ -1,0 +1,8 @@
+Class A{
+            Val a, b : Array[Int, 3] = Array(1, 100, 11),  Array(0x12, 0100, 0b11);
+            Var c, d, e : Array[String, 4];
+        }
+        Class Program{
+            main(){}
+        }
+        

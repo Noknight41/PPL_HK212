@@ -1,0 +1,9 @@
+Class A{
+            Val a : Array[Int, 3] = Array(1, 100, 11);
+            Var b : Array[String, 4] = Array("This is a string", "Another string", "A", "B\n");
+            Var c : Array[Boolean, 3] = Array(True, False, True);
+            Var d : Array[Float, 5] = Array(.e5, 1123E123, .5e5, 0.2, 50.1123E-5);
+            Val e : Array[Int, 1] = Array();
+            Var f : Array[Array[Int, 2], 2] = Array(Array(1, 2), Array(3, 4));
+        }
+        

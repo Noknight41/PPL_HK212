@@ -29,17 +29,17 @@ funcdecl: (ID | DOLLARID) LB paramlist RB blockstmt | (ID | DOLLARID) LB RB bloc
 constructor: CONSTRUCTOR LB paramlist RB blockstmt | CONSTRUCTOR LB RB blockstmt;
 destructor: DESTRUCTOR LB RB blockstmt;
 
-// List of ultility ID
-paramlist: param SEMI paramlist | param;
+// List of ultility
 param: bidlist COLON dttyp;
+paramlist: param SEMI paramlist | param;
 bidlist: ID COMMA bidlist | ID;
 idlist: (ID | DOLLARID) COMMA idlist | (ID | DOLLARID);
 valuelist: expr COMMA valuelist | expr;
 
 // Blockstmt = Method body
-blockstmt: LP stmtlist RP | LP RP;
+blockstmt: (LP stmtlist RP) | (LP RP);
 stmtlist: stmt stmtlist | stmt;
-stmt: semi_stmt | blockstmt | foreachstmt |ifstmt;
+stmt: semi_stmt | blockstmt | foreachstmt | ifstmt;
 semi_stmt: (bvaldecl | bvardecl | varass | funccall | rcb) SEMI ;
 
 // Statement in Block Statement
@@ -67,7 +67,8 @@ funccall: expr DOT func | ID DCOLON dollarfunc;
 rcb: RETURN expr | RETURN | BREAK | CONTINUE;
 
 // Foreach statement
-foreachstmt: FOREACH LB ID IN expr DDOT expr (BY expr)? RB blockstmt;
+foreachstmt: FOREACH LB ID IN expr DDOT expr RB blockstmt
+            | FOREACH LB ID IN expr DDOT expr BY expr RB blockstmt;
 
 // If Elseif Else statement
 ifstmt: ifpart elseif_part | ifpart;
@@ -94,7 +95,7 @@ term9: ID DCOLON (DOLLARID | dollarfunc) | term10;
 term10: (NEW ID LB valuelist? RB) | ID | (LB expr RB) | literal | SELF;
 
 // Standalone Expr
-literal: TRUE | FALSE | FLOATLIT | INTLIT | STRINGLIT | ZERO | NULL | arrayCell;
+literal: TRUE | FALSE | INTLIT | ZERO | FLOATLIT | STRINGLIT | NULL | arrayCell;
 arrayCell: (ARRAY LB valuelist RB ) | (ARRAY LB RB);
 
 // LEXICAL
@@ -134,14 +135,18 @@ ILLEGAL_ESCAPE: '"' (LEGAL_CHAR | QQ)* ILLEGAL_ESC  {
 // Comment
 BCOMMENT: '##' .*? '##' -> skip;
 
-// Keyword
-CLASS: 'Class';
-BREAK: 'Break';
-CONTINUE: 'Continue';
-IF: 'If';
-ELSEIF: 'Elseif';
-ELSE: 'Else';
-FOREACH: 'Foreach';
+// OPERATOR
+STR: '==.' | '+.';
+RELOP: '==' | '!=' | '>=' | '<=' | '>' | '<';
+NOTOP: '!';
+ANDOP: '&&';
+OROP:  '||';
+ASSOP: '=';
+ADDOP: '+';
+MINOP: '-';
+MULOP: '*';
+DIVOP: '/';
+REMOP: '%';
 
 // Variable Keyword
 ARRAY: 'Array';
@@ -153,32 +158,25 @@ BOOLEAN: 'Boolean';
 STRING: 'String';
 NULL: 'Null';
 
+// Keyword
+CLASS: 'Class';
+BREAK: 'Break';
+CONTINUE: 'Continue';
+IF: 'If';
+ELSEIF: 'Elseif';
+ELSE: 'Else';
+FOREACH: 'Foreach';
 VAL: 'Val';
 VAR: 'Var';
 CONSTRUCTOR: 'Constructor';
 DESTRUCTOR: 'Destructor';
 RETURN: 'Return';
+SELF: 'Self';
 NEW: 'New';
 IN: 'In';
 BY: 'By';
-SELF: 'Self';
 
-// STRING OPS
-STR: '==.' | '+.';
 
-// BOOLEAN OPS
-RELOP: '==' | '!=' | '>=' | '<=' | '>' | '<';
-NOTOP: '!';
-ANDOP: '&&';
-OROP:  '||';
-
-// MATH OPS
-ASSOP: '=';
-ADDOP: '+';
-MINOP: '-';
-MULOP: '*';
-DIVOP: '/';
-REMOP: '%';
 
 // Special Operator
 DCOLON: '::';
