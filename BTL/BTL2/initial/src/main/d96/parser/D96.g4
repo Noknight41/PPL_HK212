@@ -44,12 +44,12 @@ semi_stmt: (bvaldecl | bvardecl | varass | funccall | rcb) SEMI ;
 
 // Statement in Block Statement
 // Id in Variable/Const Decl
-bid_vas: ID bid_va expr;
-bid_va: COMMA ID bid_va expr COMMA | COLON dttyp ASSOP;
+block_id_vas: ID block_id_va expr;
+block_id_va: COMMA ID block_id_va expr COMMA | COLON dttyp ASSOP;
 
 // Variable/Const Decl
-bvaldecl: VAL bidlist COLON dttyp | VAL bid_vas;
-bvardecl: VAR bidlist COLON dttyp | VAR bid_vas;
+bvaldecl: VAL bidlist COLON dttyp | VAL block_id_vas;
+bvardecl: VAR bidlist COLON dttyp | VAR block_id_vas;
 
 // LHS
 lhs: lhs DOT ID | SELF DOT ID | ID DCOLON DOLLARID | ID;
@@ -63,9 +63,6 @@ func: ID LB valuelist RB | ID LB RB;
 dollarfunc: DOLLARID LB valuelist RB | DOLLARID LB RB;
 funccall: expr DOT func | ID DCOLON dollarfunc;
 
-// Other Statement: Return + Continue + Break
-rcb: RETURN expr | RETURN | BREAK | CONTINUE;
-
 // Foreach statement
 foreachstmt: FOREACH LB ID IN expr DDOT expr RB blockstmt
             | FOREACH LB ID IN expr DDOT expr BY expr RB blockstmt;
@@ -74,6 +71,9 @@ foreachstmt: FOREACH LB ID IN expr DDOT expr RB blockstmt
 ifstmt: ifpart elseif_part | ifpart;
 ifpart: IF LB expr RB blockstmt;
 elseif_part: ELSEIF LB expr RB blockstmt elseif_part | ELSEIF LB expr RB blockstmt | ELSE blockstmt;
+
+// Other Statement: Return + Continue + Break
+rcb: RETURN expr | RETURN | BREAK | CONTINUE;
 
 // Data type in D96
 datatype: INT | FLOAT | BOOLEAN | STRING;

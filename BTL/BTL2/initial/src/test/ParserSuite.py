@@ -5,21 +5,13 @@ class ParserSuite(unittest.TestCase):
 ###
     def test_201(self):
         test = """
-        Class C{
-            $forfunc(i : Int){
-                Foreach(a In 1 .. 0x45){
-                    Foreach(b In i - a .. i + 2*a By 2){
-                        Out.println(b, a, i);
-                    }
-                }
-            }
-        }
-        Class Program {
-            Val $b5, $b_6: Boolean = True, False;   
-            Val b_7, $b_8, $b_9: String = "No I'" Not", "Seeya", "Gozen";
+        Class Program{
             main(){
-                Var demo: C = New C();
-                C::$forfunc(1);
+                Var a: Array[Array[Boolean, 2], 2];
+                a[1][0b10 * 0x123 % 2] = True;
+                a[1][3 * 2 * 1 / 6] = False;
+                a[0x270F / 9999 + 1][0 * 0B1011110101] = True;
+                a[9999 / 0x270F * 2][1 * 9 / 9] = Sys.sampleArray(a[0x1]);
             }
         }
         """

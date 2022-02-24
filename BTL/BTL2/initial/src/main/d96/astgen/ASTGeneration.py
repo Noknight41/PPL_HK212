@@ -1,7 +1,7 @@
 from D96Visitor import D96Visitor
 from D96Parser import D96Parser
 from AST import *
-from main.d96.utils.AST import IntLiteral, MethodDecl, SelfLiteral
+from main.d96.utils.AST import IntLiteral, MethodDecl, NullLiteral, SelfLiteral
 
 
 class ASTGeneration(D96Visitor):
@@ -105,11 +105,18 @@ class ASTGeneration(D96Visitor):
             var = self.visit(ctx.idlist())
             tp = self.visit(ctx.dttyp())
             result = []
-            for i in var:
-                if i[1] == "I":
-                    result += [(AttributeDecl(Instance() , ConstDecl(i[0], tp)), "Not")]
-                else:
-                    result += [(AttributeDecl(Static()   , ConstDecl(i[0], tp)), "Not")]
+            if (ctx.dttyp().ID()):
+                for i in var:
+                    if i[1] == "I":
+                        result += [(AttributeDecl(Instance() , ConstDecl(i[0], tp, NullLiteral())), "Not")]
+                    else:
+                        result += [(AttributeDecl(Static()   , ConstDecl(i[0], tp, NullLiteral())), "Not")]
+            else:
+                for i in var:
+                    if i[1] == "I":
+                        result += [(AttributeDecl(Instance() , ConstDecl(i[0], tp)), "Not")]
+                    else:
+                        result += [(AttributeDecl(Static()   , ConstDecl(i[0], tp)), "Not")]
             return result
             
     # Visit a parse tree produced by D96Parser#vardecl.
@@ -135,11 +142,18 @@ class ASTGeneration(D96Visitor):
             var = self.visit(ctx.idlist())
             tp = self.visit(ctx.dttyp())
             result = []
-            for i in var:
-                if i[1] == "I":
-                    result += [(AttributeDecl(Instance() , VarDecl(i[0], tp)), "Not")]
-                else:
-                    result += [(AttributeDecl(Static()   , VarDecl(i[0], tp)), "Not")]
+            if (ctx.dttyp().ID()):
+                for i in var:
+                    if i[1] == "I":
+                        result += [(AttributeDecl(Instance() , VarDecl(i[0], tp, NullLiteral())), "Not")]
+                    else:
+                        result += [(AttributeDecl(Static()   , VarDecl(i[0], tp, NullLiteral())), "Not")]
+            else:
+                for i in var:
+                    if i[1] == "I":
+                        result += [(AttributeDecl(Instance() , VarDecl(i[0], tp)), "Not")]
+                    else:
+                        result += [(AttributeDecl(Static()   , VarDecl(i[0], tp)), "Not")]
             return result
 
     # Visit a parse tree produced by D96Parser#constructor.
@@ -257,21 +271,21 @@ class ASTGeneration(D96Visitor):
         else: 
             return [self.visit(ctx.funccall())]
         
-    # Visit a parse tree produced by D96Parser#bid_vas.
-    def visitBid_vas(self, ctx:D96Parser.Bid_vasContext):
-        return [( Id(ctx.ID().getText()), self.visit(ctx.expr()) )] + self.visit(ctx.bid_va())
+    # Visit a parse tree produced by D96Parser#block_id_vas.
+    def visitBlock_id_vas(self, ctx:D96Parser.Block_id_vasContext):
+        return [( Id(ctx.ID().getText()), self.visit(ctx.expr()) )] + self.visit(ctx.block_id_va())
 
-    # Visit a parse tree produced by D96Parser#bid_va.
-    def visitBid_va(self, ctx:D96Parser.Bid_vaContext):
+    # Visit a parse tree produced by D96Parser#block_id_va.
+    def visitBlock_id_va(self, ctx:D96Parser.Block_id_vaContext):
         if ctx.dttyp():
             return [(self.visit(ctx.dttyp()))]
         else:
-            return [( Id(ctx.ID().getText()), self.visit(ctx.expr()) )] + self.visit(ctx.bid_va())
+            return [( Id(ctx.ID().getText()), self.visit(ctx.expr()) )] + self.visit(ctx.block_id_va())
 
     # Visit a parse tree produced by D96Parser#bvardecl.
     def visitBvardecl(self, ctx:D96Parser.BvardeclContext):
-        if ctx.bid_vas():
-            v = self.visit(ctx.bid_vas())
+        if ctx.block_id_vas():
+            v = self.visit(ctx.block_id_vas())
             ids = []
             expr = []
             result = []
@@ -287,13 +301,16 @@ class ASTGeneration(D96Visitor):
             tp = self.visit(ctx.dttyp())
             result = []
             for i in var:
-                result += [VarDecl(i, tp)]
+                if ctx.dttyp().ID():
+                    result += [VarDecl(i, tp, NullLiteral())]
+                else:    
+                    result += [VarDecl(i, tp)]
             return result
 
     # Visit a parse tree produced by D96Parser#bvaldecl.
     def visitBvaldecl(self, ctx:D96Parser.BvaldeclContext):
-        if ctx.bid_vas():
-            v = self.visit(ctx.bid_vas())
+        if ctx.block_id_vas():
+            v = self.visit(ctx.block_id_vas())
             ids = []
             expr = []
             result = []
@@ -309,7 +326,10 @@ class ASTGeneration(D96Visitor):
             tp = self.visit(ctx.dttyp())
             result = []
             for i in val:
-                result += [ConstDecl(i, tp)]
+                if ctx.dttyp().ID():
+                    result += [ConstDecl(i, tp, NullLiteral())]
+                else:
+                    result += [ConstDecl(i, tp)]
             return result
         
     # Visit a parse tree produced by D96Parser#scalar.

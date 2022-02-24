@@ -80,8 +80,6 @@ class TestParser:
         TestParser.check(SOL_DIR,inputfile,num)
         dest = open(SOL_DIR + str(num) + ".txt","r")
         line = dest.read()
-        if (line != expect): 
-            print(line)
         return line == expect
 
     @staticmethod
@@ -110,8 +108,9 @@ class TestAST:
         TestAST.check(SOL_DIR,inputfile,num)
         dest = open(os.path.join(SOL_DIR,str(num) + ".txt"),"r")
         line = dest.read()
-        print(line + "\n")
-        print(expect + "\n\n")
+        if (line != expect): 
+            print(line + "\n")
+            print(expect + "\n\n")
         return line == expect
 
     @staticmethod
