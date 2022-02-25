@@ -540,11 +540,11 @@ class ASTGeneration(D96Visitor):
     def changeToInt(self, string):
         if string[0] == "0":
             if string[1] == "b" or string[1] == "B":
-                return int(string, base = 2)
+                return bin(int(string, base = 2))
             if string[1] == "x" or string[1] == "C":
-                return int(string, base = 16)
+                return hex(int(string, base = 16))
             else:
-                return int(string, base = 8)
+                return oct(int(string, base = 8))
         else:
             return int(string)
     
@@ -573,11 +573,11 @@ class ASTGeneration(D96Visitor):
             return BooleanLiteral(False)
         elif ctx.FLOATLIT():
             text = ctx.FLOATLIT().getText()
-            if text[0] == "." and (text[1] == "e" or text[1] == "E"):
-                return FloatLiteral(0.0)
-            return FloatLiteral(float(text))
+            # if text[0] == "." and (text[1] == "e" or text[1] == "E"):
+            #     return FloatLiteral(0.0)
+            return FloatLiteral(text)
         elif ctx.INTLIT():
-            return IntLiteral(self.changeToInt(ctx.INTLIT().getText()))
+            return IntLiteral(ctx.INTLIT().getText())
         elif ctx.STRINGLIT():
             return StringLiteral(ctx.STRINGLIT().getText())
         elif ctx.ZERO():

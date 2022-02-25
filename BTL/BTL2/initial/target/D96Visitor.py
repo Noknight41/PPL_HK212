@@ -64,13 +64,13 @@ class D96Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by D96Parser#paramlist.
-    def visitParamlist(self, ctx:D96Parser.ParamlistContext):
+    # Visit a parse tree produced by D96Parser#param.
+    def visitParam(self, ctx:D96Parser.ParamContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by D96Parser#param.
-    def visitParam(self, ctx:D96Parser.ParamContext):
+    # Visit a parse tree produced by D96Parser#paramlist.
+    def visitParamlist(self, ctx:D96Parser.ParamlistContext):
         return self.visitChildren(ctx)
 
 
@@ -109,13 +109,13 @@ class D96Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by D96Parser#bid_vas.
-    def visitBid_vas(self, ctx:D96Parser.Bid_vasContext):
+    # Visit a parse tree produced by D96Parser#block_id_vas.
+    def visitBlock_id_vas(self, ctx:D96Parser.Block_id_vasContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by D96Parser#bid_va.
-    def visitBid_va(self, ctx:D96Parser.Bid_vaContext):
+    # Visit a parse tree produced by D96Parser#block_id_va.
+    def visitBlock_id_va(self, ctx:D96Parser.Block_id_vaContext):
         return self.visitChildren(ctx)
 
 

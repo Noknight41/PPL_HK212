@@ -28,7 +28,7 @@ class ASTGenSuite(unittest.TestCase):
         Class Program{
             Var t: Float = 1.00;
         }"""
-        expect = """Program([ClassDecl(Id(Program),[AttributeDecl(Instance,VarDecl(Id(t),FloatType,FloatLit(1.0)))])])"""
+        expect = """Program([ClassDecl(Id(Program),[AttributeDecl(Instance,VarDecl(Id(t),FloatType,FloatLit(1.00)))])])"""
         self.assertTrue(TestAST.test(input,expect,302))
     
     def test_303(self):
@@ -142,7 +142,7 @@ class ASTGenSuite(unittest.TestCase):
             }
         }
         """
-        expect = """Program([ClassDecl(Id(A),[AttributeDecl(Instance,VarDecl(Id(a1),IntType,IntLit(18))),AttributeDecl(Static,VarDecl(Id($a2),IntType,IntLit(284))),AttributeDecl(Instance,VarDecl(Id(a4),FloatType,FloatLit(1.23445))),AttributeDecl(Static,VarDecl(Id($a3),FloatType,FloatLit(0.0340041))),AttributeDecl(Instance,VarDecl(Id(a5),BoolType,BooleanLit(True))),AttributeDecl(Static,VarDecl(Id($a_6),BoolType,BooleanLit(False))),AttributeDecl(Instance,VarDecl(Id(a_7),StringType,StringLit(No))),AttributeDecl(Static,VarDecl(Id($a_8),StringType,StringLit(Seeya))),AttributeDecl(Instance,VarDecl(Id(a_9),StringType,StringLit(Gozen)))]),ClassDecl(Id(Program),[MethodDecl(Id(main),Static,[],Block([VarDecl(Id(a1),IntType,IntLit(18)),VarDecl(Id(a2),IntType,IntLit(284)),VarDecl(Id(a4),FloatType,FloatLit(1.23445)),VarDecl(Id(a3),FloatType,FloatLit(0.0340041)),VarDecl(Id(a5),BoolType,BooleanLit(True)),VarDecl(Id(a_6),BoolType,BooleanLit(False)),VarDecl(Id(a_7),StringType,StringLit(No)),VarDecl(Id(a_8),StringType,StringLit(Seeya)),VarDecl(Id(a_9),StringType,StringLit(Gozen)),VarDecl(Id(demo),ClassType(Id(A)),NewExpr(Id(A),[BooleanLit(True)])),Return()]))])])"""
+        expect = """Program([ClassDecl(Id(A),[AttributeDecl(Instance,VarDecl(Id(a1),IntType,IntLit(0x12))),AttributeDecl(Static,VarDecl(Id($a2),IntType,IntLit(0434))),AttributeDecl(Instance,VarDecl(Id(a4),FloatType,FloatLit(1.23445))),AttributeDecl(Static,VarDecl(Id($a3),FloatType,FloatLit(0.0340041))),AttributeDecl(Instance,VarDecl(Id(a5),BoolType,BooleanLit(True))),AttributeDecl(Static,VarDecl(Id($a_6),BoolType,BooleanLit(False))),AttributeDecl(Instance,VarDecl(Id(a_7),StringType,StringLit(No))),AttributeDecl(Static,VarDecl(Id($a_8),StringType,StringLit(Seeya))),AttributeDecl(Instance,VarDecl(Id(a_9),StringType,StringLit(Gozen)))]),ClassDecl(Id(Program),[MethodDecl(Id(main),Static,[],Block([VarDecl(Id(a1),IntType,IntLit(0x12)),VarDecl(Id(a2),IntType,IntLit(0434)),VarDecl(Id(a4),FloatType,FloatLit(1.23445)),VarDecl(Id(a3),FloatType,FloatLit(0.0340041)),VarDecl(Id(a5),BoolType,BooleanLit(True)),VarDecl(Id(a_6),BoolType,BooleanLit(False)),VarDecl(Id(a_7),StringType,StringLit(No)),VarDecl(Id(a_8),StringType,StringLit(Seeya)),VarDecl(Id(a_9),StringType,StringLit(Gozen)),VarDecl(Id(demo),ClassType(Id(A)),NewExpr(Id(A),[BooleanLit(True)])),Return()]))])])"""
         self.assertTrue(TestAST.test(input, expect, 308))
     
     def test_309(self):
@@ -168,7 +168,7 @@ class ASTGenSuite(unittest.TestCase):
             }
         }
         """
-        expect = """Program([ClassDecl(Id(A),[AttributeDecl(Instance,VarDecl(Id(array_1),ArrayType(5,FloatType))),AttributeDecl(Static,VarDecl(Id($array_2),ArrayType(5,FloatType))),AttributeDecl(Instance,VarDecl(Id(array_3),ArrayType(5,IntType),[IntLit(1),IntLit(2),IntLit(4),IntLit(29),IntLit(28)])),AttributeDecl(Static,VarDecl(Id($array_4),ArrayType(2,ArrayType(2,StringType)),[[StringLit(Person),StringLit(Demon)],[StringLit(Heaven),StringLit(Utopia)]]))]),ClassDecl(Id(Program),[MethodDecl(Id(main),Static,[],Block([VarDecl(Id(array_1),ArrayType(5,BoolType)),VarDecl(Id(array_2),ArrayType(5,BoolType)),VarDecl(Id(array_3),ArrayType(5,IntType),[IntLit(1),IntLit(2),IntLit(4),IntLit(29),IntLit(28)]),VarDecl(Id(array_4),ArrayType(2,ArrayType(2,StringType)),[[StringLit(Person),StringLit(Demon)],[StringLit(Heaven),StringLit(Utopia)]]),VarDecl(Id(demo),ClassType(Id(A)),NewExpr(Id(A),[BooleanLit(False)])),Return()]))])])"""
+        expect = """Program([ClassDecl(Id(A),[AttributeDecl(Instance,VarDecl(Id(array_1),ArrayType(5,FloatType))),AttributeDecl(Static,VarDecl(Id($array_2),ArrayType(5,FloatType))),AttributeDecl(Instance,VarDecl(Id(array_3),ArrayType(5,IntType),[IntLit(1),IntLit(2),IntLit(0x4),IntLit(0b11101),IntLit(034)])),AttributeDecl(Static,VarDecl(Id($array_4),ArrayType(2,ArrayType(2,StringType)),[[StringLit(Person),StringLit(Demon)],[StringLit(Heaven),StringLit(Utopia)]]))]),ClassDecl(Id(Program),[MethodDecl(Id(main),Static,[],Block([VarDecl(Id(array_1),ArrayType(5,BoolType)),VarDecl(Id(array_2),ArrayType(5,BoolType)),VarDecl(Id(array_3),ArrayType(5,IntType),[IntLit(1),IntLit(2),IntLit(0x4),IntLit(0b11101),IntLit(034)]),VarDecl(Id(array_4),ArrayType(2,ArrayType(2,StringType)),[[StringLit(Person),StringLit(Demon)],[StringLit(Heaven),StringLit(Utopia)]]),VarDecl(Id(demo),ClassType(Id(A)),NewExpr(Id(A),[BooleanLit(False)])),Return()]))])])"""
         self.assertTrue(TestAST.test(input, expect, 309))
     
     ### Const Decl
@@ -215,7 +215,7 @@ class ASTGenSuite(unittest.TestCase):
             }
         }
         """
-        expect = """Program([ClassDecl(Id(A),[AttributeDecl(Instance,ConstDecl(Id(a1),IntType,IntLit(18))),AttributeDecl(Static,ConstDecl(Id($a2),IntType,IntLit(284))),AttributeDecl(Instance,ConstDecl(Id(a4),FloatType,FloatLit(1.23445))),AttributeDecl(Static,ConstDecl(Id($a3),FloatType,FloatLit(0.0340041))),AttributeDecl(Instance,ConstDecl(Id(a5),BoolType,BooleanLit(True))),AttributeDecl(Static,ConstDecl(Id($a_6),BoolType,BooleanLit(False))),AttributeDecl(Instance,ConstDecl(Id(a_7),StringType,StringLit(No))),AttributeDecl(Static,ConstDecl(Id($a_8),StringType,StringLit(Seeya))),AttributeDecl(Instance,ConstDecl(Id(a_9),StringType,StringLit(Gozen)))]),ClassDecl(Id(Program),[MethodDecl(Id(main),Static,[],Block([ConstDecl(Id(a1),IntType,IntLit(18)),ConstDecl(Id(a2),IntType,IntLit(284)),ConstDecl(Id(a4),FloatType,FloatLit(1.23445)),ConstDecl(Id(a3),FloatType,FloatLit(0.0340041)),ConstDecl(Id(a5),BoolType,BooleanLit(True)),ConstDecl(Id(a_6),BoolType,BooleanLit(False)),ConstDecl(Id(a_7),StringType,StringLit(No)),ConstDecl(Id(a_8),StringType,StringLit(Seeya)),ConstDecl(Id(a_9),StringType,StringLit(Gozen)),VarDecl(Id(demo),ClassType(Id(A)),NewExpr(Id(A),[BooleanLit(True)])),Return()]))])])"""
+        expect = """Program([ClassDecl(Id(A),[AttributeDecl(Instance,ConstDecl(Id(a1),IntType,IntLit(0x12))),AttributeDecl(Static,ConstDecl(Id($a2),IntType,IntLit(0434))),AttributeDecl(Instance,ConstDecl(Id(a4),FloatType,FloatLit(1.23445))),AttributeDecl(Static,ConstDecl(Id($a3),FloatType,FloatLit(0.0340041))),AttributeDecl(Instance,ConstDecl(Id(a5),BoolType,BooleanLit(True))),AttributeDecl(Static,ConstDecl(Id($a_6),BoolType,BooleanLit(False))),AttributeDecl(Instance,ConstDecl(Id(a_7),StringType,StringLit(No))),AttributeDecl(Static,ConstDecl(Id($a_8),StringType,StringLit(Seeya))),AttributeDecl(Instance,ConstDecl(Id(a_9),StringType,StringLit(Gozen)))]),ClassDecl(Id(Program),[MethodDecl(Id(main),Static,[],Block([ConstDecl(Id(a1),IntType,IntLit(0x12)),ConstDecl(Id(a2),IntType,IntLit(0434)),ConstDecl(Id(a4),FloatType,FloatLit(1.23445)),ConstDecl(Id(a3),FloatType,FloatLit(0.0340041)),ConstDecl(Id(a5),BoolType,BooleanLit(True)),ConstDecl(Id(a_6),BoolType,BooleanLit(False)),ConstDecl(Id(a_7),StringType,StringLit(No)),ConstDecl(Id(a_8),StringType,StringLit(Seeya)),ConstDecl(Id(a_9),StringType,StringLit(Gozen)),VarDecl(Id(demo),ClassType(Id(A)),NewExpr(Id(A),[BooleanLit(True)])),Return()]))])])"""
         self.assertTrue(TestAST.test(input, expect, 311))
     
     def test_312(self):
@@ -775,8 +775,179 @@ class ASTGenSuite(unittest.TestCase):
         expect = """Program([ClassDecl(Id(AB),[]),ClassDecl(Id(Work),[MethodDecl(Id(func),Instance,[param(Id(a),IntType),param(Id(b),FloatType),param(Id(c),BoolType),param(Id(d),StringType),param(Id(e),ClassType(Id(AB))),param(Id(f),ArrayType(3,FloatType))],Block([]))]),ClassDecl(Id(Util),Id(Work),[MethodDecl(Id(func1),Instance,[],Block([])),MethodDecl(Id(func2),Instance,[param(Id(a),IntType),param(Id(b),IntType)],Block([])),MethodDecl(Id($func3),Static,[param(Id(c),FloatType),param(Id(d),FloatType),param(Id(e),StringType)],Block([])),MethodDecl(Id($func4),Static,[param(Id(a),ArrayType(3,StringType)),param(Id(c),ArrayType(3,StringType)),param(Id(d),ArrayType(3,StringType)),param(Id(f),BoolType)],Block([])),MethodDecl(Id(Constructor),Instance,[param(Id(a),ArrayType(2,ArrayType(3,StringType)))],Block([])),MethodDecl(Id(Destructor),Instance,[],Block([]))]),ClassDecl(Id(Program),[MethodDecl(Id(main),Static,[],Block([VarDecl(Id(w),ClassType(Id(Work)),NullLiteral()),AssignStmt(Id(w),NewExpr(Id(Util),[[[StringLit(Yo),StringLit(Hello),StringLit(Sup)],[StringLit(Nice),StringLit(To),StringLit(Meet)]]])),Call(Id(w),Id(func),[]),Call(Id(w),Id(func1),[]),Call(Id(w),Id(func2),[IntLit(1),IntLit(4)]),Call(Id(Util),Id($func3),[FloatLit(1.0),FloatLit(200.0),StringLit(Nope)]),Call(Id(Util),Id($func4),[[StringLit(Yo),StringLit(Hello),StringLit(Sup)],BooleanLit(True)])]))])])"""
         self.assertTrue(TestAST.test(input, expect, 336))
     
+    def test_337(self):
+        input = """
+        Class AB{
+            func1(){}
+        }
+        Class Work{
+            func(a: Int; b: Float; c: Boolean; d: String; e: AB; f: Array[Float, 3]){
+                Val a: AB = New AB();
+                a.func1();
+            }
+            func2(a, b: Int){
+                Self.func(a + b, 1.2, False, "Nope", New AB(), Array(1.2, 3.234, 1.2e3));
+            }
+        }
+        Class Util: Work{
+            $func3(c, d: Float; e: String){}
+            $func4(a, c, d: Array[String, 3]; f: Boolean){}
+            Constructor(a: Array[Array[String, 3], 2]){}
+            Destructor(){}
+        }
+        Class Program{
+            main(){
+                Var w : Work;
+                w = New Util(Array(Array("Yo", "Hello", "Sup"), Array("Nice", "To", "Meet")));
+                w.func();
+                w.func1();
+                w.func2(1, 0x4);
+                Util::$func3(1.0, 0.2e3, "Nope");
+                Util::$func4(Array("Yo", "Hello", "Sup"), True);
+            }
+        }
+        """
+        expect = """Program([ClassDecl(Id(AB),[MethodDecl(Id(func1),Instance,[],Block([]))]),ClassDecl(Id(Work),[MethodDecl(Id(func),Instance,[param(Id(a),IntType),param(Id(b),FloatType),param(Id(c),BoolType),param(Id(d),StringType),param(Id(e),ClassType(Id(AB))),param(Id(f),ArrayType(3,FloatType))],Block([ConstDecl(Id(a),ClassType(Id(AB)),NewExpr(Id(AB),[])),Call(Id(a),Id(func1),[])])),MethodDecl(Id(func2),Instance,[param(Id(a),IntType),param(Id(b),IntType)],Block([Call(Self(),Id(func),[BinaryOp(+,Id(a),Id(b)),FloatLit(1.2),BooleanLit(False),StringLit(Nope),NewExpr(Id(AB),[]),[FloatLit(1.2),FloatLit(3.234),FloatLit(1200.0)]])]))]),ClassDecl(Id(Util),Id(Work),[MethodDecl(Id($func3),Static,[param(Id(c),FloatType),param(Id(d),FloatType),param(Id(e),StringType)],Block([])),MethodDecl(Id($func4),Static,[param(Id(a),ArrayType(3,StringType)),param(Id(c),ArrayType(3,StringType)),param(Id(d),ArrayType(3,StringType)),param(Id(f),BoolType)],Block([])),MethodDecl(Id(Constructor),Instance,[param(Id(a),ArrayType(2,ArrayType(3,StringType)))],Block([])),MethodDecl(Id(Destructor),Instance,[],Block([]))]),ClassDecl(Id(Program),[MethodDecl(Id(main),Static,[],Block([VarDecl(Id(w),ClassType(Id(Work)),NullLiteral()),AssignStmt(Id(w),NewExpr(Id(Util),[[[StringLit(Yo),StringLit(Hello),StringLit(Sup)],[StringLit(Nice),StringLit(To),StringLit(Meet)]]])),Call(Id(w),Id(func),[]),Call(Id(w),Id(func1),[]),Call(Id(w),Id(func2),[IntLit(1),IntLit(4)]),Call(Id(Util),Id($func3),[FloatLit(1.0),FloatLit(200.0),StringLit(Nope)]),Call(Id(Util),Id($func4),[[StringLit(Yo),StringLit(Hello),StringLit(Sup)],BooleanLit(True)])]))])])"""
+        self.assertTrue(TestAST.test(input, expect, 337))
+    
+    ### Expr
+    def test_338(self):
+        input = """
+        Class Shape {
+            Val My1stCons, My2ndCons: Int = 1 + 5/2, 2;
+            Var $x, $y : Int = 0 + - 2 * 4 % 3, 0 -- 1;
+        }
+        Class Program {
+            ## Muda
+            Muda ##
+            main(){
+                a = 1.0;
+            }
+        }
+        """
+        expect = """Program([ClassDecl(Id(Shape),[AttributeDecl(Instance,ConstDecl(Id(My1stCons),IntType,BinaryOp(+,IntLit(1),BinaryOp(/,IntLit(5),IntLit(2))))),AttributeDecl(Instance,ConstDecl(Id(My2ndCons),IntType,IntLit(2))),AttributeDecl(Static,VarDecl(Id($x),IntType,BinaryOp(+,IntLit(0),BinaryOp(%,BinaryOp(*,UnaryOp(-,IntLit(2)),IntLit(4)),IntLit(3))))),AttributeDecl(Static,VarDecl(Id($y),IntType,BinaryOp(-,IntLit(0),UnaryOp(-,IntLit(1)))))]),ClassDecl(Id(Program),[MethodDecl(Id(main),Static,[],Block([AssignStmt(Id(a),FloatLit(1.0))]))])])"""
+        self.assertTrue(TestAST.test(input, expect, 338))
+        
+    def test_339(self):
+        input = """
+        Class Shape {
+            Val S1stCons, S2ndCons: Int = 1 * -5/2, -2 + 3 - Self.length("Sup" +. "Daily");
+            Var $x, $y : Int = 0 + - 2 * 4 % 3, 0 -- 1;
+            Var $array: Array[Int, 5] = Array(1,2,3,4,5);
+        }
+        Class Program {
+            ## Muda
+            Muda ##
+            main(){
+                Var d: Shape = New Shape();
+                If (!(Shape::$x > Shape::$y + d.S1stCons)){
+                    
+                }
+                Elseif((Shape::$x > Shape::$y + d.array[1]) && c > 2){
+                    
+                }
+                Else{
+                    a = 1.0;
+                }
+                
+            }
+        }
+        """
+        expect = """Program([ClassDecl(Id(Shape),[AttributeDecl(Instance,ConstDecl(Id(S1stCons),IntType,BinaryOp(/,BinaryOp(*,IntLit(1),UnaryOp(-,IntLit(5))),IntLit(2)))),AttributeDecl(Instance,ConstDecl(Id(S2ndCons),IntType,BinaryOp(-,BinaryOp(+,UnaryOp(-,IntLit(2)),IntLit(3)),CallExpr(Self(),Id(length),[BinaryOp(+.,StringLit(Sup),StringLit(Daily))])))),AttributeDecl(Static,VarDecl(Id($x),IntType,BinaryOp(+,IntLit(0),BinaryOp(%,BinaryOp(*,UnaryOp(-,IntLit(2)),IntLit(4)),IntLit(3))))),AttributeDecl(Static,VarDecl(Id($y),IntType,BinaryOp(-,IntLit(0),UnaryOp(-,IntLit(1))))),AttributeDecl(Static,VarDecl(Id($array),ArrayType(5,IntType),[IntLit(1),IntLit(2),IntLit(3),IntLit(4),IntLit(5)]))]),ClassDecl(Id(Program),[MethodDecl(Id(main),Static,[],Block([VarDecl(Id(d),ClassType(Id(Shape)),NewExpr(Id(Shape),[])),If(UnaryOp(!,BinaryOp(>,FieldAccess(Id(Shape),Id($x)),BinaryOp(+,FieldAccess(Id(Shape),Id($y)),FieldAccess(Id(d),Id(S1stCons))))),Block([]),If(BinaryOp(>,BinaryOp(&&,BinaryOp(>,FieldAccess(Id(Shape),Id($x)),BinaryOp(+,FieldAccess(Id(Shape),Id($y)),ArrayCell(FieldAccess(Id(d),Id(array)),[IntLit(1)]))),Id(c)),IntLit(2)),Block([]),Block([AssignStmt(Id(a),FloatLit(1.0))])))]))])])"""
+        self.assertTrue(TestAST.test(input, expect, 339))
     
     ### Heap
+    def test_379(self):
+        input = """
+        Class Program{
+            Var $str: String = "From Class Program: ";
+            main(){      
+                Var circle: Circle = New Circle(math.pi, 4);
+                Return circle;
+            }
+            print(s: String){
+                System.out.println(s + " says hello to the world!");
+                Return;
+            }
+        }
+        """
+        expect = """Program([ClassDecl(Id(Program),[AttributeDecl(Static,VarDecl(Id($str),StringType,StringLit(From Class Program: ))),MethodDecl(Id(main),Static,[],Block([VarDecl(Id(circle),ClassType(Id(Circle)),NewExpr(Id(Circle),[FieldAccess(Id(math),Id(pi)),IntLit(4)])),Return(Id(circle))])),MethodDecl(Id(print),Instance,[param(Id(s),StringType)],Block([Call(FieldAccess(Id(System),Id(out)),Id(println),[BinaryOp(+,Id(s),StringLit( says hello to the world!))]),Return()]))])])"""
+        self.assertTrue(TestAST.test(input, expect, 379))
+    
+    def test_380(self):
+        input = """
+        Class Program{
+            Var $a: IntObj;
+            main(){
+                Var b: IntObj = New IntObj();
+            }
+        }
+        """
+        expect = """Program([ClassDecl(Id(Program),[AttributeDecl(Static,VarDecl(Id($a),ClassType(Id(IntObj)),NullLiteral())),MethodDecl(Id(main),Static,[],Block([VarDecl(Id(b),ClassType(Id(IntObj)),NewExpr(Id(IntObj),[]))]))])])"""
+        self.assertTrue(TestAST.test(input, expect, 380))
+    
+    def test_381(self):
+        input = """
+        Class NFT {
+            Var fyou: String = "If you dumb enough to buy this";
+            Var utrash : String = "You dumb enough to survive on sunlight";
+            Constructor(){
+                fyou = Self.fyou;
+                utrash = Self.utrash;
+            }
+        }
+        Class Program {
+            main() {
+                Val b : Int = a::$a;
+                a::$func();
+                Return;
+            }
+        }
+        """
+        expect = """Program([ClassDecl(Id(NFT),[AttributeDecl(Instance,VarDecl(Id(fyou),StringType,StringLit(If you dumb enough to buy this))),AttributeDecl(Instance,VarDecl(Id(utrash),StringType,StringLit(You dumb enough to survive on sunlight))),MethodDecl(Id(Constructor),Instance,[],Block([AssignStmt(Id(fyou),FieldAccess(Self(),Id(fyou))),AssignStmt(Id(utrash),FieldAccess(Self(),Id(utrash)))]))]),ClassDecl(Id(Program),[MethodDecl(Id(main),Static,[],Block([ConstDecl(Id(b),IntType,FieldAccess(Id(a),Id($a))),Call(Id(a),Id($func),[]),Return()]))])])"""
+        self.assertTrue(TestAST.test(input, expect, 381))
+    
+    def test_382(self):
+        input = """
+        Class Program {
+            Val b: Float = .e-3;
+            main() {
+                Foreach(a In 1 .. 0x1234ABCD){
+                    If ((3*i + 5)%4 == 2){
+                        b = b + a / 5;
+                        Continue;
+                    }
+                    Else{
+                        b = a + 2;
+                        Break;
+                    }
+                }
+                Foreach(a In -5 .. 0b1101 By 04){
+                    If ((2*i + 5)%3 >= 2){
+                        b = b + 5;
+                        Continue;
+                    }
+                    Else{
+                        b = a + 2;
+                        Break;
+                    }
+                }
+                Return b;
+            }
+        }"""
+        expect = """Program([ClassDecl(Id(Program),[AttributeDecl(Instance,ConstDecl(Id(b),FloatType,FloatLit(0.0))),MethodDecl(Id(main),Static,[],Block([For(Id(a),IntLit(1),IntLit(305441741),IntLit(1),Block([If(BinaryOp(==,BinaryOp(%,BinaryOp(+,BinaryOp(*,IntLit(3),Id(i)),IntLit(5)),IntLit(4)),IntLit(2)),Block([AssignStmt(Id(b),BinaryOp(+,Id(b),BinaryOp(/,Id(a),IntLit(5)))),Continue]),Block([AssignStmt(Id(b),BinaryOp(+,Id(a),IntLit(2))),Break]))])]),For(Id(a),UnaryOp(-,IntLit(5)),IntLit(13),IntLit(4),Block([If(BinaryOp(>=,BinaryOp(%,BinaryOp(+,BinaryOp(*,IntLit(2),Id(i)),IntLit(5)),IntLit(3)),IntLit(2)),Block([AssignStmt(Id(b),BinaryOp(+,Id(b),IntLit(5))),Continue]),Block([AssignStmt(Id(b),BinaryOp(+,Id(a),IntLit(2))),Break]))])]),Return(Id(b))]))])])"""
+        self.assertTrue(TestAST.test(input, expect, 382))
+    
+    def test_383(self):
+        """Simple program, to check output of other than Decimal-base Integer"""
+        input = """
+        Class Program{
+            Val a, b, $c, $d, e, $f: Int = 037415, 2345651, 0x329EDF, 0xABCDEF01, 0b101111100101, 0B1101101010111101;
+        }
+        """
+        expect = """Program([ClassDecl(Id(Program),[AttributeDecl(Instance,ConstDecl(Id(a),IntType,IntLit(16141))),AttributeDecl(Instance,ConstDecl(Id(b),IntType,IntLit(2345651))),AttributeDecl(Static,ConstDecl(Id($c),IntType,IntLit(3317471))),AttributeDecl(Static,ConstDecl(Id($d),IntType,IntLit(2882400001))),AttributeDecl(Instance,ConstDecl(Id(e),IntType,IntLit(3045))),AttributeDecl(Static,ConstDecl(Id($f),IntType,IntLit(55997)))])])"""
+        self.assertTrue(TestAST.test(input, expect, 383))    
+    
     def test_384(self):
         input = """
         Class Program{
@@ -1066,30 +1237,6 @@ class ASTGenSuite(unittest.TestCase):
     #     expect = """Program([ClassDecl(Id(Program),[AttributeDecl(Instance,ConstDecl(Id(a),IntType,BinaryOp(+,IntLit(4),IntLit(5)))),AttributeDecl(Static,VarDecl(Id($b),FloatType,BinaryOp(+,Id(a),FloatLit(2.3)))),AttributeDecl(Instance,ConstDecl(Id(c),IntType,IntLit(1094647723))),AttributeDecl(Instance,ConstDecl(Id(d),IntType,IntLit(0)))])])"""
     #     self.assertTrue(TestAST.test(input, expect, 409))
 
-    # ## Wrong
-    # def test_simple_program_411(self):
-    #     """Simple program, with an attribute and a method with variable"""
-    #     input = """
-    #     Class Program {
-    #         Val $c: Int = 0x413EFFAB;
-    #         main(){
-    #             Var f: Int = 0x413EFFAB;
-    #         }
-    #     }
-    #     """
-    #     expect = """Program([ClassDecl(Id(Program),[AttributeDecl(Static,ConstDecl(Id($c),IntType,IntLit(1094647723))),MethodDecl(Id(main),Static,[],Block([VarDecl(Id(f),IntType,IntLit(1094647723))]))])])"""
-    #     self.assertTrue(TestAST.test(input, expect, 411))
-    
-    # def test_simple_program_414(self):
-    #     """Simple program, to check output of other than Decimal-base Integer"""
-    #     input = """
-    #     Class Program{
-    #         Val a, b, $c, $d, e, $f: Int = 037415, 1239651, 0x1239EDF, 0xABCDEF01, 0b1000101, 0B110101;
-    #     }
-    #     """
-    #     expect = """Program([ClassDecl(Id(Program),[AttributeDecl(Instance,ConstDecl(Id(a),IntType,IntLit(16141))),AttributeDecl(Instance,ConstDecl(Id(b),IntType,IntLit(1239651))),AttributeDecl(Static,ConstDecl(Id($c),IntType,IntLit(19111647))),AttributeDecl(Static,ConstDecl(Id($d),IntType,IntLit(2882400001))),AttributeDecl(Instance,ConstDecl(Id(e),IntType,IntLit(69))),AttributeDecl(Static,ConstDecl(Id($f),IntType,IntLit(53)))])])"""
-    #     self.assertTrue(TestAST.test(input, expect, 414))
-
     # def test_simple_program_419(self):
     #     """Simple program, with rhs (all_expr) is a mtd_array"""
     #     input = """
@@ -1143,33 +1290,6 @@ class ASTGenSuite(unittest.TestCase):
     #     expect = """Program([ClassDecl(Id(Program),[MethodDecl(Id(main),Static,[],Block([AssignStmt(Id(a),CallExpr(Id(Prog),Id($b),[Id(e),Id(f),Id(g)])),AssignStmt(Id(b),FieldAccess(Id(Program),Id($a))),AssignStmt(Id(c),FieldAccess(Id(Program),Id($f)))]))])])"""
     #     self.assertTrue(TestAST.test(input, expect, 422))
 
-    # def test_simple_program_423(self):
-    #     """Simple program, spiderman pointing at each other"""
-    #     input = """
-    #     Class Program{
-    #         Val $a: Int = 5;
-    #         Constructor(){
-    #             Program::$a = 2;
-    #         }
-    #     }
-    #     """
-    #     expect = """Program([ClassDecl(Id(Program),[AttributeDecl(Static,ConstDecl(Id($a),IntType,IntLit(5))),MethodDecl(Id(Constructor),Instance,[],Block([AssignStmt(FieldAccess(Id(Program),Id($a)),IntLit(2))]))])])"""
-    #     self.assertTrue(TestAST.test(input, expect, 423))
-    
-    # # def test_simple_program_422(self):
-    # #     """Simple program, with static field access and call expr"""
-    # #     input = """
-    # #     Class Program{
-    # #         main(){
-    # #             a = Prog::$b(e, f, g);
-    # #             b = Program::$a;
-    # #             c = Self::$f;
-    # #         }
-    # #     }
-    # #     """
-    # #     expect = """Program([ClassDecl(Id(Program),[MethodDecl(Id(main),Static,[],Block([AssignStmt(Id(a),CallExpr(Id(Prog),Id($b),[Id(e),Id(f),Id(g)])),AssignStmt(Id(b),FieldAccess(Id(Program),Id($a))),AssignStmt(Id(c),FieldAccess(Self(),Id($f)))]))])])"""
-    # #     self.assertTrue(TestAST.test(input, expect, 422))
-
     # # def test_simple_program_423(self):
     # #     """Simple program, spiderman pointing at each other"""
     # #     input = """
@@ -1182,37 +1302,6 @@ class ASTGenSuite(unittest.TestCase):
     # #     """
     # #     expect = """Program([ClassDecl(Id(Program),[AttributeDecl(Static,ConstDecl(Id($a),IntType,IntLit(5))),MethodDecl(Id("Constructor"),Instance,[],Block([AssignStmt(FieldAccess(Id(Program),Id($a)),FieldAccess(Self(),Id($a)))]))])])"""
     # #     self.assertTrue(TestAST.test(input, expect, 423))
-    
-    # def test_short_program_424(self):
-    #     """Simple program with partial If statement"""
-    #     input = """
-    #     Class Program{
-    #         main(){
-    #             If (a > b){
-    #                 a = 2;
-    #             }
-    #         }
-    #     }
-    #     """
-    #     expect = """Program([ClassDecl(Id(Program),[MethodDecl(Id(main),Static,[],Block([If(BinaryOp(>,Id(a),Id(b)),Block([AssignStmt(Id(a),IntLit(2))]))]))])])"""
-    #     self.assertTrue(TestAST.test(input, expect, 424))
-
-    # def test_short_program_425(self):
-    #     """Simple program with partial If - Elseif statement"""
-    #     input = """
-    #     Class Program{
-    #         main(){
-    #             If (a > b){
-    #                 a = 2;
-    #             }
-    #             Elseif (a == b){
-    #                 a = 1;
-    #             }
-    #         }
-    #     }
-    #     """
-    #     expect = """Program([ClassDecl(Id(Program),[MethodDecl(Id(main),Static,[],Block([If(BinaryOp(>,Id(a),Id(b)),Block([AssignStmt(Id(a),IntLit(2))]),If(BinaryOp(==,Id(a),Id(b)),Block([AssignStmt(Id(a),IntLit(1))])))]))])])"""
-    #     self.assertTrue(TestAST.test(input, expect, 425))
 
     # def test_short_program_426(self):
     #     """Simple program with Complete If - Elseif - Else statement"""
@@ -1233,19 +1322,6 @@ class ASTGenSuite(unittest.TestCase):
     #     """
     #     expect = """Program([ClassDecl(Id(Program),[MethodDecl(Id(main),Static,[],Block([If(BinaryOp(>,Id(a),Id(b)),Block([AssignStmt(Id(a),IntLit(2))]),If(BinaryOp(==,Id(a),Id(b)),Block([AssignStmt(Id(a),IntLit(1))]),Block([AssignStmt(Id(a),IntLit(0))])))]))])])"""
     #     self.assertTrue(TestAST.test(input, expect, 426))
-
-    # def test_short_program_427(self):
-    #     input = """
-    #     Class Program{
-    #         main(){
-    #             Foreach (a In 1 .. 100000){
-    #                 Global::$b = a + 2;
-    #             }
-    #         }
-    #     }
-    #     """
-    #     expect = """Program([ClassDecl(Id(Program),[MethodDecl(Id(main),Static,[],Block([For(Id(a),IntLit(1),IntLit(100000),IntLit(1),Block([AssignStmt(FieldAccess(Id(Global),Id($b)),BinaryOp(+,Id(a),IntLit(2)))])])]))])])"""
-    #     self.assertTrue(TestAST.test(input, expect, 427))
 
     # def test_short_program_428(self):
     #     """Short program with complete ForEach loop statement"""
@@ -1286,52 +1362,6 @@ class ASTGenSuite(unittest.TestCase):
     #     }"""
     #     expect = "Program([ClassDecl(Id(Program),Id(System),[AttributeDecl(Instance,ConstDecl(Id(a),IntType,IntLit(1))),MethodDecl(Id(fooBar),Instance,[],Block([Call(Id(Program),Id($fooBar),[])])),MethodDecl(Id(main),Static,[],Block([If(BinaryOp(>=,IntLit(1),IntLit(2)),Block([Call(Id(Out),Id(fooBar),[BooleanLit(True)])]),If(BinaryOp(<=,Id(a),IntLit(2)),Block([Call(Id(Program),Id($fooBar),[])]),If(BinaryOp(<=,ArrayCell(Id(a),[IntLit(1),IntLit(2)]),BinaryOp(+,BinaryOp(*,ArrayCell(Id(a),[IntLit(1)]),FieldAccess(Id(a),Id(a))),CallExpr(Id(Some),Id($a),[]))),Block([Call(Id(Out),Id(println),[IntLit(400)])]),Block([Call(Id(Out),Id(println),[StringLit(What are you looking for?)])])))),Return()]))])])"
     #     self.assertTrue(TestAST.test(input, expect, 429))
-
-    # def test_short_program_430(self):
-    #     """Simple program with 2 methods and 1 return on main"""
-    #     input = """
-    #     Class Program {
-    #         Val a: Int = 1;
-    #         fooBar(a, b : Int; c : Float) {
-    #             Self.fooBar1(True, False, Null);
-    #         }
-    #         main() {
-    #             Self.fooBar(x, y, "ZhongGuo ren");
-    #             Return;
-    #         }
-    #     }"""
-    #     expect = "Program([ClassDecl(Id(Program),[AttributeDecl(Instance,ConstDecl(Id(a),IntType,IntLit(1))),MethodDecl(Id(fooBar),Instance,[param(Id(a),IntType),param(Id(b),IntType),param(Id(c),FloatType)],Block([Call(Self(),Id(fooBar1),[BooleanLit(True),BooleanLit(False),NullLiteral()])])),MethodDecl(Id(main),Static,[],Block([Call(Self(),Id(fooBar),[Id(x),Id(y),StringLit(ZhongGuo ren)]),Return()]))])])"
-    #     self.assertTrue(TestAST.test(input, expect, 430))
-    
-    # def test_float_convert_431(self):
-    #     """Simple program to test the conversion of invalid python float literal (.e-3)"""
-    #     input = """
-    #     Class Program {
-    #         main() {
-    #             Out.println(.e-3);
-    #         }
-    #     }"""
-    #     expect = """Program([ClassDecl(Id(Program),[MethodDecl(Id(main),Static,[],Block([Call(Id(Out),Id(println),[FloatLit(0.0)])]))])])"""
-    #     self.assertTrue(TestAST.test(input, expect, 431))
-
-    # def test_foreach_loop_432(self):
-    #     """Simple program to test missing and complete Foreach loop"""
-    #     input = """
-    #     Class Program {
-    #         Val b: Float = .e-3;
-    #         main() {
-    #             ## Missing incremental value ##
-    #             Foreach(a In 1 .. 0x1234ABCD){
-    #                 b = b + a / 5;
-    #             }
-    #             Foreach(a In -5 .. 0b1101 By 04){
-    #                 b = b - b / (03);
-    #             }
-    #             Return b;
-    #         }
-    #     }"""
-    #     expect = """Program([ClassDecl(Id(Program),[AttributeDecl(Instance,ConstDecl(Id(b),FloatType,FloatLit(0.0))),MethodDecl(Id(main),Static,[],Block([For(Id(a),IntLit(1),IntLit(305441741),IntLit(1),Block([AssignStmt(Id(b),BinaryOp(+,Id(b),BinaryOp(/,Id(a),IntLit(5))))])]),For(Id(a),UnaryOp(-,IntLit(5)),IntLit(13),IntLit(4),Block([AssignStmt(Id(b),BinaryOp(-,Id(b),BinaryOp(/,Id(b),IntLit(3))))])]),Return(Id(b))]))])])"""
-    #     self.assertTrue(TestAST.test(input, expect, 432))
 
     # def test_none_const_433(self):
     #     input = """
