@@ -1,1 +1,1 @@
-Error on line 13 col 26: ==.
+Program([ClassDecl(Id(Program),[])])

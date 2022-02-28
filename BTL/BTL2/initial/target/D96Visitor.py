@@ -159,11 +159,6 @@ class D96Visitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by D96Parser#rcb.
-    def visitRcb(self, ctx:D96Parser.RcbContext):
-        return self.visitChildren(ctx)
-
-
     # Visit a parse tree produced by D96Parser#foreachstmt.
     def visitForeachstmt(self, ctx:D96Parser.ForeachstmtContext):
         return self.visitChildren(ctx)
@@ -181,6 +176,11 @@ class D96Visitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by D96Parser#elseif_part.
     def visitElseif_part(self, ctx:D96Parser.Elseif_partContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by D96Parser#rcb.
+    def visitRcb(self, ctx:D96Parser.RcbContext):
         return self.visitChildren(ctx)
 
 

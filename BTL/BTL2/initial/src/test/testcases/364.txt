@@ -1,0 +1,19 @@
+
+        Class X{
+            Var a: AB = New AB();
+            $b(){}
+            a(){}
+        }
+        Class Program{
+            Var var: Int;
+            main(){
+                New X().a();
+                New X().a.b();
+                X::$b();
+                X::$b.c();
+                X::$b.c.d();
+                var = Self.a.a.a[1];
+                var = a.b(1,2,3)[1][2][3];
+            }
+        }
+        

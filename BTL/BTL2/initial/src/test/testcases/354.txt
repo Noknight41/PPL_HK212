@@ -1,0 +1,35 @@
+
+        Class Util{
+            length(s: String){
+                Return 9;
+            }
+            $pb(s: String){
+                If(Self.length(s) == 10) {Return "2410183712";}
+                Elseif(Self.length(s) > 7){
+                    Return Util::$ad(s +. "2");
+                }
+                Else{
+                    Return s +. s;
+                }
+            }
+            $ad(s : String){
+                If(Self.length(s) >= 10) {
+                    Return Util::$pb(s +. "aas");
+                }
+                Else{
+                    Return s;
+                }
+            }
+        }
+        Class Program{
+            Var s: String;
+            $main(){
+                s = "Hello Ther";
+                Return Util::$ad(s);
+            }
+            main(){
+                Val f: String = Program::$main();
+                Return;
+            }
+        }
+        

@@ -1,8 +1,6 @@
 from D96Visitor import D96Visitor
 from D96Parser import D96Parser
 from AST import *
-from main.d96.utils.AST import IntLiteral, MethodDecl, NullLiteral, SelfLiteral
-
 
 class ASTGeneration(D96Visitor):
     # Visit a parse tree produced by D96Parser#program.
@@ -540,11 +538,11 @@ class ASTGeneration(D96Visitor):
     def changeToInt(self, string):
         if string[0] == "0":
             if string[1] == "b" or string[1] == "B":
-                return bin(int(string, base = 2))
-            if string[1] == "x" or string[1] == "C":
-                return hex(int(string, base = 16))
+                return int(string, base = 2)
+            if string[1] == "x" or string[1] == "X":
+                return int(string, base = 16)
             else:
-                return oct(int(string, base = 8))
+                return int(string, base = 8)
         else:
             return int(string)
     
@@ -573,11 +571,11 @@ class ASTGeneration(D96Visitor):
             return BooleanLiteral(False)
         elif ctx.FLOATLIT():
             text = ctx.FLOATLIT().getText()
-            # if text[0] == "." and (text[1] == "e" or text[1] == "E"):
-            #     return FloatLiteral(0.0)
-            return FloatLiteral(text)
+            if text[0] == "." and (text[1] == "e" or text[1] == "E"):
+                return FloatLiteral(0.0)
+            return FloatLiteral(float(text))
         elif ctx.INTLIT():
-            return IntLiteral(ctx.INTLIT().getText())
+            return IntLiteral(self.changeToInt(ctx.INTLIT().getText()))
         elif ctx.STRINGLIT():
             return StringLiteral(ctx.STRINGLIT().getText())
         elif ctx.ZERO():

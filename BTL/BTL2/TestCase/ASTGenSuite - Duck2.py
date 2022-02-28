@@ -921,7 +921,8 @@ class ASTGenSuite(unittest.TestCase):
         self.assertTrue(TestAST.test(input, expect, 581))
 
     def test_if_stm_3(self):
-        input = """Class Program {
+        input = """
+        Class Program {
             a() {
                 If (a == b) {
                     Self.print("Hurray");
@@ -1078,12 +1079,14 @@ class ASTGenSuite(unittest.TestCase):
 
     def test_matrix_mul_2(self):
         """Matrix mutliplication"""
-        input = """Class So : A {
+        input = """
+        Class So : A {
             Val a : Array[Array[Int, 5], 5];
             main() {
                 c[i][j] = c[i][j] + a[i][k] * b[k][j];
             }
-        }"""
+        }
+        """
         expect = "Program([ClassDecl(Id(So),Id(A),[AttributeDecl(Instance,ConstDecl(Id(a),ArrayType(5,ArrayType(5,IntType)),None)),MethodDecl(Id(main),Instance,[],Block([AssignStmt(ArrayCell(Id(c),[Id(i),Id(j)]),BinaryOp(+,ArrayCell(Id(c),[Id(i),Id(j)]),BinaryOp(*,ArrayCell(Id(a),[Id(i),Id(k)]),ArrayCell(Id(b),[Id(k),Id(j)]))))]))])])"
         self.assertTrue(TestAST.test(input, expect, 592))
 

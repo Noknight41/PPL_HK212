@@ -45,10 +45,10 @@ def serializedATN():
         buf.write("\n\34\3\35\3\35\3\35\3\35\3\35\3\35\3\35\3\35\5\35\u0156")
         buf.write("\n\35\3\36\3\36\3\36\3\36\3\36\3\36\3\36\3\36\5\36\u0160")
         buf.write("\n\36\3\37\3\37\3\37\3\37\3\37\3\37\3\37\5\37\u0169\n")
-        buf.write("\37\3 \3 \3 \3 \3 \5 \u0170\n \3!\3!\3!\3!\3!\3!\3!\3")
-        buf.write("!\3!\3!\3!\3!\3!\3!\3!\3!\3!\3!\3!\3!\3!\3!\5!\u0188\n")
-        buf.write("!\3\"\3\"\3\"\3\"\5\"\u018e\n\"\3#\3#\3#\3#\3#\3#\3$\3")
-        buf.write("$\3$\3$\3$\3$\3$\3$\3$\3$\3$\3$\3$\3$\3$\5$\u01a5\n$\3")
+        buf.write("\37\3 \3 \3 \3 \3 \3 \3 \3 \3 \3 \3 \3 \3 \3 \3 \3 \3")
+        buf.write(" \3 \3 \3 \3 \3 \5 \u0181\n \3!\3!\3!\3!\5!\u0187\n!\3")
+        buf.write("\"\3\"\3\"\3\"\3\"\3\"\3#\3#\3#\3#\3#\3#\3#\3#\3#\3#\3")
+        buf.write("#\3#\3#\3#\3#\5#\u019e\n#\3$\3$\3$\3$\3$\5$\u01a5\n$\3")
         buf.write("%\3%\3&\3&\3&\3&\3&\3&\3&\3&\5&\u01b1\n&\3\'\3\'\5\'\u01b5")
         buf.write("\n\'\3(\3(\3(\3(\3(\5(\u01bc\n(\3)\3)\3)\3)\3)\5)\u01c3")
         buf.write("\n)\3*\3*\3*\3*\3*\3*\3*\3*\3*\7*\u01ce\n*\f*\16*\u01d1")
@@ -74,8 +74,8 @@ def serializedATN():
         buf.write("\u0101\3\2\2\2(\u0108\3\2\2\2*\u010c\3\2\2\2,\u011a\3")
         buf.write("\2\2\2.\u0123\3\2\2\2\60\u012c\3\2\2\2\62\u0136\3\2\2")
         buf.write("\2\64\u0140\3\2\2\2\66\u014b\3\2\2\28\u0155\3\2\2\2:\u015f")
-        buf.write("\3\2\2\2<\u0168\3\2\2\2>\u016f\3\2\2\2@\u0187\3\2\2\2")
-        buf.write("B\u018d\3\2\2\2D\u018f\3\2\2\2F\u01a4\3\2\2\2H\u01a6\3")
+        buf.write("\3\2\2\2<\u0168\3\2\2\2>\u0180\3\2\2\2@\u0186\3\2\2\2")
+        buf.write("B\u0188\3\2\2\2D\u019d\3\2\2\2F\u01a4\3\2\2\2H\u01a6\3")
         buf.write("\2\2\2J\u01b0\3\2\2\2L\u01b4\3\2\2\2N\u01bb\3\2\2\2P\u01c2")
         buf.write("\3\2\2\2R\u01c4\3\2\2\2T\u01d2\3\2\2\2V\u01e0\3\2\2\2")
         buf.write("X\u01f4\3\2\2\2Z\u01f9\3\2\2\2\\\u01ff\3\2\2\2^\u020a")
@@ -137,11 +137,11 @@ def serializedATN():
         buf.write("&\24\2\u00f8\u00f9\5$\23\2\u00f9\u00fc\3\2\2\2\u00fa\u00fc")
         buf.write("\5&\24\2\u00fb\u00f7\3\2\2\2\u00fb\u00fa\3\2\2\2\u00fc")
         buf.write("%\3\2\2\2\u00fd\u0102\5(\25\2\u00fe\u0102\5\"\22\2\u00ff")
-        buf.write("\u0102\5@!\2\u0100\u0102\5B\"\2\u0101\u00fd\3\2\2\2\u0101")
+        buf.write("\u0102\5> \2\u0100\u0102\5@!\2\u0101\u00fd\3\2\2\2\u0101")
         buf.write("\u00fe\3\2\2\2\u0101\u00ff\3\2\2\2\u0101\u0100\3\2\2\2")
         buf.write("\u0102\'\3\2\2\2\u0103\u0109\5.\30\2\u0104\u0109\5\60")
         buf.write("\31\2\u0105\u0109\5\66\34\2\u0106\u0109\5<\37\2\u0107")
-        buf.write("\u0109\5> \2\u0108\u0103\3\2\2\2\u0108\u0104\3\2\2\2\u0108")
+        buf.write("\u0109\5F$\2\u0108\u0103\3\2\2\2\u0108\u0104\3\2\2\2\u0108")
         buf.write("\u0105\3\2\2\2\u0108\u0106\3\2\2\2\u0108\u0107\3\2\2\2")
         buf.write("\u0109\u010a\3\2\2\2\u010a\u010b\7\64\2\2\u010b)\3\2\2")
         buf.write("\2\u010c\u010d\7>\2\2\u010d\u010e\5,\27\2\u010e\u010f")
@@ -181,42 +181,42 @@ def serializedATN():
         buf.write("\u0162\u0163\7\66\2\2\u0163\u0164\58\35\2\u0164\u0169")
         buf.write("\3\2\2\2\u0165\u0166\7>\2\2\u0166\u0167\7\61\2\2\u0167")
         buf.write("\u0169\5:\36\2\u0168\u0161\3\2\2\2\u0168\u0165\3\2\2\2")
-        buf.write("\u0169=\3\2\2\2\u016a\u016b\7,\2\2\u016b\u0170\5N(\2\u016c")
-        buf.write("\u0170\7,\2\2\u016d\u0170\7\"\2\2\u016e\u0170\7#\2\2\u016f")
-        buf.write("\u016a\3\2\2\2\u016f\u016c\3\2\2\2\u016f\u016d\3\2\2\2")
-        buf.write("\u016f\u016e\3\2\2\2\u0170?\3\2\2\2\u0171\u0172\7\'\2")
-        buf.write("\2\u0172\u0173\7\67\2\2\u0173\u0174\7>\2\2\u0174\u0175")
-        buf.write("\7/\2\2\u0175\u0176\5N(\2\u0176\u0177\7\65\2\2\u0177\u0178")
-        buf.write("\5N(\2\u0178\u0179\78\2\2\u0179\u017a\5\"\22\2\u017a\u0188")
-        buf.write("\3\2\2\2\u017b\u017c\7\'\2\2\u017c\u017d\7\67\2\2\u017d")
-        buf.write("\u017e\7>\2\2\u017e\u017f\7/\2\2\u017f\u0180\5N(\2\u0180")
-        buf.write("\u0181\7\65\2\2\u0181\u0182\5N(\2\u0182\u0183\7\60\2\2")
-        buf.write("\u0183\u0184\5N(\2\u0184\u0185\78\2\2\u0185\u0186\5\"")
-        buf.write("\22\2\u0186\u0188\3\2\2\2\u0187\u0171\3\2\2\2\u0187\u017b")
-        buf.write("\3\2\2\2\u0188A\3\2\2\2\u0189\u018a\5D#\2\u018a\u018b")
-        buf.write("\5F$\2\u018b\u018e\3\2\2\2\u018c\u018e\5D#\2\u018d\u0189")
-        buf.write("\3\2\2\2\u018d\u018c\3\2\2\2\u018eC\3\2\2\2\u018f\u0190")
-        buf.write("\7$\2\2\u0190\u0191\7\67\2\2\u0191\u0192\5N(\2\u0192\u0193")
-        buf.write("\78\2\2\u0193\u0194\5\"\22\2\u0194E\3\2\2\2\u0195\u0196")
-        buf.write("\7%\2\2\u0196\u0197\7\67\2\2\u0197\u0198\5N(\2\u0198\u0199")
-        buf.write("\78\2\2\u0199\u019a\5\"\22\2\u019a\u019b\5F$\2\u019b\u01a5")
-        buf.write("\3\2\2\2\u019c\u019d\7%\2\2\u019d\u019e\7\67\2\2\u019e")
-        buf.write("\u019f\5N(\2\u019f\u01a0\78\2\2\u01a0\u01a1\5\"\22\2\u01a1")
-        buf.write("\u01a5\3\2\2\2\u01a2\u01a3\7&\2\2\u01a3\u01a5\5\"\22\2")
-        buf.write("\u01a4\u0195\3\2\2\2\u01a4\u019c\3\2\2\2\u01a4\u01a2\3")
-        buf.write("\2\2\2\u01a5G\3\2\2\2\u01a6\u01a7\t\3\2\2\u01a7I\3\2\2")
-        buf.write("\2\u01a8\u01a9\7\31\2\2\u01a9\u01aa\7;\2\2\u01aa\u01ab")
-        buf.write("\5J&\2\u01ab\u01ac\7\63\2\2\u01ac\u01ad\7\3\2\2\u01ad")
-        buf.write("\u01ae\7<\2\2\u01ae\u01b1\3\2\2\2\u01af\u01b1\5H%\2\u01b0")
-        buf.write("\u01a8\3\2\2\2\u01b0\u01af\3\2\2\2\u01b1K\3\2\2\2\u01b2")
-        buf.write("\u01b5\5J&\2\u01b3\u01b5\7>\2\2\u01b4\u01b2\3\2\2\2\u01b4")
-        buf.write("\u01b3\3\2\2\2\u01b5M\3\2\2\2\u01b6\u01b7\5P)\2\u01b7")
-        buf.write("\u01b8\7\16\2\2\u01b8\u01b9\5P)\2\u01b9\u01bc\3\2\2\2")
-        buf.write("\u01ba\u01bc\5P)\2\u01bb\u01b6\3\2\2\2\u01bb\u01ba\3\2")
-        buf.write("\2\2\u01bcO\3\2\2\2\u01bd\u01be\5R*\2\u01be\u01bf\7\17")
-        buf.write("\2\2\u01bf\u01c0\5R*\2\u01c0\u01c3\3\2\2\2\u01c1\u01c3")
-        buf.write("\5R*\2\u01c2\u01bd\3\2\2\2\u01c2\u01c1\3\2\2\2\u01c3Q")
-        buf.write("\3\2\2\2\u01c4\u01c5\b*\1\2\u01c5\u01c6\5T+\2\u01c6\u01cf")
+        buf.write("\u0169=\3\2\2\2\u016a\u016b\7\'\2\2\u016b\u016c\7\67\2")
+        buf.write("\2\u016c\u016d\7>\2\2\u016d\u016e\7/\2\2\u016e\u016f\5")
+        buf.write("N(\2\u016f\u0170\7\65\2\2\u0170\u0171\5N(\2\u0171\u0172")
+        buf.write("\78\2\2\u0172\u0173\5\"\22\2\u0173\u0181\3\2\2\2\u0174")
+        buf.write("\u0175\7\'\2\2\u0175\u0176\7\67\2\2\u0176\u0177\7>\2\2")
+        buf.write("\u0177\u0178\7/\2\2\u0178\u0179\5N(\2\u0179\u017a\7\65")
+        buf.write("\2\2\u017a\u017b\5N(\2\u017b\u017c\7\60\2\2\u017c\u017d")
+        buf.write("\5N(\2\u017d\u017e\78\2\2\u017e\u017f\5\"\22\2\u017f\u0181")
+        buf.write("\3\2\2\2\u0180\u016a\3\2\2\2\u0180\u0174\3\2\2\2\u0181")
+        buf.write("?\3\2\2\2\u0182\u0183\5B\"\2\u0183\u0184\5D#\2\u0184\u0187")
+        buf.write("\3\2\2\2\u0185\u0187\5B\"\2\u0186\u0182\3\2\2\2\u0186")
+        buf.write("\u0185\3\2\2\2\u0187A\3\2\2\2\u0188\u0189\7$\2\2\u0189")
+        buf.write("\u018a\7\67\2\2\u018a\u018b\5N(\2\u018b\u018c\78\2\2\u018c")
+        buf.write("\u018d\5\"\22\2\u018dC\3\2\2\2\u018e\u018f\7%\2\2\u018f")
+        buf.write("\u0190\7\67\2\2\u0190\u0191\5N(\2\u0191\u0192\78\2\2\u0192")
+        buf.write("\u0193\5\"\22\2\u0193\u0194\5D#\2\u0194\u019e\3\2\2\2")
+        buf.write("\u0195\u0196\7%\2\2\u0196\u0197\7\67\2\2\u0197\u0198\5")
+        buf.write("N(\2\u0198\u0199\78\2\2\u0199\u019a\5\"\22\2\u019a\u019e")
+        buf.write("\3\2\2\2\u019b\u019c\7&\2\2\u019c\u019e\5\"\22\2\u019d")
+        buf.write("\u018e\3\2\2\2\u019d\u0195\3\2\2\2\u019d\u019b\3\2\2\2")
+        buf.write("\u019eE\3\2\2\2\u019f\u01a0\7,\2\2\u01a0\u01a5\5N(\2\u01a1")
+        buf.write("\u01a5\7,\2\2\u01a2\u01a5\7\"\2\2\u01a3\u01a5\7#\2\2\u01a4")
+        buf.write("\u019f\3\2\2\2\u01a4\u01a1\3\2\2\2\u01a4\u01a2\3\2\2\2")
+        buf.write("\u01a4\u01a3\3\2\2\2\u01a5G\3\2\2\2\u01a6\u01a7\t\3\2")
+        buf.write("\2\u01a7I\3\2\2\2\u01a8\u01a9\7\31\2\2\u01a9\u01aa\7;")
+        buf.write("\2\2\u01aa\u01ab\5J&\2\u01ab\u01ac\7\63\2\2\u01ac\u01ad")
+        buf.write("\7\3\2\2\u01ad\u01ae\7<\2\2\u01ae\u01b1\3\2\2\2\u01af")
+        buf.write("\u01b1\5H%\2\u01b0\u01a8\3\2\2\2\u01b0\u01af\3\2\2\2\u01b1")
+        buf.write("K\3\2\2\2\u01b2\u01b5\5J&\2\u01b3\u01b5\7>\2\2\u01b4\u01b2")
+        buf.write("\3\2\2\2\u01b4\u01b3\3\2\2\2\u01b5M\3\2\2\2\u01b6\u01b7")
+        buf.write("\5P)\2\u01b7\u01b8\7\16\2\2\u01b8\u01b9\5P)\2\u01b9\u01bc")
+        buf.write("\3\2\2\2\u01ba\u01bc\5P)\2\u01bb\u01b6\3\2\2\2\u01bb\u01ba")
+        buf.write("\3\2\2\2\u01bcO\3\2\2\2\u01bd\u01be\5R*\2\u01be\u01bf")
+        buf.write("\7\17\2\2\u01bf\u01c0\5R*\2\u01c0\u01c3\3\2\2\2\u01c1")
+        buf.write("\u01c3\5R*\2\u01c2\u01bd\3\2\2\2\u01c2\u01c1\3\2\2\2\u01c3")
+        buf.write("Q\3\2\2\2\u01c4\u01c5\b*\1\2\u01c5\u01c6\5T+\2\u01c6\u01cf")
         buf.write("\3\2\2\2\u01c7\u01c8\f\5\2\2\u01c8\u01c9\7\22\2\2\u01c9")
         buf.write("\u01ce\5T+\2\u01ca\u01cb\f\4\2\2\u01cb\u01cc\7\21\2\2")
         buf.write("\u01cc\u01ce\5T+\2\u01cd\u01c7\3\2\2\2\u01cd\u01ca\3\2")
@@ -275,7 +275,7 @@ def serializedATN():
         buf.write("\2\2\2\u0245\u0242\3\2\2\2\u0246i\3\2\2\2\67my\177\u0085")
         buf.write("\u0090\u00a0\u00a9\u00b2\u00be\u00ca\u00da\u00e0\u00e6")
         buf.write("\u00ed\u00f5\u00fb\u0101\u0108\u011a\u0123\u012c\u0136")
-        buf.write("\u013d\u014b\u0155\u015f\u0168\u016f\u0187\u018d\u01a4")
+        buf.write("\u013d\u014b\u0155\u015f\u0168\u0180\u0186\u019d\u01a4")
         buf.write("\u01b0\u01b4\u01bb\u01c2\u01cd\u01cf\u01db\u01dd\u01ec")
         buf.write("\u01ee\u01f4\u01f9\u01ff\u020a\u0213\u0217\u021e\u0221")
         buf.write("\u0227\u0231\u023b\u0245")
@@ -346,11 +346,11 @@ class D96Parser ( Parser ):
     RULE_func = 27
     RULE_dollarfunc = 28
     RULE_funccall = 29
-    RULE_rcb = 30
-    RULE_foreachstmt = 31
-    RULE_ifstmt = 32
-    RULE_ifpart = 33
-    RULE_elseif_part = 34
+    RULE_foreachstmt = 30
+    RULE_ifstmt = 31
+    RULE_ifpart = 32
+    RULE_elseif_part = 33
+    RULE_rcb = 34
     RULE_datatype = 35
     RULE_dttype = 36
     RULE_dttyp = 37
@@ -375,7 +375,7 @@ class D96Parser ( Parser ):
                    "valuelist", "blockstmt", "stmtlist", "stmt", "semi_stmt", 
                    "block_id_vas", "block_id_va", "bvaldecl", "bvardecl", 
                    "lhs", "index_lhs", "varass", "func", "dollarfunc", "funccall", 
-                   "rcb", "foreachstmt", "ifstmt", "ifpart", "elseif_part", 
+                   "foreachstmt", "ifstmt", "ifpart", "elseif_part", "rcb", 
                    "datatype", "dttype", "dttyp", "expr", "term1", "term2", 
                    "term3", "term4", "term5", "term6", "term7", "index_operators", 
                    "term8", "term9", "term10", "literal", "arrayCell" ]
@@ -2637,82 +2637,6 @@ class D96Parser ( Parser ):
         return localctx
 
 
-    class RcbContext(ParserRuleContext):
-        __slots__ = 'parser'
-
-        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
-            super().__init__(parent, invokingState)
-            self.parser = parser
-
-        def RETURN(self):
-            return self.getToken(D96Parser.RETURN, 0)
-
-        def expr(self):
-            return self.getTypedRuleContext(D96Parser.ExprContext,0)
-
-
-        def BREAK(self):
-            return self.getToken(D96Parser.BREAK, 0)
-
-        def CONTINUE(self):
-            return self.getToken(D96Parser.CONTINUE, 0)
-
-        def getRuleIndex(self):
-            return D96Parser.RULE_rcb
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitRcb" ):
-                return visitor.visitRcb(self)
-            else:
-                return visitor.visitChildren(self)
-
-
-
-
-    def rcb(self):
-
-        localctx = D96Parser.RcbContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 60, self.RULE_rcb)
-        try:
-            self.state = 365
-            self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,27,self._ctx)
-            if la_ == 1:
-                self.enterOuterAlt(localctx, 1)
-                self.state = 360
-                self.match(D96Parser.RETURN)
-                self.state = 361
-                self.expr()
-                pass
-
-            elif la_ == 2:
-                self.enterOuterAlt(localctx, 2)
-                self.state = 362
-                self.match(D96Parser.RETURN)
-                pass
-
-            elif la_ == 3:
-                self.enterOuterAlt(localctx, 3)
-                self.state = 363
-                self.match(D96Parser.BREAK)
-                pass
-
-            elif la_ == 4:
-                self.enterOuterAlt(localctx, 4)
-                self.state = 364
-                self.match(D96Parser.CONTINUE)
-                pass
-
-
-        except RecognitionException as re:
-            localctx.exception = re
-            self._errHandler.reportError(self, re)
-            self._errHandler.recover(self, re)
-        finally:
-            self.exitRule()
-        return localctx
-
-
     class ForeachstmtContext(ParserRuleContext):
         __slots__ = 'parser'
 
@@ -2767,56 +2691,56 @@ class D96Parser ( Parser ):
     def foreachstmt(self):
 
         localctx = D96Parser.ForeachstmtContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 62, self.RULE_foreachstmt)
+        self.enterRule(localctx, 60, self.RULE_foreachstmt)
         try:
-            self.state = 389
+            self.state = 382
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,28,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,27,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 367
+                self.state = 360
                 self.match(D96Parser.FOREACH)
-                self.state = 368
+                self.state = 361
                 self.match(D96Parser.LB)
-                self.state = 369
+                self.state = 362
                 self.match(D96Parser.ID)
-                self.state = 370
+                self.state = 363
                 self.match(D96Parser.IN)
-                self.state = 371
+                self.state = 364
                 self.expr()
-                self.state = 372
+                self.state = 365
                 self.match(D96Parser.DDOT)
-                self.state = 373
+                self.state = 366
                 self.expr()
-                self.state = 374
+                self.state = 367
                 self.match(D96Parser.RB)
-                self.state = 375
+                self.state = 368
                 self.blockstmt()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 377
+                self.state = 370
                 self.match(D96Parser.FOREACH)
-                self.state = 378
+                self.state = 371
                 self.match(D96Parser.LB)
-                self.state = 379
+                self.state = 372
                 self.match(D96Parser.ID)
-                self.state = 380
+                self.state = 373
                 self.match(D96Parser.IN)
-                self.state = 381
+                self.state = 374
                 self.expr()
-                self.state = 382
+                self.state = 375
                 self.match(D96Parser.DDOT)
-                self.state = 383
+                self.state = 376
                 self.expr()
-                self.state = 384
+                self.state = 377
                 self.match(D96Parser.BY)
-                self.state = 385
+                self.state = 378
                 self.expr()
-                self.state = 386
+                self.state = 379
                 self.match(D96Parser.RB)
-                self.state = 387
+                self.state = 380
                 self.blockstmt()
                 pass
 
@@ -2860,22 +2784,22 @@ class D96Parser ( Parser ):
     def ifstmt(self):
 
         localctx = D96Parser.IfstmtContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 64, self.RULE_ifstmt)
+        self.enterRule(localctx, 62, self.RULE_ifstmt)
         try:
-            self.state = 395
+            self.state = 388
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,29,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,28,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 391
+                self.state = 384
                 self.ifpart()
-                self.state = 392
+                self.state = 385
                 self.elseif_part()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 394
+                self.state = 387
                 self.ifpart()
                 pass
 
@@ -2928,18 +2852,18 @@ class D96Parser ( Parser ):
     def ifpart(self):
 
         localctx = D96Parser.IfpartContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 66, self.RULE_ifpart)
+        self.enterRule(localctx, 64, self.RULE_ifpart)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 397
+            self.state = 390
             self.match(D96Parser.IF)
-            self.state = 398
+            self.state = 391
             self.match(D96Parser.LB)
-            self.state = 399
+            self.state = 392
             self.expr()
-            self.state = 400
+            self.state = 393
             self.match(D96Parser.RB)
-            self.state = 401
+            self.state = 394
             self.blockstmt()
         except RecognitionException as re:
             localctx.exception = re
@@ -2996,13 +2920,29 @@ class D96Parser ( Parser ):
     def elseif_part(self):
 
         localctx = D96Parser.Elseif_partContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 68, self.RULE_elseif_part)
+        self.enterRule(localctx, 66, self.RULE_elseif_part)
         try:
-            self.state = 418
+            self.state = 411
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,30,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,29,self._ctx)
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
+                self.state = 396
+                self.match(D96Parser.ELSEIF)
+                self.state = 397
+                self.match(D96Parser.LB)
+                self.state = 398
+                self.expr()
+                self.state = 399
+                self.match(D96Parser.RB)
+                self.state = 400
+                self.blockstmt()
+                self.state = 401
+                self.elseif_part()
+                pass
+
+            elif la_ == 2:
+                self.enterOuterAlt(localctx, 2)
                 self.state = 403
                 self.match(D96Parser.ELSEIF)
                 self.state = 404
@@ -3013,30 +2953,90 @@ class D96Parser ( Parser ):
                 self.match(D96Parser.RB)
                 self.state = 407
                 self.blockstmt()
-                self.state = 408
-                self.elseif_part()
+                pass
+
+            elif la_ == 3:
+                self.enterOuterAlt(localctx, 3)
+                self.state = 409
+                self.match(D96Parser.ELSE)
+                self.state = 410
+                self.blockstmt()
+                pass
+
+
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class RcbContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def RETURN(self):
+            return self.getToken(D96Parser.RETURN, 0)
+
+        def expr(self):
+            return self.getTypedRuleContext(D96Parser.ExprContext,0)
+
+
+        def BREAK(self):
+            return self.getToken(D96Parser.BREAK, 0)
+
+        def CONTINUE(self):
+            return self.getToken(D96Parser.CONTINUE, 0)
+
+        def getRuleIndex(self):
+            return D96Parser.RULE_rcb
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitRcb" ):
+                return visitor.visitRcb(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def rcb(self):
+
+        localctx = D96Parser.RcbContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 68, self.RULE_rcb)
+        try:
+            self.state = 418
+            self._errHandler.sync(self)
+            la_ = self._interp.adaptivePredict(self._input,30,self._ctx)
+            if la_ == 1:
+                self.enterOuterAlt(localctx, 1)
+                self.state = 413
+                self.match(D96Parser.RETURN)
+                self.state = 414
+                self.expr()
                 pass
 
             elif la_ == 2:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 410
-                self.match(D96Parser.ELSEIF)
-                self.state = 411
-                self.match(D96Parser.LB)
-                self.state = 412
-                self.expr()
-                self.state = 413
-                self.match(D96Parser.RB)
-                self.state = 414
-                self.blockstmt()
+                self.state = 415
+                self.match(D96Parser.RETURN)
                 pass
 
             elif la_ == 3:
                 self.enterOuterAlt(localctx, 3)
                 self.state = 416
-                self.match(D96Parser.ELSE)
+                self.match(D96Parser.BREAK)
+                pass
+
+            elif la_ == 4:
+                self.enterOuterAlt(localctx, 4)
                 self.state = 417
-                self.blockstmt()
+                self.match(D96Parser.CONTINUE)
                 pass
 
 

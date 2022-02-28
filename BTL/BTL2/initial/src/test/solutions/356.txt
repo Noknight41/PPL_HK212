@@ -1,0 +1,1 @@
+Program([ClassDecl(Id(Solution),[MethodDecl(Id(fib),Instance,[param(Id(n),IntType)],Block([If(BinaryOp(==,Id(n),IntLit(0)),Block([Return(IntLit(0))])),If(BinaryOp(==,Id(n),IntLit(1)),Block([Return(IntLit(1))])),Return(BinaryOp(+,CallExpr(Self(),Id(fib),[BinaryOp(-,Id(n),IntLit(1))]),CallExpr(Self(),Id(fib),[BinaryOp(-,Id(n),IntLit(2))])))]))])])

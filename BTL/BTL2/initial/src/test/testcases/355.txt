@@ -1,0 +1,21 @@
+
+        Class Solution {
+            $fib(n: Int) {
+                Var d: Array[Int, 100];
+                If (n == 0) {
+                    Return 0;
+                }
+                If (n == 1) {
+                    Return 1;
+                }
+                d[n] = Self.fib(n-1) + Self.fib(n-2);
+                Return d[n];
+            }
+        }
+        Class Program{
+            main(){
+                Var input1, input2: Int = It.read(), It.read();
+                Output.print(Solution::$fib(input1 * input2));
+            }
+        }
+        

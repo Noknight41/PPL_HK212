@@ -1,0 +1,13 @@
+
+        Class Program{
+            Var a_1, a_2, a_3, a_4, a_5, a_6: Int = 0, 00, 0x0, 0X0, 0b0, 0B0;
+            Var b_1, b_2, b_3: Int = 123456, 1_2_3_4_5_6, 123_456;
+            main(){
+                Var a: Int;
+                a = class_var.attr.attr.attribute;
+                a = class_var.attr.attr.method(a,b,c);
+                a = class_name::$od(abc).method(a,b,c);
+                a = New X(a).a();
+            }
+        }
+        
