@@ -333,17 +333,20 @@ class ASTGeneration(D96Visitor):
     # Visit a parse tree produced by D96Parser#scalar.
     def visitLhs(self, ctx:D96Parser.LhsContext):
         if ctx.lhs():
-            return FieldAccess(self.visit(ctx.lhs()),Id(ctx.ID().getText()))
+            return self.visit(ctx.lhs())
+        elif ctx.expr():
+            return FieldAccess(self.visit(ctx.expr()),Id(ctx.ID().getText()))
         elif ctx.DCOLON():
             return FieldAccess(Id(ctx.ID().getText()), Id(ctx.DOLLARID().getText()))
-        elif ctx.SELF():
-            return FieldAccess(SelfLiteral(), Id(ctx.ID().getText()))
         else:
             return Id(ctx.ID().getText())
 
     # Visit a parse tree produced by D96Parser#index_scalar.
     def visitIndex_lhs(self, ctx:D96Parser.Index_lhsContext):
-        return ArrayCell(self.visit(ctx.lhs()), self.visit(ctx.index_operators()))
+        if ctx.index_lhs():
+            return ArrayCell(self.visit(ctx.index_lhs()), self.visit(ctx.index_operators()))
+        else:
+            return ArrayCell(self.visit(ctx.lhs()), self.visit(ctx.index_operators()))
     
     # Visit a parse tree produced by D96Parser#index_operators.
     def visitIndex_operators(self, ctx:D96Parser.Index_operatorsContext):

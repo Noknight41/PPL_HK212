@@ -52,8 +52,8 @@ bvaldecl: VAL bidlist COLON dttyp | VAL block_id_vas;
 bvardecl: VAR bidlist COLON dttyp | VAR block_id_vas;
 
 // LHS
-lhs: lhs DOT ID | SELF DOT ID | ID DCOLON DOLLARID | ID;
-index_lhs: lhs index_operators;
+lhs: expr DOT ID | ID DCOLON DOLLARID | LB lhs RB | ID;
+index_lhs: lhs index_operators | LB index_lhs RB index_operators;
 
 // Variable assignment
 varass: lhs ASSOP expr | index_lhs ASSOP expr;

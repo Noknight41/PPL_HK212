@@ -1,0 +1,297 @@
+1)
+class ClassScope:
+    def __init__(self, name, scope):
+        self.name = name
+        self.scope = [[]]
+
+class StaticCheck(Visitor):
+    def visitProgram(self,ctx:Program,o:object): 
+        o = []
+        for decl in ctx.decl:
+            self.visit(decl, o)
+
+    def visitClassDecl(self,ctx:ClassDecl,o:object):
+        na = ctx.name
+        localo = [[]]
+        for cl in o:
+            if ctx.name == cl.name:
+                raise RedeclaredField(ctx.name)
+        if ctx.parent:
+            t = 0
+            for cl in o:
+                if ctx.parent == cl.name:
+                    t = 1
+                    localo = cl.scope
+            if t != 0: 
+                raise RedeclaredField(ctx.parent)
+        o = [ClassScope(ctx.name, localo)] + o
+        for member in ctx.mem:
+            self.visit(member, o)
+
+    def visitVarDecl(self,ctx:VarDecl,o:object):
+        if ctx.name in (o[0]).scope[0]:
+            raise RedeclaredField(ctx.name)
+        (o[0]).scope[0] = (o[0]).scope[0] + [ctx.name]
+
+    def visitFuncDecl(self,ctx:FuncDecl,o:object):
+        if ctx.name in (o[0]).scope[0]:
+            raise RedeclaredMethod(ctx.name)
+        ((o[0]).scope)[0] = ((o[0]).scope)[0] + [ctx.name]
+        env = [[]] + (o[0]).scope
+        for param in ctx.param:
+            self.visit(param, env)
+        for dec in ctx.body[0]:
+            self.visit(dec, env)
+        for exp in ctx.body[1]:
+            self.visit(exp, env)
+
+    def visitIntType(self,ctx:IntType,o:object):pass
+
+    def visitFloatType(self,ctx:FloatType,o:object):pass
+
+    def visitClassType(self,ctx:ClassType,o:object):pass
+
+    def visitIntLit(self,ctx:IntLit,o:object):
+        return 1
+
+    def visitId(self,ctx:Id,o:object):pass
+
+    def visitFieldAccess(self,ctx:FieldAccess,o:object):pass
+
+1) (tk)
+
+class StaticCheck(Visitor):
+    def visitProgram(self,ctx:Program,o:object):
+        o=[]
+        for decl in ctx.decl:
+            self.visit(decl,o)
+
+    def visitClassDecl(self,ctx:ClassDecl,o:object):
+        for obj in o: 
+            if ctx.name==obj["cname"]: 
+                raise RedeclaredClass(ctx.name)
+        curClass={}
+        for obj in o: 
+            if ctx.parent == obj["cname"]:
+                curClass = obj.copy()
+        curClass.update({"cname":ctx.name})
+        
+        # Add variable and function declaration to dictionary 
+        for mem in ctx.mem:
+            curClass.update({mem.name:None})
+
+        o = [curClass] + o
+        
+        # Define Var (Type) + Func (Var + Expr)
+        for mem in ctx.mem:
+            self.visit(mem,o)
+        
+    def visitVarDecl(self,ctx:VarDecl,o:object):
+        curEnv = o[0]
+        if ctx.name in curEnv and curEnv[ctx.name] is not None: 
+            raise RedeclaredField(ctx.name)
+        else: curEnv.update({ctx.name: ctx.typ})        
+    
+    def visitFuncDecl(self,ctx:FuncDecl,o:object):
+        curEnv=o[0]
+
+        if ctx.name in curEnv and curEnv[ctx.name] is not None: raise RedeclaredMethod(ctx.name)
+        localObj={}
+        
+        # add key ctx.name: localObj to environment            
+        curEnv.update({ctx.name:localObj})
+        
+        #Param and declare is localObj
+        #Pass list have only 1 member localObj to indicate it is current Environment
+        for x in ctx.param:
+            self.visit(x,[localObj])
+        for decl in ctx.body[0]:
+            self.visit(decl,[localObj])
+
+        for exp in ctx.body[1]:
+            self.visit(exp,[localObj]+o)
+    
+    def visitIntType(self,ctx:IntType,o:object):pass
+
+    def visitFloatType(self,ctx:FloatType,o:object):pass
+
+    def visitClassType(self,ctx:ClassType,o:object):pass
+
+    def visitIntLit(self,ctx:IntLit,o:object):pass
+
+    def visitId(self,ctx:Id,o:object):
+        return ctx.name
+
+    def visitFieldAccess(self,ctx:FieldAccess,o:object):pass
+
+2)
+class StaticCheck(Visitor):
+    def visitProgram(self,ctx:Program,o:object):
+        o=[]
+        for decl in ctx.decl:
+            self.visit(decl,o)
+
+    def visitClassDecl(self,ctx:ClassDecl,o:object):
+        for obj in o: 
+            if ctx.name==obj["cname"]: 
+                raise RedeclaredClass(ctx.name)
+        curClass={}
+        for obj in o: 
+            if ctx.parent == obj["cname"]:
+                curClass = obj.copy()
+        curClass.update({"cname":ctx.name})
+        
+        # Add variable and function declaration to dictionary 
+        for mem in ctx.mem:
+            curClass.update({mem.name:None})
+
+        o = [curClass] + o
+        
+        # Define Var (Type) + Func (Var + Expr)
+        for mem in ctx.mem:
+            self.visit(mem,o)
+        
+    def visitVarDecl(self,ctx:VarDecl,o:object):
+        curEnv = o[0]
+        if ctx.name in curEnv and curEnv[ctx.name] is not None: 
+            raise RedeclaredField(ctx.name)
+        else: curEnv.update({ctx.name: ctx.typ})        
+    
+    def visitFuncDecl(self,ctx:FuncDecl,o:object):
+        curEnv=o[0]
+
+        if ctx.name in curEnv and curEnv[ctx.name] is not None: raise RedeclaredMethod(ctx.name)
+        localObj={}
+        
+        # add key ctx.name: localObj to environment            
+        curEnv.update({ctx.name:localObj})
+        
+        #Param and declare is localObj
+        #Pass list have only 1 member localObj to indicate it is current Environment
+        for x in ctx.param:
+            self.visit(x,[localObj])
+            
+        for decl in ctx.body[0]:
+            self.visit(decl,[localObj])
+
+        for exp in ctx.body[1]:
+            self.visit(exp,[localObj] + o)
+    
+    def visitIntType(self,ctx:IntType,o:object):pass
+
+    def visitFloatType(self,ctx:FloatType,o:object):pass
+
+    def visitClassType(self,ctx:ClassType,o:object):pass
+
+    def visitIntLit(self,ctx:IntLit,o:object):pass
+
+    def visitId(self,ctx:Id,o:object):
+        curEnv = o[0]
+        if ctx.name in curEnv: 
+            return curEnv[ctx.name]
+        raise UndeclaredField(ctx.name)
+
+    def visitFieldAccess(self,ctx:FieldAccess,o:object):
+        curEnv = o[0]
+        outsideEnv = o[1:]
+        
+        # Check for var in current environment 
+        expr_type = self.visit(ctx.exp, o)
+
+        # Check for class name
+        for obj in outsideEnv: 
+            if expr_type.name == obj["cname"]:
+                if ctx.field not in obj: 
+                    raise UndeclaredField(ctx.field)
+                return obj[ctx.field]
+
+        raise UndeclaredField(exp.name)
+		
+3)
+
+class StaticCheck(Visitor):
+    def visitProgram(self,ctx:Program,o:object):
+        o=[]
+        for decl in ctx.decl:
+            o += self.visit(decl,o)
+
+    def visitClassDecl(self,ctx:ClassDecl,o:object):
+        for obj in o: 
+            if ctx.name == obj["cname"]: 
+                raise RedeclaredClass(ctx.name)
+        curClass={}
+        for obj in o: 
+            
+            if ctx.parent == obj["cname"]:
+                curClass = obj.copy()
+        curClass.update({"cname":ctx.name})
+        
+        
+        # Add variable and function declaration to dictionary 
+        for mem in ctx.mem:
+            curClass.update({mem.name:None})
+
+        o = [curClass] + o
+        
+        # Define Var (Type) + Func (Var + Expr)
+        for mem in ctx.mem:
+            self.visit(mem,o)
+        
+        return [curClass]
+        
+    def visitVarDecl(self,ctx:VarDecl,o:object):
+        curEnv = o[0]
+        if ctx.name in curEnv and curEnv[ctx.name] is not None: 
+            raise RedeclaredField(ctx.name)
+        else: curEnv.update({ctx.name: ctx.typ})        
+    
+    def visitFuncDecl(self,ctx:FuncDecl,o:object):
+        curEnv = o[0]
+
+        if ctx.name in curEnv and curEnv[ctx.name] is not None: 
+            raise RedeclaredMethod(ctx.name)
+        localObj={}
+        
+        # add key ctx.name: localObj to environment            
+        curEnv.update({ctx.name: {} })
+        
+        #Param and declare is localObj
+        #Pass list have only 1 member localObj to indicate it is current Environment
+        for x in ctx.param:
+            self.visit(x,[localObj])
+            
+        for decl in ctx.body[0]:
+            self.visit(decl,[localObj])
+
+        for exp in ctx.body[1]:
+            self.visit(exp,[localObj] + o)
+    
+    def visitIntType(self,ctx:IntType,o:object):pass
+
+    def visitFloatType(self,ctx:FloatType,o:object):pass
+
+    def visitClassType(self,ctx:ClassType,o:object):pass
+
+    def visitIntLit(self,ctx:IntLit,o:object):pass
+
+    def visitId(self,ctx:Id,o:object):
+        curEnv = o[0]
+        if ctx.name in curEnv: 
+            return curEnv[ctx.name]
+        raise UndeclaredField(ctx.name)
+
+    def visitFieldAccess(self,ctx:FieldAccess,o:object):
+        curEnv = o[0]
+        outsideEnv = o[1:]
+        
+        # Check for var in current environment 
+        expr_type = self.visit(ctx.exp, o)
+
+        # Check for class name
+        for obj in outsideEnv: 
+            if expr_type.name == obj["cname"]:
+                if ctx.field not in obj: 
+                    raise UndeclaredField(ctx.field)
+                return obj[ctx.field]
+
+        raise UndeclaredField(exp.name)

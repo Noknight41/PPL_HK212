@@ -1,47 +1,118 @@
 
+        Class myClass : parentClass {
+            Var a, b, c: Boolean;
+            Var a, $e : String = "Hello", "Hola";
+            Var w, $q : Array[String, 3] = Array (1, 5, 7), Array (1, 5, "s");
+            Val f, G : Float;
+            Val $h, _Jk : Int = a.b(), a[1][2] + a::$ac;
+            Val o: Object = New Object();
+            Val x : Name;
+            Var y : Something;
+            Var $a : Array[Array[Array[Int,2],3],4] = 1;
+            method1(){
+                ## Vardecls ##
+                Var a, b, c: Boolean;
+                Var a, e : String = "Hello", "Hola";
+                Var w, q : Array[String, 3] = Array (1, 5, 7), Array (1, 5, "s");
+                ## ConstDecls ##
+                Val f, G : Float;
+                Val h, _Jk : Int = a.b(), a[1][2] + a::$ac;
+                Val o: Object = New Object();
+                Val x : Name;
+                Var y : Something;
+                ## Assignments ##
+
+            }
+            
+            statement(a, b, c: Boolean; j: Classtype){
+                thisIs_anId = Array (1, 5, 7) + 1.2 * 0x12AB / (- 01100) +. Null;
+                Somevar = b.X()[2][True];
+                staticId::$a.Id = !(a <= b) % 2 + a.b(); 
+                donD_j.func().Id = !True + (False - 2 % 8) + b.asb(!True + (False - 2 % 8), 1).a;
+                Self.a.h = Id::$a.B(Array (1, 5, 7) + 1.2, !(a <= b) % 2 + a.b());
+                (A[1][2])[True] = New x() + 2 * New Y();
+                (a[1][True]["Hola"])[2][1+2]["Hey"]["What"] = Array (Array (1, 5, 7), Array (1, 5, 7), Array (1, 5, 7));
+                Return;
+                Return !True + (False - 2 % 8) + b.asb(!True + (False - 2 % 8), 1).a;
+                New X().a.b();
+                b.asb(!True + (False - 2 % 8));
+                asa::$jas();
+            }
+            
+            $if_statement(){
+                If (True && False) {New X().a.b();}
+                If (Self.a[1][2]) { ## Do something ## } Else {
+                    Foreach (i In 1 .. 100 By 2) {
+                    Out.printInt(i);
+                    }
+                    If (123 >= 45) {asa::$jas();} Elseif (45 == 455) {
+                        Val x : Name;
+                        Var y : Something;
+                    }
+                }
+                If (123 >= 45) {asa::$jas();} Elseif (45 == 455) {}
+                If ("hi" >= 45) {asa::$jas();} Elseif (False) {} Else {Break;}
+            }
+            main(){
+                Foreach (i In 1 .. 100 By 2) {
+                    Out.printInt(i);
+                }
+                Foreach (i In 1 .. 100 By !True + (False - 2 % 8)) {
+                    If (123 >= 45) {asa::$jas();} Elseif (45 == 455) {}
+                    If ("hi" >= 45) {asa::$jas();} Elseif (False) {} Else {}
+                    Foreach (x In 5 .. 2) { Break; }
+                    Continue;
+                }
+            }
+            Constructor(){
+                Var a, e : String = "Hello", "Hola";
+                Var w, q : Array[String, 3] = Array (1, 5, 7), Array (1, 5, "s");
+                If (123 >= 45) {asa::$jas();} Elseif (45 == 455) {} Elseif (45 == 455) {} Elseif (45 == 455) {} Elseif (45 == 455) {} Else {}
+            }
+            Constructor(f, G : Float; a, b, c: Boolean){
+                Return;
+            }
+            Destructor(){
+                If (123 >= 45) { Return; }
+            }
+        }
+        
+        Class otherClass {
+            Val $h, _Jk : Int = a.b(), a[1][2] + a::$ac;
+            Val o: Object = New Object();
+            main(){
+                If ("ah") {
+                    Foreach (i In 1 .. 100 By 2) {
+                        Var r, s: Int;
+                        r = 2.0;
+                        Var a, b: Array[Int, 5];
+                        s = r * r * Self;
+                        a[0] = s;
+                        a = "## adfa ##";
+                    }
+                }
+                Var Student : Student = New Student();
+            }
+        }
+        
         Class Program {
-            Var var_1: Int;
-            m0(){
-                var_1 = New X(New D()).a().a().a().a().a();
+            main(){
+                If ("ah") {
+                    Var r, s: Int;
+                    r = 2.0;
+                    Var a, b: Array[Int, 5];
+                    s = r * r * Self;
+                    a[0] = s;
+                    a = "## adfa ##";
+                }
+                Var Student : Student = New Student();
             }
-            m1(){
-                var_1 = class_name::$attr;
-            }
-            m2(){
-                var_1 = var.just(1,b,c).go(a,2,c).pls(a,b,3);
-            }
-            m3(){
-                var_1 = var.attr.justgo(a,b,c);
-            }
-            m4(){
-                var_1 = var.attr.just(a,b,c).go(a,b,c);
-            }
-            m5(){
-                var_1 = var.justgo(a,b,c).attr;
-            }
-            m6(){
-                var_1 = var.attr.attr.just(New X(1).x).go();
-            }
-            m7(){
-                var_1 = var.just(a,b,c).go(a,b,New D(a, b)).attr;
-            }
-            m8(){
-                var_1 = class_name::$just(abc).go(a,b,1.2).pls(a,b,c);
-            }
-            m9(){
-                var_1 = class_name::$just(abc).go(a,b,1.2).pls(a,b,c).attr.attr;
-            }
-            main() {
-                Self.m0();
-                Self.m1();
-                Self.m2();
-                Self.m3();
-                Self.m4();
-                Self.m5();
-                Self.m6();
-                Self.m7();
-                Self.m8();
-                Self.m9();
+            
+            main(a, b, c: Boolean; e: Int){
+                Var Student : Student = New Student();
+                Foreach (i In 1 .. 100 By 2) {
+                    Continue;
+                }
             }
         }
         
