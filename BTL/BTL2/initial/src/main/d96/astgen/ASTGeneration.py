@@ -106,9 +106,9 @@ class ASTGeneration(D96Visitor):
             if (ctx.dttyp().ID()):
                 for i in var:
                     if i[1] == "I":
-                        result += [(AttributeDecl(Instance() , ConstDecl(i[0], tp, NullLiteral())), "Not")]
+                        result += [(AttributeDecl(Instance() , ConstDecl(i[0], tp)), "Not")]
                     else:
-                        result += [(AttributeDecl(Static()   , ConstDecl(i[0], tp, NullLiteral())), "Not")]
+                        result += [(AttributeDecl(Static()   , ConstDecl(i[0], tp)), "Not")]
             else:
                 for i in var:
                     if i[1] == "I":
@@ -325,7 +325,7 @@ class ASTGeneration(D96Visitor):
             result = []
             for i in val:
                 if ctx.dttyp().ID():
-                    result += [ConstDecl(i, tp, NullLiteral())]
+                    result += [ConstDecl(i, tp)]
                 else:
                     result += [ConstDecl(i, tp)]
             return result
@@ -334,8 +334,8 @@ class ASTGeneration(D96Visitor):
     def visitLhs(self, ctx:D96Parser.LhsContext):
         if ctx.lhs():
             return self.visit(ctx.lhs())
-        elif ctx.expr():
-            return FieldAccess(self.visit(ctx.expr()),Id(ctx.ID().getText()))
+        elif ctx.term8():
+            return FieldAccess(self.visit(ctx.term8()),Id(ctx.ID().getText()))
         elif ctx.DCOLON():
             return FieldAccess(Id(ctx.ID().getText()), Id(ctx.DOLLARID().getText()))
         else:
@@ -397,8 +397,6 @@ class ASTGeneration(D96Visitor):
             else:
                 return Return()
         
-        
-
     # Visit a parse tree produced by D96Parser#foreachstmt.
     def visitForeachstmt(self, ctx:D96Parser.ForeachstmtContext):
         if ctx.BY():

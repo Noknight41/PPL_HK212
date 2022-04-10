@@ -1,0 +1,231 @@
+2018
+1)
+INTLIT: [1-9]([0-9])* | '0';
+
+2)
+fragment QQ: '\"';
+fragment LEGALCHAR: ~[\"] | '\"' ~[\"];
+STRING: QQ (LEGALCHAR)* '\"'? QQ;
+
+3)
+expr1: expr1 '?' expr2 | expr2
+expr2: expr3 '^' expr3 | expr3
+expr3: expr4 '@' expr3 | expr4
+expr4: INT | '(' expr1 ')'
+
+4)
+typ: 'int' | 'float' | array_type;
+INTLIT: '-'? [1-9]([0-9])* | '0';
+int_domain: INTLIT '..' INTLIT;
+int_domain_list: int_domain_list ',' int_domain | int_domain;
+array_type: 'array' '[' int_domain_list ']' 'of' typ;
+
+5)
+a)
+Gọi được visitA, visitB, visitC
+
+b)
+class A:
+    def foo(self):
+        print("A")
+
+class B(A):
+    pass
+
+class C(B):
+    pass
+
+class D(A):
+    def foo(self):
+        print("D")
+        
+class E(A):
+    pass
+
+class F(D,E):
+    def foo(self):
+        print("F")
+        
+class G(C,F,D):
+    pass
+Ra F
+Theo MRO, đường gọi kế thừa của G là
+G -> C -> B -> F -> D -> E -> A 
+
+Xây dựng đường gọi tổ tiên theo nguyên tắc tuyến tính MRO
+L(A) = [A]
+L(B) = [B] + merge(L(A), [A]) = [B] + [A] = [B, A]
+L(C) = [C] + merge(L(B), [B]) = [C] + merge([B, A], [A]) = [C, B] + merge([A], [A]) = [C, B, A]
+L(D) = [D] + merge(L(A), [A]) = [D] + [A] = [D, A]
+L(E) = [E] + merge(L(A), [A]) = [E] + [A] = [E, A]
+L(F) = [F] + merge(L(D), L(E), [D,E]) 
+	 = [F] + merge([D,A], [E,A], [D, E])
+	 = [F, D] + merge([A], [E,A], [E])
+	 = [F, D, E] + merge([A], [A])
+	 = [F, D, E, A]
+L(G) = [G] + merge(L(C), L(F), L(D), [C, F, D])
+	 = [G] + merge([C, B, A], [F, D, E, A], [D, A], [C, F, D])
+	 = [G, C] + merge([B, A], [F, D, E, A], [D, A], [F, D]) // C là một head tốt
+	 = [G, C, B] + merge([A], [F, D, E, A], [D, A], [F, D]) // B là một head tốt
+	 = [G, C, B, F] + merge([A], [D, E, A], [D, A], [D]) // A không phải là head tốt do xuất hiện ở cuối [F, D, E, A] -> Chọn F
+	 = [G, C, B , F , D] + merge([A], [E, A], [A]) // D là một head tốt
+	 = [G, C, B, F, D, E] + merge([A], [A], [A]) // E là một head tốt
+	 = [G, C, B, F, D, E, A]
+	 
+Đi theo thứ tự gọi tổ tiên, G, C, B không có định nghĩa hàm foo, đến F thì lớp G gọi hàm foo của lớp F
+
+
+
+6)
+a)
+
+
+b)
+Recursion:
+def subsum(list):
+	return resubsum(list, 0)
+
+def resubsum(list, res):
+	if list == []:
+		return []
+	else:
+		temp = res + list[0]
+		return [temp] + resubsum(list[1:], temp)
+		
+High-order function:
+def subsum(list):
+    sample = []
+    result = []
+    for i in list:
+        sample += [i]
+        result += [functools.reduce(lambda a, b: a+b, sample)]
+    return result
+
+//
+def result(stuff):
+    a = stuff
+    def go(value):
+        nonlocal a
+        a = a + value
+        return a
+    return go
+
+def subsum(lst):
+    go = result(0)
+    return list(map(lambda x: go(x), lst))
+
+//
+def subsum(list):
+	return list(map(lambda i: reduce(lambda x,y: x + y, lst[:i+1]), range(0, len(lst))))
+
+def subsum(lst):
+	return list(map(lambda i: functools.reduce(lambda x, y: x + y, lst[:i+1]),range(0, len(lst))))
+
+2019
+1)
+fragment SLASH: '/';
+fragment DAY: '0'[1-9] | '1'[0-9] | '2'[0-9] | '3'[0-1];
+fragment MONTH: '0'[1-9] | '1'[0-2];
+fragment YEAR: ('19' | '20')[0-9][0-9];
+DATE: DAY SLASH MONTH SLASH YEAR
+
+2)
+
+expr: expr '?' term1 	| term1;
+term1: term2 '^' term2 	| term2;
+term2: term3 '@' term2 	| term3;
+term3: INT | array_var 	| '(' expr ')';
+array_var: array_var '[' expr ']' | ID;
+
+
+expr: term1 '@' expr;
+term1: term2 '^' term2;
+term2: term2 '?' term3;
+term3: INT | array_var | '(' expr ')';
+array_var: array_var '[' expr ']' | ID;
+
+3)
+a)
+def makelist(num):
+	if num == 0:
+		return [0]
+	else:
+		return remakelist(num)
+	
+def remakelist(num):
+	if num == 0:
+		return []
+	else:
+		return remakelist(num // 10) + [num % 10]
+
+b)
+def getSubSum(num):
+    lst = makelist(num)
+    sample = []
+    result = []
+    for i in lst:
+        sample += [i]
+        result += [functools.reduce(lambda a, b: a+b, sample)]
+    return result
+
+4)
+a)
+Nếu ta thực hiện duyệt tìm kiếm tổ tiên trên E, ta sẽ có
+E -> B -> O -> D -> A -> B -> C -> O
+Rút gọn lại, ta có
+E -> B -> D -> A -> C -> O
+Dẫn đến lỗi ở lớp cha B gọi lớp con D
+Sửa lại E(D, B) 
+
+b)
+Dựa trên các thông tin của các hàm foo cho trước, ta có thể 
+đưa ra giả thuyết là để tạo hàm foo đưa ra giá trị 4i^2 + 1,
+ta phải tạo bằng cách (i * 2)^2 + 1
+Suy ra duyệt tìm kiếm tổ tiên của hàm foo của lớp F là
+F -> B -> C -> A -> O
+
+vậy suy ra class F(B,C,A):
+
+5)
+a)
+class Visitor(XVisitor):
+	def visitStruct(self,ctx:MPParser.StructContext):
+		result = 1
+		for i in ctx.mem():
+			result += self.visit(i) + 1
+		return result
+	
+	def visitMem(self,ctx:MPParser.MemContext):
+        return self.visit(ctx.type()) + 1
+		
+    def visitType(self,ctx:MPParser.TypeContext): 
+        if ctx.INTTYPE:
+			return 0
+		if ctx.FLOATTYPE:
+			return 0
+		return self.visit(ctx.struct()) + 1
+
+b)
+class Visitor(XVisitor):
+	def visitStruct(self,ctx:MPParser.StructContext):
+		result = []
+		for i in ctx.mem():
+			result += self.visit(i)
+		return Struct(result)
+	
+	def visitMem(self,ctx:MPParser.MemContext):
+		result = []
+		for i in ctx.ID();
+			result += [MemDecl(self.visit(ctx.type), i.getText())]
+        return result
+		
+    def visitType(self,ctx:MPParser.TypeContext): 
+        if ctx.INTTYPE:
+			return IntType()
+		if ctx.FLOATTYPE:
+			return FloatType()
+		return self.visit(ctx.struct())
+
+
+
+

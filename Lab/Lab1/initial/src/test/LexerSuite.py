@@ -11,21 +11,21 @@ class LexerSuite(unittest.TestCase):
         self.assertTrue(TestLexer.checkLexeme("Var","Var,<EOF>",102))
 
     def test_wrong_token(self):
-        self.assertTrue(TestLexer.checkLexeme("ab?svn","ab,Error Token ?",103))
+        self.assertTrue(TestLexer.checkLexeme("\'ab\'\'c\'","'abc''c',<EOF>",103))
 
-    def test_integer(self):
-        """test integers"""
-        self.assertTrue(TestLexer.checkLexeme("Var x;","Var,x,;,<EOF>",104))
+    # def test_integer(self):
+    #     """test integers"""
+    #     self.assertTrue(TestLexer.checkLexeme("Var x;","Var,x,;,<EOF>",104))
 
-    def test_illegal_escape(self):
-        """test illegal escape"""
-        self.assertTrue(TestLexer.checkLexeme(""" "abc\\h def"  ""","""Illegal Escape In String: abc\\h""",105))
+    # def test_illegal_escape(self):
+    #     """test illegal escape"""
+    #     self.assertTrue(TestLexer.checkLexeme(""" "abc\\h def"  ""","""Illegal Escape In String: abc\\h""",105))
 
-    def test_unterminated_string(self):
-        """test unclosed string"""
-        self.assertTrue(TestLexer.checkLexeme(""" "abc def  ""","""Unclosed String: abc def  """,106))
+    # def test_unterminated_string(self):
+    #     """test unclosed string"""
+    #     self.assertTrue(TestLexer.checkLexeme(""" "abc def  ""","""Unclosed String: abc def  """,106))
 
-    def test_normal_string_with_escape(self):
-        """test normal string with escape"""
-        self.assertTrue(TestLexer.checkLexeme(""" "ab'"c\\n def"  ""","""ab'"c\\n def,<EOF>""",107))
+    # def test_normal_string_with_escape(self):
+    #     """test normal string with escape"""
+    #     self.assertTrue(TestLexer.checkLexeme(""" "ab'"c\\n def"  ""","""ab'"c\\n def,<EOF>""",107))
 

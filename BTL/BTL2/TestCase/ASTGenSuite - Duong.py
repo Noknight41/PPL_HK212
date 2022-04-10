@@ -1208,7 +1208,7 @@ class ASTGenSuite(unittest.TestCase):
                 }
             }
         }""" 
-        expect = """Program([ClassDecl(Id(Program),[MethodDecl(Id(main),Static,[],Block([ConstDecl(Id(s1),StringType,StringLit(Hello \n)),VarDecl(Id(s2),StringType,StringLit(World \n)),If(BinaryOp(==.,Id(s1),Id(s2)),Block([Call(Id(System),Id(print),[StringLit(You are right)])]),Block([Call(Id(System),Id(print),[StringLit(Noooo)])]))]))])])"""
+        expect = """Program([ClassDecl(Id(Program),[MethodDecl(Id(main),Static,[],Block([ConstDecl(Id(s1),StringType,StringLit(Hello \\n)),VarDecl(Id(s2),StringType,StringLit(World \\n)),If(BinaryOp(==.,Id(s1),Id(s2)),Block([Call(Id(System),Id(print),[StringLit(You are right)])]),Block([Call(Id(System),Id(print),[StringLit(Noooo)])]))]))])])"""
         self.assertTrue(TestAST.test(input,expect,366))
         
 

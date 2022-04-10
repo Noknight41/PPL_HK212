@@ -52,7 +52,7 @@ bvaldecl: VAL bidlist COLON dttyp | VAL block_id_vas;
 bvardecl: VAR bidlist COLON dttyp | VAR block_id_vas;
 
 // LHS
-lhs: expr DOT ID | ID DCOLON DOLLARID | LB lhs RB | ID;
+lhs: term8 DOT ID | ID DCOLON DOLLARID | LB lhs RB | ID;
 index_lhs: lhs index_operators | LB index_lhs RB index_operators;
 
 // Variable assignment
@@ -131,6 +131,8 @@ UNCLOSE_STRING: ('"' (LEGAL_CHAR | QQ)*) {raise UncloseString(self.text[1:])};
 ILLEGAL_ESCAPE: '"' (LEGAL_CHAR | QQ)* ILLEGAL_ESC  {
     raise IllegalEscape(self.text[1:])
 };
+
+
 
 // Comment
 BCOMMENT: '##' .*? '##' -> skip;

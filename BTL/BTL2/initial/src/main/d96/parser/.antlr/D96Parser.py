@@ -157,7 +157,7 @@ def serializedATN():
         buf.write("\u0126\u0127\5\34\17\2\u0127\u0128\7\62\2\2\u0128\u0129")
         buf.write("\5L\'\2\u0129\u012d\3\2\2\2\u012a\u012b\7)\2\2\u012b\u012d")
         buf.write("\5*\26\2\u012c\u0125\3\2\2\2\u012c\u012a\3\2\2\2\u012d")
-        buf.write("\61\3\2\2\2\u012e\u012f\5N(\2\u012f\u0130\7\66\2\2\u0130")
+        buf.write("\61\3\2\2\2\u012e\u012f\5`\61\2\u012f\u0130\7\66\2\2\u0130")
         buf.write("\u0131\7>\2\2\u0131\u013b\3\2\2\2\u0132\u0133\7>\2\2\u0133")
         buf.write("\u0134\7\61\2\2\u0134\u013b\7=\2\2\u0135\u0136\7\67\2")
         buf.write("\2\u0136\u0137\5\62\32\2\u0137\u0138\78\2\2\u0138\u013b")
@@ -2032,8 +2032,8 @@ class D96Parser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
-        def expr(self):
-            return self.getTypedRuleContext(D96Parser.ExprContext,0)
+        def term8(self):
+            return self.getTypedRuleContext(D96Parser.Term8Context,0)
 
 
         def DOT(self):
@@ -2075,7 +2075,7 @@ class D96Parser ( Parser ):
             if la_ == 1:
                 self.enterOuterAlt(localctx, 1)
                 self.state = 300
-                self.expr()
+                self.term8(0)
                 self.state = 301
                 self.match(D96Parser.DOT)
                 self.state = 302

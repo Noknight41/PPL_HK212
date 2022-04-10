@@ -1,0 +1,76 @@
+
+1)
+fragment HOTEN: [a-z]+;
+fragment CHAR: [a-z0-9._];
+fragment CHAR_2: [a-z0-9_];
+fragment TUCHON:  CHAR_2 
+				| CHAR CHAR_2 
+				| CHAR CHAR CHAR_2 
+				| CHAR CHAR CHAR CHAR_2 
+				| CHAR CHAR CHAR CHAR CHAR_2;
+BKNETID: HOTEN '.' HOTEN TUCHON;
+
+2)
+asg_var: VARNAME EQ expr SEMI;
+expr: term1 DQUES term1 | term1;
+term1: term2 ADD term1 | term2 SUB term1 | term2;
+term2: term2 MUL term3 | term2 DIV term3 | term2 MOD term3 | term3;
+term3: term3 DOT term4 | term4;
+term4: term5 DSTAR term4 | term5;
+term5: VARNAME | INTLIT | FLOATLIT | STRINGLIT | LP expr RP | index_array | asso_array;
+
+
+expr_list: expr COMMA expr_list | expr;
+index_array: ARRAY LP expr_list? RP;
+
+pair: PAIRNAME ARROW expr;
+pair_list: pair COMMA pair_list | pair;
+asso_array: ARRAY LP pair_list? RP;
+
+3)
+Thừa kế trong ngôn ngữ lập trình hướng đối tượng là
+khả năng 1 subclass có thể thừa kế những thuộc tính 
+không phải private của superclass
+
+Dựa vào khái niệm thừa kế, ta có thể chia các ngôn ngữ 
+lập trình hướng đối tượng thành 2 loại: ngôn ngữ chỉ 
+hỗ trợ đơn thừa kế và ngôn ngữ hỗ trợ đa thừa kế
+
+Đơn thừa kế: khi thừa kế nhiều lớp cha, 
+
+Các vấn đề xuất hiện khi ngôn ngữ lập trình hướng đối tượng 
+đa thừa kế, tiêu biểu là vấn đề kim cương (Diamond Problem),
+khi 2 subclass B và C cùng thừa kế từ class A, và class D đa 
+thừa kế B và C. Nếu như B và C override 1 method từ A và class D
+không override method đó, khi class D đa thừa kế, D sẽ thừa kế 
+method từ class B hay class C ?
+
+4)
+class ASTGeneration:
+	def visitProgram(self, ctx):
+		result = list(map(lambda x: self.visit(x), ctx.funcdecl()))
+		return Program(result)
+	
+	def visitFuncdecl(self, ctx):
+		result = FuncDecl(ctx.ID().getText(), self.visit(ctx.typ()), self.visit(ctx.paramlist()))
+		return result
+	
+	def visitParamlist(self, ctx):
+		lst_param = list(map(lambda x: self.visit(x), ctx.param()))
+		lst_typ   = list(map(lambda x: self.visit(x), ctx.typ()))
+		return recurParamlist(lst_param, lst_typ)
+		
+	def recurParamlist(self, param, typ):
+		if param == [] || typ == []:
+			return None
+		return ParamDecl(param[0][0], param[0][1], typ[0], self.recurParamlist(param[1:], typ[1:]))
+	
+	def visitParam(self, ctx):
+		if ctx.REF():
+			return ctx.ID().getText(), True
+		return ctx.ID().getText(), False
+	
+	def visitTyp(self, ctx):
+		if ctx.getText() == 'int';
+			return IntType()
+		return FloatType()

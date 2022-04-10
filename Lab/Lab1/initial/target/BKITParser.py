@@ -11,10 +11,10 @@ else:
 
 def serializedATN():
     with StringIO() as buf:
-        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\13")
-        buf.write("\n\4\2\t\2\3\2\3\2\3\2\3\2\3\2\3\2\2\2\3\2\2\2\2\b\2\4")
-        buf.write("\3\2\2\2\4\5\7\6\2\2\5\6\7\5\2\2\6\7\7\4\2\2\7\b\7\2\2")
-        buf.write("\3\b\3\3\2\2\2\2")
+        buf.write("\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\f")
+        buf.write("\13\4\2\t\2\3\2\3\2\3\2\3\2\3\2\3\2\3\2\2\2\3\2\2\2\2")
+        buf.write("\t\2\4\3\2\2\2\4\5\7\5\2\2\5\6\7\4\2\2\6\7\7\7\2\2\7\b")
+        buf.write("\7\3\2\2\b\t\7\2\2\3\t\3\3\2\2\2\2")
         return buf.getvalue()
 
 
@@ -28,10 +28,10 @@ class BKITParser ( Parser ):
 
     sharedContextCache = PredictionContextCache()
 
-    literalNames = [ "<INVALID>", "<INVALID>", "';'", "':'", "'Var'" ]
+    literalNames = [ "<INVALID>", "';'", "':'", "'Var'" ]
 
-    symbolicNames = [ "<INVALID>", "ID5", "SEMI", "COLON", "VAR", "WS", 
-                      "ERROR_CHAR", "UNCLOSE_STRING", "ILLEGAL_ESCAPE", 
+    symbolicNames = [ "<INVALID>", "SEMI", "COLON", "VAR", "STRING", "ID", 
+                      "WS", "ERROR_CHAR", "UNCLOSE_STRING", "ILLEGAL_ESCAPE", 
                       "UNTERMINATED_COMMENT" ]
 
     RULE_program = 0
@@ -39,15 +39,16 @@ class BKITParser ( Parser ):
     ruleNames =  [ "program" ]
 
     EOF = Token.EOF
-    ID5=1
-    SEMI=2
-    COLON=3
-    VAR=4
-    WS=5
-    ERROR_CHAR=6
-    UNCLOSE_STRING=7
-    ILLEGAL_ESCAPE=8
-    UNTERMINATED_COMMENT=9
+    SEMI=1
+    COLON=2
+    VAR=3
+    STRING=4
+    ID=5
+    WS=6
+    ERROR_CHAR=7
+    UNCLOSE_STRING=8
+    ILLEGAL_ESCAPE=9
+    UNTERMINATED_COMMENT=10
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -70,6 +71,9 @@ class BKITParser ( Parser ):
 
         def COLON(self):
             return self.getToken(BKITParser.COLON, 0)
+
+        def ID(self):
+            return self.getToken(BKITParser.ID, 0)
 
         def SEMI(self):
             return self.getToken(BKITParser.SEMI, 0)
@@ -100,8 +104,10 @@ class BKITParser ( Parser ):
             self.state = 3
             self.match(BKITParser.COLON)
             self.state = 4
-            self.match(BKITParser.SEMI)
+            self.match(BKITParser.ID)
             self.state = 5
+            self.match(BKITParser.SEMI)
+            self.state = 6
             self.match(BKITParser.EOF)
         except RecognitionException as re:
             localctx.exception = re

@@ -24,16 +24,21 @@ options{
 	language=Python3;
 }
 
-program  : VAR COLON SEMI EOF ;
-
-fragment SINGQ: '\'';
-STRING: SINGQ (~['] | SINGQ SINGQ)* SINGQ;
+program  : VAR COLON ID SEMI EOF ;
 
 SEMI: ';' ;
 
 COLON: ':' ;
 
 VAR: 'Var' ;
+
+// fragment LEGALCHAR: ~["] | '"' ~["];
+// STRING: '""' LEGALCHAR* '""';
+
+fragment LEGALCHAR: ~['] | '\'' '\'';
+STRING: '\'' LEGALCHAR* '\''; 
+
+ID: [a-z]([a-z]|[0-9])* ;
 
 WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
 
