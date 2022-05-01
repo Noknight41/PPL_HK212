@@ -1,0 +1,61 @@
+1)
+	def visitIntLiteral(self, ctx, o):
+		return self.emit.emitPUSHICONST(ctx.value, o.frame), IntType()
+
+
+2)
+	def visitFloatLiteral(self, ctx, o):
+		return self.emit.emitPUSHFCONST(ctx.value, o.frame), FloatType()
+
+3)
+	def visitBinExpr(self, ctx, o):
+        val1, type1 = self.visit(ctx.e1, o)
+        val2, type2 = self.visit(ctx.e2, o)
+        if ctx.op == "+" or ctx.op == "-":
+            return val1 + val2 + self.emit.emitADDOP(ctx.op, type1, o.frame), IntType()
+        if ctx.op == "*" or ctx.op == "/":
+            return val1 + val2 +self.emit.emitMULOP(ctx.op, type1, o.frame), IntType()
+        if ctx.op == "+." or ctx.op == "-.":
+            return val1 + val2 + self.emit.emitADDOP(ctx.op[:-1], type1, o.frame), FloatType()
+        if ctx.op == "*." or ctx.op == "/.":
+            return val1 + val2 + self.emit.emitMULOP(ctx.op[:-1], type1, o.frame), FloatType()
+
+4)
+	def visitBinExpr(self, ctx, o):
+        val_1, type1 = self.visit(ctx.e1, o)
+        val_2, type2 = self.visit(ctx.e2, o)
+        
+        # Type Coerce
+        if type(type1) == type(type2):
+            rt = type1
+        elif type(type1) == IntType and type(type2) == FloatType:
+            val_1 = val_1 + self.emit.emitI2F(o.frame)
+            rt = FloatType()
+        else: # type(type1) is FloatType and type(type2) is IntType
+            val_2 = val_2 + self.emit.emitI2F(o.frame)
+            rt = FloatType()
+        
+        if ctx.op in ["+", "-"]:
+            code = self.emit.emitADDOP(ctx.op, rt, o.frame)
+        elif ctx.op == "*":
+            code = self.emit.emitMULOP(ctx.op, rt, o.frame)
+        elif ctx.op == "/":
+            if type(rt) == IntType:
+                val_1 =  val_1 + self.emit.emitI2F(o.frame)
+                val_2 =  val_2 + self.emit.emitI2F(o.frame)
+                rt = FloatType()
+            code = self.emit.emitMULOP(ctx.op, rt, o.frame)
+        else:
+            code = self.emit.emitREOP(ctx.op, rt, o.frame) 
+            rt = BoolType()
+        return val_1 + val_2 + code, rt
+
+5)
+	def visitId(self, ctx, o):
+        var = next(filter(lambda x: x.name == ctx.name, o.sym), False)
+        rt = var.mtype
+        if type(var.value) is Index:
+            code = self.emit.emitREADVAR(var.name, var.mtype, var.value.value, o.frame)
+        else:
+            code = self.emit.emitGETSTATIC(var.value.value + "." + var.name, var.mtype, o.frame)
+        return code, rt

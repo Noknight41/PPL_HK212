@@ -1,0 +1,51 @@
+1)
+	def visitVarDecl(self, ctx, o):
+        if o.frame is None:
+            self.emit.printout(self.emit.emitATTRIBUTE(ctx.name, ctx.typ, False))
+            return Symbol(ctx.name, ctx.typ, CName(self.className))
+        else:
+            index = o.frame.getNewIndex()
+            self.emit.printout(self.emit.emitVAR(index, ctx.name, ctx.typ, o.frame.getStartLabel(), o.frame.getEndLabel()))
+            return Symbol(ctx.name, ctx.typ, Index(index))
+
+2)
+	def visitId(self, ctx, o):
+        var = next(filter(lambda x: x.name == ctx.name, o.sym), False)
+        rt = var.mtype
+        if o.isLeft: # True
+            if type(var.value) is Index:
+                code = self.emit.emitWRITEVAR(var.name, var.mtype, var.value.value, o.frame)
+            else:
+                code = self.emit.emitPUTSTATIC(var.value.value + "." + var.name, var.mtype, o.frame)
+        else:
+            if type(var.value) is Index:
+                code = self.emit.emitREADVAR(var.name, var.mtype, var.value.value, o.frame)
+            else:
+                code = self.emit.emitGETSTATIC(var.value.value + "." + var.name, var.mtype, o.frame)
+        return code, rt
+
+3)
+	def visitAssign(self, ctx, o):
+        c1, typ1 = self.visit(ctx.rhs, Access(o.frame, o.sym,  False))
+        c2, typ2 = self.visit(ctx.lhs, Access(o.frame, o.sym,  True))
+        self.emit.printout(c1 + c2)
+
+4)
+	def visitIf(self,ctx,o):
+        code_e, typ = self.visit(ctx.expr, Access(o.frame, o.sym,  False))
+        self.emit.printout(code_e)
+        first_label = o.frame.getNewLabel()
+        if ctx.estmt is not None:
+            second_label = o.frame.getNewLabel()
+            self.emit.printout(self.emit.emitIFFALSE(first_label, o.frame))
+            self.visit(ctx.tstmt, o)
+            self.emit.printout(self.emit.emitGOTO(second_label, o.frame) + self.emit.emitLABEL(first_label, o.frame))
+            self.visit(ctx.estmt, o)
+            self.emit.printout(self.emit.emitLABEL(second_label, o.frame))
+        else:
+            self.emit.printout(self.emit.emitIFFALSE(first_label, o.frame))
+            self.visit(ctx.tstmt, o)
+            self.emit.printout(self.emit.emitLABEL(first_label, o.frame))
+
+5)
+	
