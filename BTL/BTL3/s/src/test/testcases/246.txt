@@ -1,0 +1,10 @@
+
+        Class Program{
+            Var $a: Array[Int, 3] = Array(0, 3, 1);
+            main () {
+                A::$a = Array(0, 3, 5);
+                a.putIntLn(4_5, 4.3e10);
+                x = "f";
+            }
+        }
+        

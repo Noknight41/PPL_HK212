@@ -1,0 +1,9 @@
+
+        Class Program {
+            Var $sus_value: String = "This value is sus!"; ## Susssssss ##
+            main() {
+                Val valid_value: Int = 100000000;
+                Var s: SH = Null;
+            }
+        }
+        

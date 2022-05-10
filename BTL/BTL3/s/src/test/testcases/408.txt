@@ -1,0 +1,16 @@
+
+        Class A{
+            Var a, d: Int;
+            sickle(s: String; e: Int){
+                Foreach(i In 1 .. 10 By 2){
+                   Break; 
+                }
+                Return;
+            }
+        }
+        Class Program{
+            main(){
+                
+            }
+        }
+        

@@ -1,0 +1,32 @@
+
+        Class Other_class {    
+            Var $a, $b: Int = 1, 2;
+            $Method(n: Int) {
+                If (n == 1) {
+                    Return True;
+                }
+                Else {
+                    Return False;
+                }
+            }    
+            Constructor(int: Int; string: String) {
+                Some_class::$Method(1,2,3);
+                Self.Method(1,2,3);
+                a = Some_class::$Method(1,2,3);
+                a = Self.Method(1,2,3);
+            }
+            Destructor() {}
+        }
+        Class Program{
+            main(){
+                a = Array(
+                    Array(1,2,3),
+                    Array(0x11,0x22),
+                    Array(Array(1,2,3), Array(1,2,3,4), Array(1,2,3,4,5)),
+                    Array(a[1], New X(), New X()[1], a==b, "String" ==. "String"),
+                    Array(a[1],a[2],a[3],a[4]),
+                    Array(New X().x, New X().y)
+                );
+            }
+        }
+        

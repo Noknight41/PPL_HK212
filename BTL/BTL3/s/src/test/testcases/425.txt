@@ -1,0 +1,19 @@
+
+        Class Starter{
+            Var s, a: Float = 1.0, 0x3;
+            Constructor(Nigel: Int){
+                Self.a = Nigel + 1.0;
+                Self.s = Nigel;
+                Return;
+            }
+        }
+        Class A{
+            Var a: Int = 1;
+            Var test: Starter = New Starter(2);
+        }
+        Class Program{
+            main() {
+                Return;
+            }
+        }
+        

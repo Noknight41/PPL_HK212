@@ -1,0 +1,16 @@
+
+        Class A{
+            Var a, d: Int;
+            sickle(s: String){
+                Return 1;
+            }
+        }
+        Class B : A{
+            Var a: Float;
+        }
+        Class Program{
+            main(){
+                
+            }
+        }
+            

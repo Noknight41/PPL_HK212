@@ -1,0 +1,1 @@
+Var a: String = b +. "Welcome to Hell 'course";

@@ -1,0 +1,32 @@
+
+        Class Solution {
+            threeSum(nums: Array[Int, 10]) {
+                Math.sort(nums.begin(), nums.end());
+                Var ans: Array[Int, 10];
+                Foreach(i In 0 .. nums.size()) {
+                    If ((i != 0) && (nums[i] == nums[(i-1)])) {
+                        Continue;
+                    }
+                    Var sum, start, end: Int = (-1) * nums[i], i + 1, nums.size() - 1;
+                    Foreach(j In start .. end) {
+                        If (nums[start] + nums[end] == sum) {
+                            Var vec: Array[Int, 10];
+                            vec.push_back(nums[i]);
+                            vec.push_back(nums[start]);
+                            vec.push_back(nums[end]);
+                            ans.push_back(vec);
+                            If (nums[start] == nums[end]) {
+                                Break;
+                            }
+                        }
+                        Elseif (nums[start] + nums[end] < sum) {
+                            start = start + 1;
+                        }
+                        Else {
+                            end = end - 1;
+                        }
+                    }
+                }
+                Return ans;
+            }
+        }

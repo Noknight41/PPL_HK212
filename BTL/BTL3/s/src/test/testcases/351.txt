@@ -1,0 +1,8 @@
+
+        Class Program{
+            main(){
+                If(a < c) {} Else {}
+                If(a == b) {} Elseif (b <= c) {a = "HERE!";} Else {}
+            }
+        }
+        

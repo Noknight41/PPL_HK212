@@ -1,0 +1,7 @@
+
+        Class Program{
+            main(){
+                _.getVar = 100_000_000_000;
+            }
+        }
+        

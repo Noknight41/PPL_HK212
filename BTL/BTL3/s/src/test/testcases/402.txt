@@ -1,0 +1,13 @@
+
+        Class A{
+            Var a, d: Int;
+            Constructor(){
+                Return;
+            }
+        }
+        Class Program{
+            main(){
+                
+            }
+        }
+            

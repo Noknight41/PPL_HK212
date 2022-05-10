@@ -1,0 +1,39 @@
+
+        Class Trt{
+            Var a: String;
+            Constructor(x: String){
+                Self.a = x;
+            }
+            Despacito(){
+                Return Self.a +. "2";
+            }
+        }
+        Class Shape {
+            Var flag: Trt = Null;
+            Var x, y : Int;
+            Constructor(a,b: Int; d: String){
+                flag = New Trt(d);
+                Var s: String = flag.Despacito();
+                Self.x = b;
+                Self.y = a;
+                If(d ==. "Hel"){
+                    Self.x = a;
+                    Self.y = b;
+                }
+            }
+            Destructor(){
+                a.print("No service");
+            }
+        }
+        Class Program {
+            ## Muda
+            Muda ##
+            Var hello: Array[Int, 5];
+            Var length, width: Int;
+            Var flag2: Shape = New Shape(1,2,"Help");
+            main(){
+                a.print(flag2.flag.Despacito());
+                flag2.flag. = "s";
+                a = 1.0;
+            }
+        }

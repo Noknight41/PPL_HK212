@@ -1,0 +1,15 @@
+
+        Class Shape {
+            Val My1stCons, My2ndCons: Int = 1 + 5/2, 2;
+            Var $x, $y : Int = 0, 0;
+        }
+        Class Program {
+            ## Muda
+            Muda ##
+            Var hello: Array[Int, 5];
+            Var length, width: Int;
+            main(){
+                a = 1.0;
+            }
+        }
+        

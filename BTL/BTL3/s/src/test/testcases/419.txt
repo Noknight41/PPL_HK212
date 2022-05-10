@@ -1,0 +1,11 @@
+
+        Class A{
+            Var a: Int = 1;
+            Var a: String = "12";
+        }
+        Class Program{
+            main(){
+                
+            }
+        }
+        

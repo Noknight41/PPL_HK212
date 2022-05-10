@@ -1,0 +1,10 @@
+
+        Class Program {
+            ## Hello Everybody ##
+            Val $Emperor, Empress: Int = 1_465_3, 0223_334_545;
+            Var $Fool, $Magician: Int = 0b11, 0x1A6_7;
+            main(){
+                Return self._Fool;
+            }
+        }
+        

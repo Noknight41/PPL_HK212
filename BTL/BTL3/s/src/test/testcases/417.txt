@@ -1,0 +1,26 @@
+
+        Class Starter{
+            Constructor(){
+                Return;
+            }
+        }
+        Class A{
+            Val $d: Array[Int, 5] = Array(1 + 2, 3, 0x23, 56, 0b111);
+            Cosntructor(a: Int; b: Float; s: Array[Int, 3]){
+                Return;
+            }
+            sicle(){
+                Var a: Int = A::$d[1] + A::$d[2];
+                Foreach(scalar In 1 .. 5 By 1){
+                   Var d: Int = scalar;
+                   a = a + d + A::$d[scalar];
+                }
+                Return a;   
+            }
+        }
+        Class Program{
+            main(){
+                
+            }
+        }
+        

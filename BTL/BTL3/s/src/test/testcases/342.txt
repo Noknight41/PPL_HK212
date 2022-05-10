@@ -1,0 +1,36 @@
+
+        Class A{
+            Val $a, $b: Int;
+            Val $d, $e: Float;
+            Var $s: Int = 1;
+            main(){
+                If(d * 5 + 1 == 0){
+                    Return 2;
+                }
+                Elseif(A::$a > 4){
+                    Foreach(ad In -1 .. A::$b By 2){
+                        A::$s = A::$s + ad;
+                    }
+                    Return A::$s;
+                }
+            }
+            gg(a: Array[Int, 2]){
+                A::$s = A::$s + a[1];
+            }
+            Constructor(a: Array[Int, 2]; b: Array[Float, 2]){
+                A::$a = a[1];
+                A::$b = a[2];
+                A::$c = b[1];
+                A::$d = b[2];
+            }
+        }
+        Class Program {
+            main(){
+                Var d : Int = A::$a + A::$b;
+                Var e: Float = A::$d + A::$e; 
+                Var c, f: A;
+                c = New A(Array(d, d + 1), Array(e, -e));
+                c.gg(Array(d, d + 1));
+            }
+        }
+        

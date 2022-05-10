@@ -1,0 +1,13 @@
+
+        Class A{
+            Var d: String = "Hello Im Sting";
+        }
+        Class A{
+            Var a: Int = 1;
+        }
+        Class Program{
+            main(){
+                
+            }
+        }
+        

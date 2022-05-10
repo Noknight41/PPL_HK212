@@ -1,0 +1,9 @@
+
+        Class Program {
+            ## Hello Everybody ##
+            Var _Fool, _Magician: Array[Int, 4] = Array(1,2,3,4), Array(5,56,7,8);
+            main(){
+                Return self._Fool;
+            }
+        }
+        

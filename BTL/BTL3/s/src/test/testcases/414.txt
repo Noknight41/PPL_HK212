@@ -1,0 +1,14 @@
+
+        Class A{
+            Var a: Int;
+            Constructor(start: Int){
+                Return;
+            }
+            Val b: Int = 1;
+        }
+        Class Program{
+            main(){
+                
+            }
+        }
+        

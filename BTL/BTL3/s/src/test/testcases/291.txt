@@ -1,0 +1,23 @@
+
+        Class NFT {
+            Var fyou: String = "If you dumb enough to buy this";
+            Var utrash : String = "You dumb enough to survive on sunlight";
+            Constructor(){
+                fyou = Self.fyou;
+                utrash = Self.utrash;
+            }
+        }
+        Class Program {
+            main() {
+                Var a : Int;
+                Foreach (i In 1 .. 100 By 1)
+                {
+                    printf("enter the number:");
+                    scanf("%d", &a);
+                    If ( a == 0 ) {
+                        Break;
+                    }
+                }
+                Return 0;
+            }
+        }

@@ -1,0 +1,14 @@
+
+        Class A{
+            Var a: Int = 1;
+        }
+        Class E : A {
+            Var a : Int;
+            ##Var a : String;##
+        }
+        Class Program{
+            main() {
+                Return;
+            }
+        }
+        

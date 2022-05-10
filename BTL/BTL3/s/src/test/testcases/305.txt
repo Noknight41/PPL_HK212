@@ -1,0 +1,10 @@
+
+        Class Program {
+            Var a, b: Array[Int, 5];
+            Var c: Array[String, 10_0];
+            main() {
+                c = Array();
+                d = Array("1", "2", "3");
+            }
+        }
+        

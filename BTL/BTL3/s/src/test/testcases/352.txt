@@ -1,0 +1,33 @@
+
+        Class Program{
+            Val e: Float = 1.02;
+            doo(){
+                Shape::$new = Array(1.0, 3.4, 1.2);
+                Shape::$newArray[1] = "Hello";
+                Shape::$noOne.array[2] = .12e10;
+                Self.we.one = False;
+                Return 1;
+            }
+            main(){
+                Foreach(lit In d .. e By 2){
+                    Foreach(it In 1 .. lit){
+                        If(e >= lit){
+                            e = e - lit;
+                        }
+                        Elseif((e < lit) && (e >= i)){
+                            e = e + lit - i;
+                            Continue;
+                        }
+                        Elseif(e < i){
+                            e = lit * i;
+                        }
+                        e = e * 1.02;
+                        If(e >= 1.e2){
+                            Break;
+                        }
+                    }
+                }
+                Return;
+            }
+        }
+        

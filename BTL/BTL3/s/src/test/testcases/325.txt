@@ -1,0 +1,25 @@
+
+        Class Royal{
+            Var a, b, c, d, e: Float;
+            Constructor(x, y: Float){
+                Self.a = x;
+                Self.b = y;
+                Self.c = x - y;
+                Self.d = x * y;
+                Self.e = x + y;
+            }
+            Destructor(){
+                Self.a = 0.0;
+                Self.b = 0.0;
+                Self.c = 0.0;
+                Self.d = 0.0;
+                Self.e = 0.0;
+            }
+        }
+        Class Program {
+            main(){
+                Var p: Royal = Null;
+                p = New Royal(.23e10, 123e10, 1.23e-10, 2.33e10, .e10);
+            }
+        }
+        

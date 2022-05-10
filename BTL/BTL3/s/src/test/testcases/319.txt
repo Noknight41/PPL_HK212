@@ -1,0 +1,19 @@
+
+        Class C{
+            $forfunc(i : Int){
+                Foreach(a In 1 .. 0x45){
+                    Foreach(b In i - a .. i + 2*a By i){
+                        Out.println(b, a, i);
+                    }
+                }
+            }
+        }
+        Class Program {
+            Val $b5, $b_6: Boolean = True, False;   
+            Val b_7, $b_8, $b_9: String = "No I'" Not", "Seeya", "Gozen";
+            main(){
+                Var demo: C = New C();
+                C::$forfunc(1);
+            }
+        }
+        

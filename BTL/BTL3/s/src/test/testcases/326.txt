@@ -1,0 +1,19 @@
+
+        Class Pair{
+            Var a, b: Int;
+            Constructor(x, y: Int){
+                Self.a = x;
+                Self.b = y;
+            }
+            Constructor(x: Int){
+                Self.a = x;
+                Self.b = x;
+            }
+        }
+        Class Program {
+            main(){
+                Var p, s: Pair = Null, New Pair(5);
+                p = New Pair(2,3);
+            }
+        }
+        

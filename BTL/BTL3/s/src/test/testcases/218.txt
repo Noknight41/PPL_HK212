@@ -1,0 +1,17 @@
+
+        Class Shape{
+            Var height, length: Float;
+        }
+        
+        Class Rectangle: Shape {
+            $getArea() {
+                Return Self.height * Self.height;
+            }
+        }
+        
+        Class Program {
+            main(){
+                Out.printInt(Rectangle::$getArea());
+            }
+        }
+        

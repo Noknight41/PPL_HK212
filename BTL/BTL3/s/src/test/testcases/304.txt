@@ -1,0 +1,17 @@
+
+        Class Sum{
+            Val x : Int = 1;
+            Constructor(x : Int){
+                Self.x = x;
+            }
+        }
+        
+        Class Program{
+            hello(){
+                Val d: Int =  1;
+                d = 2;
+                If(d > 2){
+                    d = d + 1;
+                }
+            }
+        }

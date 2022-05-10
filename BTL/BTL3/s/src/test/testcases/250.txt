@@ -1,0 +1,14 @@
+
+        Class Main{
+                Var v : Boolean;
+                setIsValue(isSaved:Boolean){
+                    v = isSaved;
+                }
+            }
+            Class Program{
+                main(){
+                    Var x : Main = New Main();
+                    x.setIsValue(True);
+                }
+            }
+            

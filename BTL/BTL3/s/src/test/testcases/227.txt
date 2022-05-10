@@ -1,0 +1,11 @@
+
+        Class Program {
+            main(){
+                ## Muda ##
+                Foreach (x In 1 .. 25 By x + 1) {
+                    Out.printInt(arr[x]);
+                }
+            }
+            ## Muda
+            Muda ##
+        }

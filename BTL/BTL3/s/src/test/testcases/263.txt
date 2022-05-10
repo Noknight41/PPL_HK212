@@ -1,0 +1,6 @@
+
+        Class Program {
+            main() {
+                a = "123"::$getValue();
+            }
+        }

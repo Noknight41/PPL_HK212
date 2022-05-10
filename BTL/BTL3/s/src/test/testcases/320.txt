@@ -1,0 +1,12 @@
+
+        Class Program {
+            main(){
+                If(x >= 1){
+                    Global.doSomthing();
+                }
+                Elseif(x >= 0.5){
+                    
+                }
+            }
+        }
+        
