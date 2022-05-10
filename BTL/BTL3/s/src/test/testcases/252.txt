@@ -1,4 +1,0 @@
-Class Program{ main(){
-            Var a, b : Array[String,-4];
-            }
-            }

@@ -1,1 +1,0 @@
-ddkjlsdjkh String with '"quote'" and has comment ##abcd##,<EOF>

@@ -1,7 +1,0 @@
-
-        Class Program {
-            main() {
-                Var a : Array[Array[Int, 012], 0x15];
-                Return;
-            }
-        }

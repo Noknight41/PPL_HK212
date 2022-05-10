@@ -1,9 +1,0 @@
-
-        Class Program {
-            ## Hello Everybody ##
-            Var _Fool, _Magician: Array[, 4];
-            main(){
-                Return self._Fool;
-            }
-        }
-        

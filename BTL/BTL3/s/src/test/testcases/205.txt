@@ -1,8 +1,0 @@
-
-        Class Program {
-            Var _Fool, _Magician: Array[Int, 5];
-            main(){
-                
-            }
-        }
-        

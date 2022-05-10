@@ -1,4 +1,0 @@
-
-        Class Rectangle {
-            Var b, c, $d, $e, _f: Float = 10, -20.1, 30.2, 40.3, 50.4 - 1;
-        }

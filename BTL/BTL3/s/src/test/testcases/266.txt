@@ -1,7 +1,0 @@
-
-        Class Program {
-            main() {
-                Car::$abc = 10;
-                a = Sth::sthElse;
-            }
-        }

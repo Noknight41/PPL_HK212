@@ -1,9 +1,0 @@
-
-        Class Program {
-            ## Hello Everybody ##
-            Var _Fool, _Magician: Boolean = True, False;
-            main(){
-                Return self._Fool;
-            }
-        }
-        

@@ -1,8 +1,0 @@
-
-        Class Program{
-            Var $a: IntObj;
-            main(){
-                Var b: IntObj = New IntObj();
-            }
-        }
-        

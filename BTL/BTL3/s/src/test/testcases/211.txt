@@ -1,9 +1,0 @@
-
-        ##jlkjlk##
-        Class Program {
-            main() { 
-                ##kl;k##
-                x = "##2+"; 
-            }
-        }
-        

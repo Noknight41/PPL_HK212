@@ -1,9 +1,0 @@
-
-            Class Program{
-                main(){
-                    
-                }
-                Var myVar: String = "Hello World";
-                Var myVar: Int;
-            }
-        

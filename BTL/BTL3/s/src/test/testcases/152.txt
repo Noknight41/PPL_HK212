@@ -1,1 +1,0 @@
-Val a : Int = 1; ## Hello World ## b.call();

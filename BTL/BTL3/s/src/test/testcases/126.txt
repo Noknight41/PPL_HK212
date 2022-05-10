@@ -1,5 +1,0 @@
-
-         Foreach(y In 100 .. 300 By 0x5){
-            $doNothing();
-         } 
-      

@@ -1,5 +1,0 @@
-
-        Class Program{
-            Val a, b, $c, $d, e, $f: Int = 037415, 2345651, 0x329EDF, 0xABCDEF01, 0b101111100101, 0B1101101010111101;
-        }
-        

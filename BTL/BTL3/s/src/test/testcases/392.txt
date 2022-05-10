@@ -1,4 +1,0 @@
-
-        Class A : B {
-            Val a, b : Boolean = True, False;
-        }
