@@ -1,0 +1,11 @@
+
+        Class E {
+            Var a : Int;
+        }
+        
+        Class Program{
+            main() {
+                Var b : Int = E.a;
+            }
+        }
+        

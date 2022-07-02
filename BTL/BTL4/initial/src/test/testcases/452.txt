@@ -1,0 +1,12 @@
+
+        Class A:A{
+            a(){
+                
+            }
+        }
+        Class Program{
+            main(){
+                Return;
+            }
+        }
+        

@@ -1,0 +1,12 @@
+
+        Class D {
+            Constructor() {
+                a = a;
+                Return;
+            }
+        }
+        Class Program {
+            main() {
+                Return 1;
+            }
+        }

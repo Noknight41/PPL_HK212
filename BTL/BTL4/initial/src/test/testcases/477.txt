@@ -1,0 +1,15 @@
+
+        Class A {
+            Constructor() {}
+        }
+        Class B {
+            Constructor() {}
+        }
+        Class Program {
+            print(a: Float) {}
+            main() {
+                Var a: A = New B();
+                Self.print(a.getInt());
+            }
+        }
+        

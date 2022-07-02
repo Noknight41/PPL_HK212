@@ -1,0 +1,1 @@
+Type Mismatch In Constant Declaration: ConstDecl(Id(a),ClassType(Id(A)),NewExpr(Id(B),[]))

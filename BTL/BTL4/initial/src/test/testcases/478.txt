@@ -1,0 +1,8 @@
+
+        Class Program {
+            print(a: Int) {}
+            main() {
+                Continue;
+            }
+        }
+        

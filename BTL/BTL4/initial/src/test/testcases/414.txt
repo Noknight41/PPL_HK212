@@ -1,0 +1,18 @@
+
+        Class A{
+            Var a: Int;
+            Constructor(start: Int){
+                Return;
+            }
+            Val b: Int = 1;
+        }
+        Class Program{
+            main(){
+                
+            }
+            yo(a: String){
+                Return a;
+                Return 1;
+            }
+        }
+        

@@ -1,0 +1,22 @@
+
+        Class A {
+            Var A: Int;
+            Sicle(){
+                Return 1;
+            }
+            Destroy(){
+                Var x: Int = 1;
+                Return x;
+            }
+            
+            Constructor(){
+                Self.A = Self.Sicle();
+                Self.A = Self.Destroy();
+            }
+        }
+        Class Program{
+            main(){
+                Return 1;
+            }
+        }
+        

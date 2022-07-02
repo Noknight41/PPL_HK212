@@ -1,0 +1,19 @@
+
+        Class A{
+            Var $a: Float;
+        }
+        Class B: A{
+            Var $b: Float;
+        }
+        Class C{
+            Var $s: Float;
+        }
+        Class Application: B{
+            Var $f: Float;
+        }
+        Class Program {
+            main(){
+                
+            }
+        }
+        

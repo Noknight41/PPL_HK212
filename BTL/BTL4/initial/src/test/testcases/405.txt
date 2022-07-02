@@ -1,0 +1,14 @@
+
+        Class A{
+            Var a, d: Int;
+            sickle(s: String){
+                Break;
+                Return 1;
+            }
+        }
+        Class Program{
+            main(){
+                Return;
+            }
+        }
+            

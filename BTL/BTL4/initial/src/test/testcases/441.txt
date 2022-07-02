@@ -1,0 +1,14 @@
+
+        Class A {
+            Val a: Array[Int, 4] = Array(1,2,3,4);
+            foo() { 
+                Val a : Array[Int, 3] = Array(Self.a, 1, 2);
+                Val b : Int = a[0];
+            }
+        }
+        Class Program{
+            main(){
+                Return;
+            }
+        }
+        

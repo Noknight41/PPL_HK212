@@ -1,0 +1,10 @@
+
+        Class A{
+            Var a: Boolean = (a && b) || (300 > 35 % 4 + 3);
+        }
+        Class Program{
+            main(){
+                Out.print("Help me", "Please");
+            }
+        }
+        

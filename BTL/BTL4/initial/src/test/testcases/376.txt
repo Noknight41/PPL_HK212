@@ -1,0 +1,14 @@
+
+        Class Program{
+            Var a, b: Array[Int, 100] = Array(), Array(1,2,3,4);
+            Var c: Array[String, 100] = Array("mr", "mr", "bean");
+            Var array_1: Array[Array[Array[Array[Int,1],1],1],1];
+            Var array_2: Array[Array[Array[Int, 5], 1], 1] = Array (
+                Array (Array (1, 2, 3, 4, 5), Array (0x11, 0x21, 0x31, 0x41, 0x51)),
+                Array (Array (1, 2, 3, 4, 5), Array (0x11, 0x21, 0x31, 0x41, 0x51))
+            );
+            main(){
+                Return;
+            }
+        }
+        

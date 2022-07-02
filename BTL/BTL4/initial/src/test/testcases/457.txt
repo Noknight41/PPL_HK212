@@ -1,0 +1,35 @@
+
+        Class A{
+            Val $B: Int = 10;
+        }
+        
+        Class B{
+            Val C: Int = A::$B;
+            a(a : Int){
+                If (a % 2 == 0){
+                    Return Array("a");
+                }
+                Else{
+                    Return Array("b");    
+                }
+            }
+            func1(){
+                Var s, ss: Int;
+                Var result : String = "I";
+                Foreach(s In 1 .. 100){
+                    Foreach(ss In 1 .. 100){
+                        result = result +. (Self.a(ss))[0];
+                        Break;
+                    }
+                }
+                Return result;
+                Break;
+            }
+        }
+        Class Program {
+            Var C: A = New A();
+            main(){
+                Val b: Int = Self.C.B;
+            }
+        }
+        

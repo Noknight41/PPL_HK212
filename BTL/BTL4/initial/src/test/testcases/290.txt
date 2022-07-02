@@ -1,0 +1,11 @@
+
+        Class Program {
+            main() {
+                a::$a();
+                Return;
+            }
+            $a() {
+                Return $b;
+            }
+        }
+        

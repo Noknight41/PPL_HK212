@@ -1,0 +1,18 @@
+
+        Class So : A {
+            Var a : Array[Array[Int, 5], 5];
+            main(i, j, k : Int) {
+                Return a[i][j] * a[j][k] + a[i][k] * a[k][j];
+            }
+            b(w, h : Int; b, c : Float) {
+                Self.gg();
+                Continue;
+                Self.callFunc(1, a, b, a != b);
+            }
+        }
+        Class Program{
+            main(){
+                Return;
+            }
+        }
+        

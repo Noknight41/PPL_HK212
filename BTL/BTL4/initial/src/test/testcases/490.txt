@@ -1,0 +1,11 @@
+
+        Class Program {
+            Var a: Int;
+            a() {
+                Return 1;
+            }
+            main() {
+                Val b: Int = Self.a * Self.a();
+            }
+        }
+        

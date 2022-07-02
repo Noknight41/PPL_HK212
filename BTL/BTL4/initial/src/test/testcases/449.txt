@@ -1,0 +1,12 @@
+
+        Class A {
+            $foo(){
+                
+            }
+        }
+        Class Program {
+            main(){
+                z::$foo();
+            }
+        }
+        

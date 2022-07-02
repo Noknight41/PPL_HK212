@@ -22,68 +22,80 @@
 .end method
 
 .method public static main([Ljava/lang/String;)V
-  .limit stack 3
-  .limit locals 3
+  .limit stack 2
+  .limit locals 4
   .line 4
-  0: iconst_3
-  1: newarray int
-  3: astore_1
+  0: bipush 10
+  2: istore_1
   .line 5
-  4: aload_1
-  5: iconst_0
-  6: iconst_1
-  7: iastore
+  3: iconst_0
+  4: istore_2
+
   .line 6
-  8: aload_1
-  9: iconst_1
-  10: iconst_3
-  11: iastore
+  5: iconst_1
+  6: istore_3
+Label7:
+  7: iload_3
+  8: iload_1
+  9: if_icmpge Label31
   .line 7
-  12: aload_1
-  13: iconst_2
-  14: bipush 6
-  16: iastore
+  12: iload_3
+  13: iload_1
+  14: irem
+  15: ifne Label21
   .line 8
-  17: iconst_2
-  18: istore_2
-Label19:
+  18: goto Label25
+Label21:
   .line 10
-  19: iload_2
-  20: iconst_3
-  21: if_icmpge Label40
-  .line 11
-  24: iload_2
-  25: iconst_1
-  26: iadd
-  27: istore_2
+  21: iload_2
+  22: iload_3
+  23: iadd
+  24: istore_2
+Label25:
+  .line 6
+  25: iinc 3 1
+  28: goto Label7
+Label31:
+
   .line 12
-  28: getstatic java/lang/System/out Ljava/io/PrintStream;
-  31: aload_1
-  32: iload_2
-  33: iaload
-  34: invokevirtual java/io/PrintStream/println(I)V
-  37: goto Label19
-Label40:
-  .line 14
-  40: getstatic java/lang/System/out Ljava/io/PrintStream;
-  43: ldc "Hello, World!"
-  45: invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
-  .line 15
-  48: return
+  31: getstatic java/lang/System/out Ljava/io/PrintStream;
+  34: ldc "Hello, World!"
+  36: invokevirtual java/io/PrintStream/println(Ljava/lang/String;)V
+  .line 13
+  39: return
   ; append_frame (frameNumber = 0)
-  ; frame_type = 253, offset_delta = 19
-  ; frame bytes: 253 0 19 7 0 31 1 
+  ; frame_type = 254, offset_delta = 7
+  ; frame bytes: 254 0 7 1 1 1 
   .stack 
-    offset 19
-    locals Object [I
+    offset 7
+    locals Integer
+    locals Integer
     locals Integer
     .end stack
   ; same_frame (frameNumber = 1)
-  ; frame_type = 20, offset_delta = 20
-  ; frame bytes: 20 
+  ; frame_type = 13, offset_delta = 13
+  ; frame bytes: 13 
   .stack 
-    offset 40
-    locals Object [I
+    offset 21
+    locals Integer
+    locals Integer
+    locals Integer
+    .end stack
+  ; same_frame (frameNumber = 2)
+  ; frame_type = 3, offset_delta = 3
+  ; frame bytes: 3 
+  .stack 
+    offset 25
+    locals Integer
+    locals Integer
+    locals Integer
+    .end stack
+  ; chop_frame (frameNumber = 3)
+  ; frame_type = 250, offset_delta = 5
+  ; frame bytes: 250 0 5 
+  .stack 
+    offset 31
+    locals Integer
     locals Integer
     .end stack
 .end method

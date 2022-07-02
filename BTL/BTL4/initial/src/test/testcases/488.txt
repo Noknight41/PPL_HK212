@@ -1,0 +1,9 @@
+
+        Class Program {
+            Var $a: Int;
+            main(){
+                Var a: Int = Program::$a + 1;
+                Val b: Int = a + 10;
+            }
+        }
+        

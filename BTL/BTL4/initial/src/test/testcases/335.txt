@@ -1,0 +1,19 @@
+
+        Class Work{
+            
+        }
+        Class Util: Work{
+            func1(){}
+            func2(a, b: Int){}
+            func3(c, d: Float; e: String){}
+            func4(a, c, d: Array[String, 3]; f: Boolean){}
+            Constructor(a: Array[Array[String, 3], 2]){}
+            Destructor(){}
+        }
+        Class Program{
+            main(){
+                Var w : Work;
+                w = New Util(Array(Array("Yo", "Hello", "Sup"), Array("Nice", "To", "Meet")));
+            }
+        }
+        

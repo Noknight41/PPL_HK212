@@ -1,0 +1,9 @@
+
+        Class Car {}
+        Class Program {
+            main(){
+                Val car: Car = New Car();
+                Var x : Int = 1 + Car;
+            }
+        }
+        

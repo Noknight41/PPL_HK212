@@ -1,0 +1,7 @@
+
+        Class Program {
+            main() {
+                Car::$abc = 10;
+                a = a::$b::$c;
+            }
+        }

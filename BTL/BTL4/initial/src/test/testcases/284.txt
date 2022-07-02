@@ -1,0 +1,14 @@
+
+        Class HelloWorld {
+            Val World: Boolean = ((0.0 + 2) > 5) || False && ("22" ==. "55");
+            Hello(a: Int){
+                Return World;
+            }
+        }
+        
+        Class Program {
+            main(){
+                Out.printInt(New HelloWorld().Hello());
+            }
+        }
+        

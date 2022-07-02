@@ -1,0 +1,8 @@
+
+        Class Program{
+            main(inp: Int){
+                Var a: Float;
+                a = 3.5031041095815;
+            }
+        }
+        

@@ -1,0 +1,19 @@
+
+        Class A{
+            
+        }
+        Class D{
+            daily(x : A){
+                If(x.a > 3){}
+                If(x.b >= 3){}
+                If(x.a < 3){}
+                If(x.a <= a.b().c){}
+                If((x.a == x.b) || (x.a != x.b)){}
+            }
+        }
+        Class Program {
+            main(){
+                D.daily(1);
+            }
+        }
+        

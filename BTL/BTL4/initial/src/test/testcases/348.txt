@@ -1,0 +1,17 @@
+
+        Class Function{
+            func(a, b: Int){
+                Return a + list[b];
+            }
+            $Sum(list: Array[Int, 5]){
+                Var s: Int = 0;
+                Foreach(i In 1 .. 5){
+                    s = s + Self.func(list[i]);
+                }
+            }
+        }
+        Class Program{
+            main(){
+            }
+        }
+        

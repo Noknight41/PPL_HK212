@@ -1,0 +1,13 @@
+
+        Class Program{
+            Var $str: String = "From Class Program: ";
+            main(){      
+                Var circle: Circle = New Circle(math.pi, 4);
+                Return circle;
+            }
+            print(s: String){
+                System.out.println(s + " says hello to the world!");
+                Return;
+            }
+        }
+        

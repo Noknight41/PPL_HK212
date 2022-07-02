@@ -1,0 +1,14 @@
+
+        Class Program{
+            Var a: Array[Int, 5];
+            Var a: Array[Int, 0xFFFF];
+            Var a: Array[Int, 0XFFFF];
+            Var a: Array[Int, 0b1111];
+            Var a: Array[Int, 0B1111];
+            Var a: Array[Int, 01234];
+            main(){
+                Var a: Float = 9999999999999999123999.999999999999;
+                Var a: Float = 1.1111111111111111;
+            }
+        }
+        

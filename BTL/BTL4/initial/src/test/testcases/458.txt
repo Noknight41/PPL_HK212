@@ -1,0 +1,18 @@
+
+        Class A{
+            Var a1, a2, a3: String;
+            Var $s: Int = 0; 
+            Constructor(a, b, c : String){
+                A::$s = A::$s + 1;
+                Self.a1 = a;
+                Self.a2 = b;
+                Self.a3 = c;
+            }
+        }
+        Class Program{
+            Var x : A = Null;
+            main(){
+                Return 1;
+            }
+        }
+        

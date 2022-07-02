@@ -1,0 +1,15 @@
+
+        Class Program{
+            main(){
+                Var var: Int;
+                var = a * b + c || d / e % f + - d;
+                var = a || b || c && d && e;  
+                var = !!!a;
+                var = ---a;
+                var = array[1][2][3][4];
+                var = a.a.a.a.a;
+                var = a.a().a.a().a();
+                var = New Isl(New Parm(New ssi (1)));
+            }
+        }
+        

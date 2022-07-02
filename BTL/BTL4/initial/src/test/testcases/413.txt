@@ -1,0 +1,18 @@
+
+        Class A{
+            sicle(){
+                Return;
+            }
+            s(a: String){
+                Return;
+            }
+            d(sa: Int; swq: Float){
+                Return;
+            }
+        }
+        Class Program{
+            main(){
+                Return 1;
+            }
+        }
+        

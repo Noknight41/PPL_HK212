@@ -1,0 +1,26 @@
+
+        Class Toy{
+            Var height, length: Array[Float,2];
+            Constructor(h, l: Float; a: Array[Float,2]){
+                Self.height[1] = h + a[1];
+                Self.height[2] = h + a[2];
+                b.a[1] = 1;
+            }
+            $gg(a: Float){
+                a.f();
+            }
+        }
+        
+        Class Box{
+            $getArea() {
+                Return Self.height * Self.height;
+                Toy::$gg();
+            }
+        }
+        
+        Class Program {
+            main(){
+                Out.printInt(Rectangle::$getArea());
+            }
+        }
+        

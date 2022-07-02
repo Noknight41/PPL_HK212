@@ -1,0 +1,17 @@
+
+        Class Program{
+            $a() {
+                ClassABC::$foo = 123;
+                ClassABC::$eng[1][2] = 1841 + 138;
+            }
+            b() {
+                Self.a.b = 10;
+                Program::$gn = 210490;
+                a[1][(i - j)][3] = c[i][k] + b[1][j+1][k - 2][3];
+                Return 105189;
+            }
+            main(){
+                Return;
+            }
+        }
+        

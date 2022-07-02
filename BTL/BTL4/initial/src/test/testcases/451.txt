@@ -1,0 +1,15 @@
+
+        Class A{
+            Constructor(){
+                
+            }
+            Constructor(){
+                
+            }
+        }
+        Class Program{
+            main(){
+                Return;
+            }
+        }
+        

@@ -1,0 +1,13 @@
+
+        Class Shape {
+            Val My1stCons, My2ndCons: Int = 1 + 5/2, 2;
+            Var $x, $y : Int = 0 + - 2 * 4 % 3, 0 -- 1;
+        }
+        Class Program {
+            ## Muda
+            Muda ##
+            main(){
+                a = 1.0;
+            }
+        }
+        

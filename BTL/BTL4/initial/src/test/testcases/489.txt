@@ -1,0 +1,11 @@
+
+        Class A {
+            Var $a: Int;
+        }
+        Class Program {
+            main() {
+                Var a: A = New A();
+                Val b: Int = a::$a + 10;
+            }
+        }
+        

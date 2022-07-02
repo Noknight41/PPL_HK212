@@ -1,0 +1,13 @@
+
+        Class A {
+            Val a: Int = 10;
+        }
+        Class Program {
+            print(a: Int) {}
+            main() {
+                Var i: Int;
+                Foreach (i In 0 .. 10) {}
+                Return "main";
+            }
+        }
+        

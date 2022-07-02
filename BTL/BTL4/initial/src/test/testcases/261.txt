@@ -1,0 +1,8 @@
+
+        Class Program {
+            main() {
+                Val $invalid_value: Int = 100000000; ## Some error should occur here ##
+                Return $invalid_value;
+            }
+        }
+        

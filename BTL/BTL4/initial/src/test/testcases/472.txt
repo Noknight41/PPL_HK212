@@ -1,0 +1,10 @@
+
+        Class A{
+            Var a: Array[Int, 2] = Array(1, 2.0);
+        }
+        Class Program{
+            main(){
+                
+            }
+        }
+        

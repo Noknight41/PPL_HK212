@@ -1,0 +1,15 @@
+
+        Class A{
+            Var a, d: Int;
+            Var test_array: Array[Float, 3] = Array(1, 2, 3);
+        }
+        Class B : A {
+            Var b: Int;
+        }
+        Class Program{
+            Var test: A = New A();
+            main(){
+                Return 2;
+            }
+        }
+        

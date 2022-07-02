@@ -1,0 +1,10 @@
+
+        Class Program {
+            main() {}
+        }
+        Class Program {
+            main() {
+                Var a: Int = 10;
+            }
+        }
+        

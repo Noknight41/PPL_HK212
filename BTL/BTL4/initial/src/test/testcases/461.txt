@@ -1,0 +1,7 @@
+
+        Class Program{
+            main(s: String){
+                Return 1;
+            }
+        }
+        

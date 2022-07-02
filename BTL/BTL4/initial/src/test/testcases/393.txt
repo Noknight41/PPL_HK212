@@ -1,0 +1,9 @@
+
+        Class Something : Object {
+            Var $a, b, c : Float = 10.0, 11., 1e15;
+            Val a, c, d : Float = .e5, 0.000, 0.2;
+            Var c, d, e : Float = 1e-12, 1E+4, 11.1123e10;
+            Val $a, $y, $x : Float = 50.1123E-5, .5e5, .4e+5;
+            Var x, y : Float = .1123e-10, 1123E123;
+        }
+        

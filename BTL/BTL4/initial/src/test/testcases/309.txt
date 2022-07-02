@@ -1,0 +1,22 @@
+
+        Class A{
+            Var array_1, $array_2: Array[Float, 5];
+            Var array_3: Array[Int, 5] = Array(1,2,0x4,0b11101,034);
+            Var $array_4: Array[Array[String, 2], 2] = Array(
+                Array("Person", "Demon"),
+                Array("Heaven", "Utopia")
+            );
+        }
+        Class Program {
+            main(){
+                Var array_1, array_2: Array[Boolean, 5];
+                Var array_3: Array[Int, 5] = Array(1,2,0x4,0b11101,034);
+                Var array_4: Array[Array[String, 2], 2] = Array(
+                    Array("Person", "Demon"),
+                    Array("Heaven", "Utopia")
+                );
+                Var demo: A = New A(False);
+                Return;
+            }
+        }
+        

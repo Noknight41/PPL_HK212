@@ -1,0 +1,13 @@
+
+            Class A{
+                a(){
+                    Var a: Int;
+                    Val b: Int = a;
+                }
+            }
+            Class Program{
+                main(){
+                    
+                }
+            }
+        

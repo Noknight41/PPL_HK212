@@ -1,0 +1,12 @@
+
+        Class Program {
+            main() {
+                Var a: Int = 10;
+                {
+                    Var a: Int = 10;
+                    Var arr: Array[Int, 3] = Array(1, 2, 3);
+                    a = a + arr[1.0];
+                }
+            }
+        }
+        

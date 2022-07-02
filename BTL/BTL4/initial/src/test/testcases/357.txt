@@ -1,0 +1,10 @@
+
+        Class Program{
+            Var a, b: String = "abc" +. "xyz", "abc" ==. "xyz";
+            Var a, b, c, d, e, f: Boolean = 1 == 1, 1 != 1, a > b, a >= b, a < 1, a <= 1;
+            Var a, b: Boolean = a && True, b || False;
+            main(){
+                Return;
+            }
+        }
+        

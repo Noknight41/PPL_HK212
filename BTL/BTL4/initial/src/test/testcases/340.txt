@@ -1,0 +1,12 @@
+
+        Class A{
+            Val $a, $b: Int;
+            Val $d, $e: Float;
+        }
+        Class Program {
+            main(){
+                Var d : Int = A::$a + A::$b;
+                Var e: Float = A::$d + A::$e; 
+            }
+        }
+        

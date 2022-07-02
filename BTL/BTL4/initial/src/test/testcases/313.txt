@@ -1,0 +1,18 @@
+
+        Class Program{
+            Var a, $b : Int;
+            Val c, $d : Boolean;
+            Var e, $f : Int = 023, 0x45;
+            Val w, $x : Float = 0.01, .3e2;
+            notMain(f: Boolean; arr: Array[Array[Float, 3], 4]){
+                Var a : Int;
+                Val c : Boolean;
+                Var e, f : Int = 023, 0x45;
+                Val w, x : Float = 0.01, .3e2;
+                Return a + c + e + w;
+            }
+            main(){
+                
+            }
+        }
+        

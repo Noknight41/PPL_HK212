@@ -1,0 +1,11 @@
+
+        Class A{
+            Var B: Int = 10;
+        }
+        Class Program {
+            Var C: A = New A();
+            main(){
+                Val b: Int = Self.C.B;
+            }
+        }
+        

@@ -1,0 +1,10 @@
+
+        Class Program {
+            print(a: Float) {}
+            print2(a, b: Int) {}
+            main() {
+                Self.print(10);
+                Self.print2(20);
+            }
+        }
+        

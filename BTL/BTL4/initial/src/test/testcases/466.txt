@@ -1,0 +1,21 @@
+
+        Class A{
+            Val a, d: Int = 1, 2;
+        }
+        Class Si{
+            Val $d: Int = 1;
+            Constructor(){
+                Return;
+            }
+        }
+        Class Program{
+            Var s: Si = Null;
+            main(){
+                Return;
+            }
+            $so(){
+                Return 1.2;
+                Return 1;
+            }
+        }
+            

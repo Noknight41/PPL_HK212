@@ -1,0 +1,17 @@
+
+        Class A{
+            Var $B: Int = 10;
+        }
+        Class B{
+            Val C: Int = A::$B;
+        }
+        Class C{
+            Var B: String = New A();
+        }
+        Class Program {
+            Var C: C = New C();
+            main(){
+                Val b: Int = Self.C.B;
+            }
+        }
+        

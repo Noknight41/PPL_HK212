@@ -1,0 +1,19 @@
+
+        Class Program {
+            Val a: Int = 1;
+            fooBar() {
+                a.fooBar();
+            }
+            main() {
+                If (1 >= 2) {
+                    a.fooBar();
+                } Elseif (a <= 2) {
+                    b.fooBar();
+                } Elseif (a[1][2] + b[i][j] <= a[1] * a.a + Some::$a()) {
+                    Out.println(4);
+                } Else {
+                    Out.println("Nothing");
+                }
+                Return;
+            }
+        }

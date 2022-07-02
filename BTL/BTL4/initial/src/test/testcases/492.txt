@@ -1,0 +1,17 @@
+
+            Class Program{
+                dutch(){
+                    Var a: Int = 0;
+                    If(a == 0){
+                        Var a: Int = 1;
+                        Return a;
+                    }
+                    Else{
+                        Return a + 1;
+                    }
+                }
+                main(){
+                    Return 1;
+                }
+            }
+        

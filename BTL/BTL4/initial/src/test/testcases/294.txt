@@ -1,0 +1,16 @@
+
+        Class NFT {
+            Var fyou: String = "If you dumb enough to buy this";
+            Var utrash : String = "You dumb enough to survive on sunlight";
+            Constructor(){
+                fyou = Self.fyou;
+                utrash = Self.utrash;
+            }
+        }
+        Class Program {
+            main() {
+                Var N : NFT = New NFT();
+                Var a : Int = (a::$a[1]).func()[0];
+                Return;
+            }
+        }

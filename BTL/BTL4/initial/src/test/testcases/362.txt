@@ -1,0 +1,31 @@
+
+        Class Program {
+            main(a: Int) {
+                If (a >= 0) {
+                    If (b == 1) {}
+                    Elseif ((b <= 10) && (b >= 0)) {}
+                    Else {}
+                }
+                Elseif (a >= 10) {
+                    If (b == 11) {}
+                    Elseif ((b <= 100) && (b >= 10)) {}
+                    Else {}
+                }
+                Elseif (a >= 100) {
+                    If (b == 111) {}
+                    Elseif ((b <= 1000) && (b >= 100)) {}
+                    Else {}
+                }
+                Else {
+                    If (b == 100) {}
+                    Elseif (b == 102) {}
+                    Elseif (b == 3) {}
+                    Else {}
+                }
+            }
+            main(){
+                Var a: Int = Self.main(1);
+                Return;
+            }
+        }
+        

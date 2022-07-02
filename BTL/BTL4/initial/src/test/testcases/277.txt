@@ -1,0 +1,14 @@
+
+        Class Program {
+            Destructor() {
+                Return;
+            }
+            main() {
+                Foreach (i In 1 .. 10 By 1) {
+                    If (a == 0) {
+                        Return somthing;
+                    }
+                }
+                Return;
+            }
+        }

@@ -1,0 +1,10 @@
+
+        Class Program {
+            Var a: Int = 10;
+            $print(a: Int) {
+                Self.a = 20;
+            }
+            main() {
+            }
+        }
+        

@@ -1,0 +1,13 @@
+
+        Class A {
+            Var b: Array[Int, 1] = Array(True);
+
+            Var d,e: Int;
+            Val f: Array[Array[Int,1], 2] = Array( Array(d), Array(e));
+        }
+        Class Program{
+            main(){
+                Return;
+            }
+        }
+        

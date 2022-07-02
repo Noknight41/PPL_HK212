@@ -1,0 +1,25 @@
+
+        Class A{
+            Var a: Int = 1 + 2;
+            Constructor(start: Int){
+                Return;
+            }
+            s(a: String){
+                Var s: Int = 1 * 2;
+                Var e: Float = s / 2.0;
+                If((True == True) || (True != False)){
+                    Var a : Int;
+                    {
+                        Val a: String = "2";
+                    }
+                    Return 1;
+                }
+                Return s;
+            }
+        }
+        Class Program{
+            main(){
+                Return 1;
+            }
+        }
+        
